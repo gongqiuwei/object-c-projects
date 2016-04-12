@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GWTabBarController.h
 //  仿百思不得姐
 //
 //  Created by gongqiuwei on 16/4/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GWTabBarController : UITabBarController
 
 @end
-

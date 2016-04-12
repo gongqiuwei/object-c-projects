@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "GWTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     // 创建窗口的根控制器
-    self.window.rootViewController = [[ViewController alloc] init];
+    self.window.rootViewController = [[GWTabBarController alloc] init];
     
     // 显示窗口
     [self.window makeKeyAndVisible];

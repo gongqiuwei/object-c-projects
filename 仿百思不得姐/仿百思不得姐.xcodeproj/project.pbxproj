@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		51FB687B1CBC99BA00B23B3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB687A1CBC99BA00B23B3E /* main.m */; };
 		51FB687E1CBC99BA00B23B3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB687D1CBC99BA00B23B3E /* AppDelegate.m */; };
-		51FB68811CBC99BA00B23B3E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68801CBC99BA00B23B3E /* ViewController.m */; };
 		51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FB68851CBC99BA00B23B3E /* Assets.xcassets */; };
+		51FB68921CBCBB1C00B23B3E /* GWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,10 +18,10 @@
 		51FB687A1CBC99BA00B23B3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		51FB687C1CBC99BA00B23B3E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		51FB687D1CBC99BA00B23B3E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		51FB687F1CBC99BA00B23B3E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		51FB68801CBC99BA00B23B3E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		51FB68851CBC99BA00B23B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51FB688A1CBC99BA00B23B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51FB68901CBCBB1C00B23B3E /* GWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTabBarController.h; sourceTree = "<group>"; };
+		51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +56,8 @@
 			children = (
 				51FB687C1CBC99BA00B23B3E /* AppDelegate.h */,
 				51FB687D1CBC99BA00B23B3E /* AppDelegate.m */,
-				51FB687F1CBC99BA00B23B3E /* ViewController.h */,
-				51FB68801CBC99BA00B23B3E /* ViewController.m */,
+				51FB68901CBCBB1C00B23B3E /* GWTabBarController.h */,
+				51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */,
 				51FB68851CBC99BA00B23B3E /* Assets.xcassets */,
 				51FB688A1CBC99BA00B23B3E /* Info.plist */,
 				51FB68791CBC99BA00B23B3E /* Supporting Files */,
@@ -99,6 +99,7 @@
 		51FB686E1CBC99BA00B23B3E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GW;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = gongqiuwei;
 				TargetAttributes = {
@@ -141,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51FB68811CBC99BA00B23B3E /* ViewController.m in Sources */,
+				51FB68921CBCBB1C00B23B3E /* GWTabBarController.m in Sources */,
 				51FB687E1CBC99BA00B23B3E /* AppDelegate.m in Sources */,
 				51FB687B1CBC99BA00B23B3E /* main.m in Sources */,
 			);
