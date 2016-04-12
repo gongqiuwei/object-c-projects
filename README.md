@@ -162,3 +162,13 @@
 		- UINavigationbar -> items -> 子控制器对应的UINavigationItem的堆栈 -> 每个navigationItem 有leftBarButtonItems, rightBarButtonItems, backBarButtonItem(对应的model是UIBarButtonItem)
 		- 如果要想当前控制器所在的navigationItem添加控件,应该添加UIBarButtonItem (titleView除外)
 	
+	- UIBarButtonItem创建代码的封装
+
+		2种方式: 分类; 继承
+		
+		分析:
+		 - 对原有类的方法进行扩展,可以使用分类
+		 - 对原有类的方法进行重写,可以使用继承
+		
+		当前的需求是原来所有的类的方法不够使用,需要多增加一个方法来快速创建UIBarButtonItem, 以减少重复的代码, 考虑使用分类
+		

@@ -17,6 +17,7 @@
 		51FB689E1CBCD1C100B23B3E /* GWMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */; };
 		51FB68A11CBCD86000B23B3E /* GWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68A01CBCD86000B23B3E /* GWTabBar.m */; };
 		51FB68A41CBCF1AE00B23B3E /* UIView+GWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68A31CBCF1AE00B23B3E /* UIView+GWExtension.m */; };
+		51FB68A81CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68A71CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		51FB68A21CBCF1AE00B23B3E /* UIView+GWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GWExtension.h"; sourceTree = "<group>"; };
 		51FB68A31CBCF1AE00B23B3E /* UIView+GWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GWExtension.m"; sourceTree = "<group>"; };
 		51FB68A51CBCF26C00B23B3E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		51FB68A61CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GWExtension.h"; sourceTree = "<group>"; };
+		51FB68A71CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GWExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				51FB68A21CBCF1AE00B23B3E /* UIView+GWExtension.h */,
 				51FB68A31CBCF1AE00B23B3E /* UIView+GWExtension.m */,
 				51FB68A51CBCF26C00B23B3E /* PrefixHeader.pch */,
+				51FB68A61CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.h */,
+				51FB68A71CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m */,
 			);
 			path = "仿百思不得姐";
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				51FB68981CBCD17900B23B3E /* GWNewViewController.m in Sources */,
 				51FB687B1CBC99BA00B23B3E /* main.m in Sources */,
 				51FB68951CBCD16200B23B3E /* GWEssenceViewController.m in Sources */,
+				51FB68A81CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m in Sources */,
 				51FB68A11CBCD86000B23B3E /* GWTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

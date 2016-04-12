@@ -12,6 +12,7 @@
 #ifdef __OBJC__
 
 #import "UIView+GWExtension.h"
+#import "UIBarButtonItem+GWExtension.h"
 
 // Log
 #ifdef DEBUG
