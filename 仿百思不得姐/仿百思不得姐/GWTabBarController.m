@@ -7,6 +7,10 @@
 //
 
 #import "GWTabBarController.h"
+#import "GWEssenceViewController.h"
+#import "GWNewViewController.h"
+#import "GWFriendTrendsViewController.h"
+#import "GWMeViewController.h"
 
 @interface GWTabBarController ()
 
@@ -30,76 +34,45 @@
     selectAttr[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
     
+    [self setupChildVc:[[GWEssenceViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectImage:@"tabBar_essence_click_icon"];
     
-    // vc1
-    UIViewController *vc1 = [[UIViewController alloc] init];
-    vc1.view.backgroundColor = [UIColor redColor];
+    [self setupChildVc:[[GWNewViewController alloc] init] title:@"最新" image:@"tabBar_new_icon" selectImage:@"tabBar_new_click_icon"];
     
-    // tabbaritem的一些属性设定
-    // 文字设定
-//    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
-//    attr[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-//    attr[NSForegroundColorAttributeName] = [UIColor grayColor];
-//    [vc1.tabBarItem setTitleTextAttributes:attr forState:UIControlStateNormal];
+    [self setupChildVc:[[GWFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectImage:@"tabBar_friendTrends_click_icon"];
     
-//    NSMutableDictionary *selectAttr = [NSMutableDictionary dictionary];
-//    selectAttr[NSFontAttributeName] = [UIFont systemFontOfSize:12];
-//    selectAttr[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
-//    [vc1.tabBarItem setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
-    
-    vc1.tabBarItem.title = @"精华";
-    
-    vc1.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
-    
-    // 在assets中对图片做了设定
-//    UIImage *selectImage = [UIImage imageNamed:@"tabBar_essence_click_icon"];
-//    selectImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    vc1.tabBarItem.selectedImage = selectImage;
-    vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_essence_click_icon"];
-    
-    [self addChildViewController:vc1];
-    
-    
-    // vc2
-    UIViewController *vc2 = [[UIViewController alloc] init];
-    vc2.view.backgroundColor = [UIColor greenColor];
-    
-    // tabbaritem的一些属性设定
-    vc2.tabBarItem.title = @"最新";
-//    [vc2.tabBarItem setTitleTextAttributes:attr forState:UIControlStateNormal];
-//    [vc2.tabBarItem setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
-    vc2.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
-    vc2.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_new_click_icon"];
-    
-    [self addChildViewController:vc2];
-    
-    // vc3
-    UIViewController *vc3 = [[UIViewController alloc] init];
-    vc3.view.backgroundColor = [UIColor blueColor];
-    
-    // tabbaritem的一些属性设定
-    vc3.tabBarItem.title = @"关注";
-//    [vc3.tabBarItem setTitleTextAttributes:attr forState:UIControlStateNormal];
-//    [vc3.tabBarItem setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
-    vc3.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_friendTrends_click_icon"];
-    
-    [self addChildViewController:vc3];
-    
-    // vc4
-    UIViewController *vc4 = [[UIViewController alloc] init];
-    vc4.view.backgroundColor = [UIColor purpleColor];
-    
-    // tabbaritem的一些属性设定
-    vc4.tabBarItem.title = @"我";
-//    [vc4.tabBarItem setTitleTextAttributes:attr forState:UIControlStateNormal];
-//    [vc4.tabBarItem setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
-    vc4.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_click_icon"];
-    
-    [self addChildViewController:vc4];
-    
+    [self setupChildVc:[[GWMeViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectImage:@"tabBar_me_click_icon"];
 }
 
+// 这种方法扩展性强一点
+- (void)setupChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
+{
+    childVc.view.backgroundColor = [self randomColor];
+    childVc.tabBarItem.title = title;
+    childVc.tabBarItem.image = [UIImage imageNamed:image];
+    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+    
+    [self addChildViewController:childVc];
+}
 
+// childVc的创建方式单一,只能通过alloc init创建
+- (void)setupChildVcWithClass:(Class)childVcClass title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
+{
+    UIViewController *childVc = [[childVcClass alloc] init];
+    childVc.view.backgroundColor = [self randomColor];
+    childVc.tabBarItem.title = title;
+    childVc.tabBarItem.image = [UIImage imageNamed:image];
+    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+    
+    [self addChildViewController:childVc];
+}
+
+// 颜色随机
+- (UIColor *)randomColor
+{
+    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    
+    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+}
 @end

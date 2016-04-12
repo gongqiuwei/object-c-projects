@@ -11,6 +11,10 @@
 		51FB687E1CBC99BA00B23B3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB687D1CBC99BA00B23B3E /* AppDelegate.m */; };
 		51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FB68851CBC99BA00B23B3E /* Assets.xcassets */; };
 		51FB68921CBCBB1C00B23B3E /* GWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */; };
+		51FB68951CBCD16200B23B3E /* GWEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68941CBCD16200B23B3E /* GWEssenceViewController.m */; };
+		51FB68981CBCD17900B23B3E /* GWNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68971CBCD17900B23B3E /* GWNewViewController.m */; };
+		51FB689B1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */; };
+		51FB689E1CBCD1C100B23B3E /* GWMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,14 @@
 		51FB688A1CBC99BA00B23B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51FB68901CBCBB1C00B23B3E /* GWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTabBarController.h; sourceTree = "<group>"; };
 		51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTabBarController.m; sourceTree = "<group>"; };
+		51FB68931CBCD16200B23B3E /* GWEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWEssenceViewController.h; sourceTree = "<group>"; };
+		51FB68941CBCD16200B23B3E /* GWEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWEssenceViewController.m; sourceTree = "<group>"; };
+		51FB68961CBCD17900B23B3E /* GWNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNewViewController.h; sourceTree = "<group>"; };
+		51FB68971CBCD17900B23B3E /* GWNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNewViewController.m; sourceTree = "<group>"; };
+		51FB68991CBCD1AF00B23B3E /* GWFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWFriendTrendsViewController.h; sourceTree = "<group>"; };
+		51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWFriendTrendsViewController.m; sourceTree = "<group>"; };
+		51FB689C1CBCD1C100B23B3E /* GWMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMeViewController.h; sourceTree = "<group>"; };
+		51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +68,16 @@
 			children = (
 				51FB687C1CBC99BA00B23B3E /* AppDelegate.h */,
 				51FB687D1CBC99BA00B23B3E /* AppDelegate.m */,
+				51FB68931CBCD16200B23B3E /* GWEssenceViewController.h */,
+				51FB68941CBCD16200B23B3E /* GWEssenceViewController.m */,
+				51FB68961CBCD17900B23B3E /* GWNewViewController.h */,
+				51FB68971CBCD17900B23B3E /* GWNewViewController.m */,
+				51FB68991CBCD1AF00B23B3E /* GWFriendTrendsViewController.h */,
+				51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */,
+				51FB689C1CBCD1C100B23B3E /* GWMeViewController.h */,
+				51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */,
 				51FB68901CBCBB1C00B23B3E /* GWTabBarController.h */,
 				51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */,
-				51FB68851CBC99BA00B23B3E /* Assets.xcassets */,
-				51FB688A1CBC99BA00B23B3E /* Info.plist */,
 				51FB68791CBC99BA00B23B3E /* Supporting Files */,
 			);
 			path = "仿百思不得姐";
@@ -68,6 +86,8 @@
 		51FB68791CBC99BA00B23B3E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				51FB68851CBC99BA00B23B3E /* Assets.xcassets */,
+				51FB688A1CBC99BA00B23B3E /* Info.plist */,
 				51FB687A1CBC99BA00B23B3E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -142,9 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51FB689E1CBCD1C100B23B3E /* GWMeViewController.m in Sources */,
+				51FB689B1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m in Sources */,
 				51FB68921CBCBB1C00B23B3E /* GWTabBarController.m in Sources */,
 				51FB687E1CBC99BA00B23B3E /* AppDelegate.m in Sources */,
+				51FB68981CBCD17900B23B3E /* GWNewViewController.m in Sources */,
 				51FB687B1CBC99BA00B23B3E /* main.m in Sources */,
+				51FB68951CBCD16200B23B3E /* GWEssenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -63,3 +63,33 @@
     selectAttr[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
 		```
+		
+	- 重构之方法抽取
+	
+	每个子控制器的创建代码都差不多,因此我们需要抽取一个公共方法,方法的设定有以下2种可供选择
+	
+	```objc
+	// 方法一
+	- (void)setupChildVcWithClass:(Class)childVcClass title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
+{
+    UIViewController *childVc = [[childVcClass alloc] init];
+    childVc.view.backgroundColor = [self randomColor];
+    childVc.tabBarItem.title = title;
+    childVc.tabBarItem.image = [UIImage imageNamed:image];
+    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+    
+    [self addChildViewController:childVc];
+}
+	// 方法二
+	- (void)setupChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
+{
+    childVc.view.backgroundColor = [self randomColor];
+    childVc.tabBarItem.title = title;
+    childVc.tabBarItem.image = [UIImage imageNamed:image];
+    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+    
+    [self addChildViewController:childVc];
+}
+	```
+	
+	对比2个方法, 方法一种提供viewController的类型,使用alloc init创建子控制器,在当前的环境下有一定的局限性,因为外部子控制器的创建方式多样,进行限定的话,那么外面子控制器只能通过重写init方法进行个性化定制(如tableviewController的样式等),因此,可以由外面创建好了再传入进行公共的设定,所以选择方法二
