@@ -22,7 +22,7 @@
 		Render As 设定为 Original Image
 		```
 		
-		- 文字属性设定
+		- 文字属性设定(单一设定)
 		
 		```objc
 		// 普通状态
@@ -36,4 +36,30 @@
     selectAttr[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [vc1.tabBarItem setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
     vc1.tabBarItem.title = @"精华";
+		```
+		
+		- 文字属性设定（appearance对象设定）
+		
+		使用appearance对象设定，是一次性的设定，之后所有UITabBarItem对象都拥有相同的属性，哪些属性能够设定的前提条件是，在头文件中能够找到`UI_APPEARANCE_SELECTOR`宏，其他可以以此类推
+		
+		```objc
+		// 示例
+		- (void)setTitleTextAttributes:(nullable NSDictionary<NSString *,id> *)attributes forState:(UIControlState)state NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
+		```
+		
+		appearance设定
+		
+		```objc
+		// 获取当前对象的appearance
+		UITabBarItem *item = [UITabBarItem appearance];
+		// 设定普通状态
+    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+    attr[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+    attr[NSForegroundColorAttributeName] = [UIColor grayColor];
+    [item setTitleTextAttributes:attr forState:UIControlStateNormal];
+    // 设定选中状态
+    NSMutableDictionary *selectAttr = [NSMutableDictionary dictionary];
+    selectAttr[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+    selectAttr[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    [item setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
 		```
