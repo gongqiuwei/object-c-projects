@@ -66,30 +66,74 @@
 		
 	- 重构之方法抽取
 	
-	每个子控制器的创建代码都差不多,因此我们需要抽取一个公共方法,方法的设定有以下2种可供选择
+	  每个子控制器的创建代码都差不多,因此我们需要抽取一个公共方法,方法的设定有以下2种可供选择
 	
-	```objc
-	// 方法一
-	- (void)setupChildVcWithClass:(Class)childVcClass title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
-{
-    UIViewController *childVc = [[childVcClass alloc] init];
-    childVc.view.backgroundColor = [self randomColor];
-    childVc.tabBarItem.title = title;
-    childVc.tabBarItem.image = [UIImage imageNamed:image];
-    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
-    
-    [self addChildViewController:childVc];
-}
-	// 方法二
-	- (void)setupChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
-{
-    childVc.view.backgroundColor = [self randomColor];
-    childVc.tabBarItem.title = title;
-    childVc.tabBarItem.image = [UIImage imageNamed:image];
-    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
-    
-    [self addChildViewController:childVc];
-}
-	```
+	  ```objc
+		// 方法一
+		- (void)setupChildVcWithClass:(Class)childVcClass title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
+	{
+	    UIViewController *childVc = [[childVcClass alloc] init];
+	    childVc.view.backgroundColor = [self randomColor];
+	    childVc.tabBarItem.title = title;
+	    childVc.tabBarItem.image = [UIImage imageNamed:image];
+	    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+	    
+	    [self addChildViewController:childVc];
+	}
+		// 方法二
+		- (void)setupChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
+	{
+	    childVc.view.backgroundColor = [self randomColor];
+	    childVc.tabBarItem.title = title;
+	    childVc.tabBarItem.image = [UIImage imageNamed:image];
+	    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+	    
+	    [self addChildViewController:childVc];
+	}
+	  ```
 	
-	对比2个方法, 方法一种提供viewController的类型,使用alloc init创建子控制器,在当前的环境下有一定的局限性,因为外部子控制器的创建方式多样,进行限定的话,那么外面子控制器只能通过重写init方法进行个性化定制(如tableviewController的样式等),因此,可以由外面创建好了再传入进行公共的设定,所以选择方法二
+		对比2个方法, 方法一种提供viewController的类型,使用alloc init创建子控制器,在当前的环境下有一定的局限性,因为外部子控制器的创建方式多样,进行限定的话,那么外面子控制器只能通过重写init方法进行个性化定制(如tableviewController的样式等),因此,可以由外面创建好了再传入进行公共的设定,所以选择方法二
+
+- 自定义TabBar
+	- 更换tabBarController的tabBar
+
+		```objc
+		// readonly无法通过set方法设定,只能使用kvc
+	// self.tabBar = [[GWTabBar alloc] init];
+	    [self setValue:[[GWTabBar alloc] init] forKeyPath:@"tabBar"];
+		```
+		
+	- 自定义tabBar(继承自UITabBar)
+		- 重写`- (instancetype)initWithFrame:(CGRect)frame`以便添加其他的子控件
+		
+		- 重写`- (void)layoutSubviews`进行子控件的布局
+			
+			注意: tabBar中使用根据tabbarItem生产的系统控件的类型是UITabBarButton(可以使用View调试器查看,也可以NSLog调试)
+			
+			```objc
+			- (void)layoutSubViews
+			{
+				[super layoutSubviews];
+				
+				// 发布按钮的尺寸(或者自己添加的其他子控件的布局)
+			    self.publishButton.bounds = CGRectMake(0, 0, self.publishButton.currentBackgroundImage.size.width, self.publishButton.currentBackgroundImage.size.height);
+			    self.publishButton.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height*0.5);
+			    
+			    // 其他UITabBarButton的尺寸(系统生成的子控件的布局)
+			    CGFloat buttonY = 0;
+			    CGFloat buttonW = self.frame.size.width / 5;
+			    CGFloat buttonH = self.frame.size.height;
+			    NSInteger index = 0;
+			    for (UIView *button in self.subviews) {
+			        if (![button isKindOfClass:NSClassFromString(@"UITabBarButton")]) continue;
+			        
+			        CGFloat buttonX = buttonW * (index > 1 ? (index + 1) : index);
+			        button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
+			        
+			        index ++;
+			    }
+			}
+			```
+	
+
+- 

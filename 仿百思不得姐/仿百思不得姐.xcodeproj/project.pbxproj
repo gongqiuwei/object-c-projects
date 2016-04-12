@@ -15,6 +15,7 @@
 		51FB68981CBCD17900B23B3E /* GWNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68971CBCD17900B23B3E /* GWNewViewController.m */; };
 		51FB689B1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */; };
 		51FB689E1CBCD1C100B23B3E /* GWMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */; };
+		51FB68A11CBCD86000B23B3E /* GWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68A01CBCD86000B23B3E /* GWTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWFriendTrendsViewController.m; sourceTree = "<group>"; };
 		51FB689C1CBCD1C100B23B3E /* GWMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMeViewController.h; sourceTree = "<group>"; };
 		51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMeViewController.m; sourceTree = "<group>"; };
+		51FB689F1CBCD86000B23B3E /* GWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTabBar.h; sourceTree = "<group>"; };
+		51FB68A01CBCD86000B23B3E /* GWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */,
 				51FB68901CBCBB1C00B23B3E /* GWTabBarController.h */,
 				51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */,
+				51FB689F1CBCD86000B23B3E /* GWTabBar.h */,
+				51FB68A01CBCD86000B23B3E /* GWTabBar.m */,
 				51FB68791CBC99BA00B23B3E /* Supporting Files */,
 			);
 			path = "仿百思不得姐";
@@ -169,6 +174,7 @@
 				51FB68981CBCD17900B23B3E /* GWNewViewController.m in Sources */,
 				51FB687B1CBC99BA00B23B3E /* main.m in Sources */,
 				51FB68951CBCD16200B23B3E /* GWEssenceViewController.m in Sources */,
+				51FB68A11CBCD86000B23B3E /* GWTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
