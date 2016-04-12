@@ -55,10 +55,13 @@
     childVc.tabBarItem.title = title;
     childVc.tabBarItem.image = [UIImage imageNamed:image];
     childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
-    childVc.view.backgroundColor = [self randomColor];
+    
+    // 设置控制器的view的颜色会导致控制器提前加载
+//    childVc.view.backgroundColor = [self randomColor];
     
     // 包装导航控制器
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     
     [self addChildViewController:nav];
 }
