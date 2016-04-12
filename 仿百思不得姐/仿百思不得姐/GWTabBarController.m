@@ -49,28 +49,20 @@
     [self setValue:[[GWTabBar alloc] init] forKeyPath:@"tabBar"];
 }
 
-// 这种方法扩展性强一点
 - (void)setupChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
 {
-    childVc.view.backgroundColor = [self randomColor];
+    childVc.navigationItem.title = title;
     childVc.tabBarItem.title = title;
     childVc.tabBarItem.image = [UIImage imageNamed:image];
     childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+    childVc.view.backgroundColor = [self randomColor];
     
-    [self addChildViewController:childVc];
+    // 包装导航控制器
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    
+    [self addChildViewController:nav];
 }
 
-// childVc的创建方式单一,只能通过alloc init创建
-- (void)setupChildVcWithClass:(Class)childVcClass title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectImage
-{
-    UIViewController *childVc = [[childVcClass alloc] init];
-    childVc.view.backgroundColor = [self randomColor];
-    childVc.tabBarItem.title = title;
-    childVc.tabBarItem.image = [UIImage imageNamed:image];
-    childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
-    
-    [self addChildViewController:childVc];
-}
 
 // 颜色随机
 - (UIColor *)randomColor

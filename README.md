@@ -4,6 +4,7 @@
 
 ### 第一天
 - 新建项目，并初始化启动图片、appIcon等
+
 - 主框架界面搭建（自定义tabbarcontroller）
 	- 子控制器的tabBarItem的设定
 		- 图片（默认图片会被渲染成系统的颜色，需要手动设定）
@@ -136,4 +137,28 @@
 			```
 	
 
-- 
+- 项目pch文件集成
+	- targets -> build settings -> 搜索prefix header -> 设定pch文件的路径(在当前项目的总目录下的相对路径,不是整个文件的绝对路径)
+	
+	- 对于一些常用的宏和分类,可以在pch文件中导入
+	
+
+- navigationItem的设定
+	- title的不同设定
+	
+		给viewController设定title相当于同时给当前控制器的tabbarItem和navigationItem设定了title, 如果要2个地方的title不同,得分开设定
+		
+		```objc
+		self.navigationItem.title = @"我的关注";
+    	self.tabBarItem.title = @"我的";
+    
+    	// 相当于同时设定以上两项
+    	// self.title = @"我的";
+		```
+		
+	- navigationBar上的model之间的层级关系
+		
+		- UINavigationController -> viewControllers -> 子控制器的堆栈
+		- UINavigationbar -> items -> 子控制器对应的UINavigationItem的堆栈 -> 每个navigationItem 有leftBarButtonItems, rightBarButtonItems, backBarButtonItem(对应的model是UIBarButtonItem)
+		- 如果要想当前控制器所在的navigationItem添加控件,应该添加UIBarButtonItem (titleView除外)
+	

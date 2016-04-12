@@ -17,7 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
+    
+    UIButton *tagButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tagButton setBackgroundImage:[UIImage imageNamed:@"MainTagSubIcon"] forState:UIControlStateNormal];
+    [tagButton setBackgroundImage:[UIImage imageNamed:@"MainTagSubIconClick"] forState:UIControlStateHighlighted];
+    tagButton.size = tagButton.currentBackgroundImage.size;
+    [tagButton addTarget:self action:@selector(tagClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tagButton];
+}
+
+- (void)tagClicked
+{
+    GWLogFunc;
 }
 
 @end
