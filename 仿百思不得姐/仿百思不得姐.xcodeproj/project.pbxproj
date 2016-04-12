@@ -7,43 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51FB687B1CBC99BA00B23B3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB687A1CBC99BA00B23B3E /* main.m */; };
-		51FB687E1CBC99BA00B23B3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB687D1CBC99BA00B23B3E /* AppDelegate.m */; };
 		51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FB68851CBC99BA00B23B3E /* Assets.xcassets */; };
-		51FB68921CBCBB1C00B23B3E /* GWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */; };
-		51FB68951CBCD16200B23B3E /* GWEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68941CBCD16200B23B3E /* GWEssenceViewController.m */; };
-		51FB68981CBCD17900B23B3E /* GWNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68971CBCD17900B23B3E /* GWNewViewController.m */; };
-		51FB689B1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */; };
-		51FB689E1CBCD1C100B23B3E /* GWMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */; };
-		51FB68A11CBCD86000B23B3E /* GWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68A01CBCD86000B23B3E /* GWTabBar.m */; };
-		51FB68A41CBCF1AE00B23B3E /* UIView+GWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68A31CBCF1AE00B23B3E /* UIView+GWExtension.m */; };
-		51FB68A81CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68A71CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m */; };
+		51FB68D51CBD144A00B23B3E /* GWEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68AD1CBD144A00B23B3E /* GWEssenceViewController.m */; };
+		51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68B31CBD144A00B23B3E /* GWFriendTrendsViewController.m */; };
+		51FB68D71CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68B91CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m */; };
+		51FB68D81CBD144A00B23B3E /* UIView+GWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68BB1CBD144A00B23B3E /* UIView+GWExtension.m */; };
+		51FB68D91CBD144A00B23B3E /* GWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68BE1CBD144A00B23B3E /* GWTabBarController.m */; };
+		51FB68DA1CBD144A00B23B3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68C31CBD144A00B23B3E /* AppDelegate.m */; };
+		51FB68DB1CBD144A00B23B3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68C41CBD144A00B23B3E /* main.m */; };
+		51FB68DC1CBD144A00B23B3E /* GWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68C81CBD144A00B23B3E /* GWTabBar.m */; };
+		51FB68DD1CBD144A00B23B3E /* GWMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68CC1CBD144A00B23B3E /* GWMeViewController.m */; };
+		51FB68DE1CBD144A00B23B3E /* GWNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68D21CBD144A00B23B3E /* GWNewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		51FB68761CBC99BA00B23B3E /* 仿百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "仿百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		51FB687A1CBC99BA00B23B3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		51FB687C1CBC99BA00B23B3E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		51FB687D1CBC99BA00B23B3E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		51FB68851CBC99BA00B23B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51FB688A1CBC99BA00B23B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		51FB68901CBCBB1C00B23B3E /* GWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTabBarController.h; sourceTree = "<group>"; };
-		51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTabBarController.m; sourceTree = "<group>"; };
-		51FB68931CBCD16200B23B3E /* GWEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWEssenceViewController.h; sourceTree = "<group>"; };
-		51FB68941CBCD16200B23B3E /* GWEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWEssenceViewController.m; sourceTree = "<group>"; };
-		51FB68961CBCD17900B23B3E /* GWNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNewViewController.h; sourceTree = "<group>"; };
-		51FB68971CBCD17900B23B3E /* GWNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNewViewController.m; sourceTree = "<group>"; };
-		51FB68991CBCD1AF00B23B3E /* GWFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWFriendTrendsViewController.h; sourceTree = "<group>"; };
-		51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWFriendTrendsViewController.m; sourceTree = "<group>"; };
-		51FB689C1CBCD1C100B23B3E /* GWMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMeViewController.h; sourceTree = "<group>"; };
-		51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMeViewController.m; sourceTree = "<group>"; };
-		51FB689F1CBCD86000B23B3E /* GWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTabBar.h; sourceTree = "<group>"; };
-		51FB68A01CBCD86000B23B3E /* GWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTabBar.m; sourceTree = "<group>"; };
-		51FB68A21CBCF1AE00B23B3E /* UIView+GWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GWExtension.h"; sourceTree = "<group>"; };
-		51FB68A31CBCF1AE00B23B3E /* UIView+GWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GWExtension.m"; sourceTree = "<group>"; };
-		51FB68A51CBCF26C00B23B3E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		51FB68A61CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GWExtension.h"; sourceTree = "<group>"; };
-		51FB68A71CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GWExtension.m"; sourceTree = "<group>"; };
+		51FB68AC1CBD144A00B23B3E /* GWEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWEssenceViewController.h; sourceTree = "<group>"; };
+		51FB68AD1CBD144A00B23B3E /* GWEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWEssenceViewController.m; sourceTree = "<group>"; };
+		51FB68B21CBD144A00B23B3E /* GWFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWFriendTrendsViewController.h; sourceTree = "<group>"; };
+		51FB68B31CBD144A00B23B3E /* GWFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWFriendTrendsViewController.m; sourceTree = "<group>"; };
+		51FB68B81CBD144A00B23B3E /* UIBarButtonItem+GWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GWExtension.h"; sourceTree = "<group>"; };
+		51FB68B91CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GWExtension.m"; sourceTree = "<group>"; };
+		51FB68BA1CBD144A00B23B3E /* UIView+GWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GWExtension.h"; sourceTree = "<group>"; };
+		51FB68BB1CBD144A00B23B3E /* UIView+GWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GWExtension.m"; sourceTree = "<group>"; };
+		51FB68BD1CBD144A00B23B3E /* GWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTabBarController.h; sourceTree = "<group>"; };
+		51FB68BE1CBD144A00B23B3E /* GWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTabBarController.m; sourceTree = "<group>"; };
+		51FB68C21CBD144A00B23B3E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		51FB68C31CBD144A00B23B3E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		51FB68C41CBD144A00B23B3E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		51FB68C51CBD144A00B23B3E /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		51FB68C71CBD144A00B23B3E /* GWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTabBar.h; sourceTree = "<group>"; };
+		51FB68C81CBD144A00B23B3E /* GWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTabBar.m; sourceTree = "<group>"; };
+		51FB68CB1CBD144A00B23B3E /* GWMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMeViewController.h; sourceTree = "<group>"; };
+		51FB68CC1CBD144A00B23B3E /* GWMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMeViewController.m; sourceTree = "<group>"; };
+		51FB68D11CBD144A00B23B3E /* GWNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNewViewController.h; sourceTree = "<group>"; };
+		51FB68D21CBD144A00B23B3E /* GWNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,26 +76,8 @@
 		51FB68781CBC99BA00B23B3E /* 仿百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
-				51FB687C1CBC99BA00B23B3E /* AppDelegate.h */,
-				51FB687D1CBC99BA00B23B3E /* AppDelegate.m */,
-				51FB68931CBCD16200B23B3E /* GWEssenceViewController.h */,
-				51FB68941CBCD16200B23B3E /* GWEssenceViewController.m */,
-				51FB68961CBCD17900B23B3E /* GWNewViewController.h */,
-				51FB68971CBCD17900B23B3E /* GWNewViewController.m */,
-				51FB68991CBCD1AF00B23B3E /* GWFriendTrendsViewController.h */,
-				51FB689A1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m */,
-				51FB689C1CBCD1C100B23B3E /* GWMeViewController.h */,
-				51FB689D1CBCD1C100B23B3E /* GWMeViewController.m */,
-				51FB68901CBCBB1C00B23B3E /* GWTabBarController.h */,
-				51FB68911CBCBB1C00B23B3E /* GWTabBarController.m */,
-				51FB689F1CBCD86000B23B3E /* GWTabBar.h */,
-				51FB68A01CBCD86000B23B3E /* GWTabBar.m */,
+				51FB68A91CBD144A00B23B3E /* Classes */,
 				51FB68791CBC99BA00B23B3E /* Supporting Files */,
-				51FB68A21CBCF1AE00B23B3E /* UIView+GWExtension.h */,
-				51FB68A31CBCF1AE00B23B3E /* UIView+GWExtension.m */,
-				51FB68A51CBCF26C00B23B3E /* PrefixHeader.pch */,
-				51FB68A61CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.h */,
-				51FB68A71CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m */,
 			);
 			path = "仿百思不得姐";
 			sourceTree = "<group>";
@@ -105,9 +87,219 @@
 			children = (
 				51FB68851CBC99BA00B23B3E /* Assets.xcassets */,
 				51FB688A1CBC99BA00B23B3E /* Info.plist */,
-				51FB687A1CBC99BA00B23B3E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51FB68A91CBD144A00B23B3E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68AA1CBD144A00B23B3E /* Essence */,
+				51FB68CF1CBD144A00B23B3E /* New */,
+				51FB68B01CBD144A00B23B3E /* FriendTrends */,
+				51FB68C91CBD144A00B23B3E /* Me */,
+				51FB68B61CBD144A00B23B3E /* Main */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		51FB68AA1CBD144A00B23B3E /* Essence */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68AB1CBD144A00B23B3E /* Controller */,
+				51FB68AE1CBD144A00B23B3E /* Model */,
+				51FB68AF1CBD144A00B23B3E /* View */,
+			);
+			path = Essence;
+			sourceTree = "<group>";
+		};
+		51FB68AB1CBD144A00B23B3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68AC1CBD144A00B23B3E /* GWEssenceViewController.h */,
+				51FB68AD1CBD144A00B23B3E /* GWEssenceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		51FB68AE1CBD144A00B23B3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51FB68AF1CBD144A00B23B3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51FB68B01CBD144A00B23B3E /* FriendTrends */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68B11CBD144A00B23B3E /* Controller */,
+				51FB68B41CBD144A00B23B3E /* Model */,
+				51FB68B51CBD144A00B23B3E /* View */,
+			);
+			path = FriendTrends;
+			sourceTree = "<group>";
+		};
+		51FB68B11CBD144A00B23B3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68B21CBD144A00B23B3E /* GWFriendTrendsViewController.h */,
+				51FB68B31CBD144A00B23B3E /* GWFriendTrendsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		51FB68B41CBD144A00B23B3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51FB68B51CBD144A00B23B3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51FB68B61CBD144A00B23B3E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68BC1CBD144A00B23B3E /* Controller */,
+				51FB68C61CBD144A00B23B3E /* View */,
+				51FB68C01CBD144A00B23B3E /* Model */,
+				51FB68B71CBD144A00B23B3E /* Category */,
+				51FB68BF1CBD144A00B23B3E /* Lib */,
+				51FB68C11CBD144A00B23B3E /* Other */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		51FB68B71CBD144A00B23B3E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68B81CBD144A00B23B3E /* UIBarButtonItem+GWExtension.h */,
+				51FB68B91CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m */,
+				51FB68BA1CBD144A00B23B3E /* UIView+GWExtension.h */,
+				51FB68BB1CBD144A00B23B3E /* UIView+GWExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		51FB68BC1CBD144A00B23B3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68BD1CBD144A00B23B3E /* GWTabBarController.h */,
+				51FB68BE1CBD144A00B23B3E /* GWTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		51FB68BF1CBD144A00B23B3E /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		51FB68C01CBD144A00B23B3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51FB68C11CBD144A00B23B3E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68C21CBD144A00B23B3E /* AppDelegate.h */,
+				51FB68C31CBD144A00B23B3E /* AppDelegate.m */,
+				51FB68C41CBD144A00B23B3E /* main.m */,
+				51FB68C51CBD144A00B23B3E /* PrefixHeader.pch */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		51FB68C61CBD144A00B23B3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68C71CBD144A00B23B3E /* GWTabBar.h */,
+				51FB68C81CBD144A00B23B3E /* GWTabBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51FB68C91CBD144A00B23B3E /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68CA1CBD144A00B23B3E /* Controller */,
+				51FB68CD1CBD144A00B23B3E /* Model */,
+				51FB68CE1CBD144A00B23B3E /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		51FB68CA1CBD144A00B23B3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68CB1CBD144A00B23B3E /* GWMeViewController.h */,
+				51FB68CC1CBD144A00B23B3E /* GWMeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		51FB68CD1CBD144A00B23B3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51FB68CE1CBD144A00B23B3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51FB68CF1CBD144A00B23B3E /* New */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68D01CBD144A00B23B3E /* Controller */,
+				51FB68D31CBD144A00B23B3E /* Model */,
+				51FB68D41CBD144A00B23B3E /* View */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		51FB68D01CBD144A00B23B3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51FB68D11CBD144A00B23B3E /* GWNewViewController.h */,
+				51FB68D21CBD144A00B23B3E /* GWNewViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		51FB68D31CBD144A00B23B3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51FB68D41CBD144A00B23B3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,16 +371,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51FB68A41CBCF1AE00B23B3E /* UIView+GWExtension.m in Sources */,
-				51FB689E1CBCD1C100B23B3E /* GWMeViewController.m in Sources */,
-				51FB689B1CBCD1AF00B23B3E /* GWFriendTrendsViewController.m in Sources */,
-				51FB68921CBCBB1C00B23B3E /* GWTabBarController.m in Sources */,
-				51FB687E1CBC99BA00B23B3E /* AppDelegate.m in Sources */,
-				51FB68981CBCD17900B23B3E /* GWNewViewController.m in Sources */,
-				51FB687B1CBC99BA00B23B3E /* main.m in Sources */,
-				51FB68951CBCD16200B23B3E /* GWEssenceViewController.m in Sources */,
-				51FB68A81CBD0B2100B23B3E /* UIBarButtonItem+GWExtension.m in Sources */,
-				51FB68A11CBCD86000B23B3E /* GWTabBar.m in Sources */,
+				51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */,
+				51FB68DD1CBD144A00B23B3E /* GWMeViewController.m in Sources */,
+				51FB68D71CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m in Sources */,
+				51FB68DA1CBD144A00B23B3E /* AppDelegate.m in Sources */,
+				51FB68D81CBD144A00B23B3E /* UIView+GWExtension.m in Sources */,
+				51FB68D51CBD144A00B23B3E /* GWEssenceViewController.m in Sources */,
+				51FB68DB1CBD144A00B23B3E /* main.m in Sources */,
+				51FB68DE1CBD144A00B23B3E /* GWNewViewController.m in Sources */,
+				51FB68D91CBD144A00B23B3E /* GWTabBarController.m in Sources */,
+				51FB68DC1CBD144A00B23B3E /* GWTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				GCC_PREFIX_HEADER = "仿百思不得姐/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "仿百思不得姐/Classes/Main/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "仿百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gwq.------";
@@ -293,7 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				GCC_PREFIX_HEADER = "仿百思不得姐/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "仿百思不得姐/Classes/Main/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = "仿百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gwq.------";
