@@ -12,6 +12,7 @@
 #import "GWFriendTrendsViewController.h"
 #import "GWMeViewController.h"
 #import "GWTabBar.h"
+#import "GWNavigationController.h"
 
 @interface GWTabBarController ()
 
@@ -60,7 +61,7 @@
 //    childVc.view.backgroundColor = [self randomColor];
     
     // 包装导航控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    GWNavigationController *nav = [[GWNavigationController alloc] initWithRootViewController:childVc];
     [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     
     [self addChildViewController:nav];

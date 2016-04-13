@@ -18,6 +18,8 @@
 		51FB68DC1CBD144A00B23B3E /* GWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68C81CBD144A00B23B3E /* GWTabBar.m */; };
 		51FB68DD1CBD144A00B23B3E /* GWMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68CC1CBD144A00B23B3E /* GWMeViewController.m */; };
 		51FB68DE1CBD144A00B23B3E /* GWNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68D21CBD144A00B23B3E /* GWNewViewController.m */; };
+		51FB68E11CBDE35400B23B3E /* GWTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68E01CBDE35400B23B3E /* GWTestViewController.m */; };
+		51FB68E41CBDE70300B23B3E /* GWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68E31CBDE70300B23B3E /* GWNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		51FB68CC1CBD144A00B23B3E /* GWMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMeViewController.m; sourceTree = "<group>"; };
 		51FB68D11CBD144A00B23B3E /* GWNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNewViewController.h; sourceTree = "<group>"; };
 		51FB68D21CBD144A00B23B3E /* GWNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNewViewController.m; sourceTree = "<group>"; };
+		51FB68DF1CBDE35400B23B3E /* GWTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTestViewController.h; sourceTree = "<group>"; };
+		51FB68E01CBDE35400B23B3E /* GWTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTestViewController.m; sourceTree = "<group>"; };
+		51FB68E21CBDE70300B23B3E /* GWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNavigationController.h; sourceTree = "<group>"; };
+		51FB68E31CBDE70300B23B3E /* GWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,8 @@
 			children = (
 				51FB68A91CBD144A00B23B3E /* Classes */,
 				51FB68791CBC99BA00B23B3E /* Supporting Files */,
+				51FB68DF1CBDE35400B23B3E /* GWTestViewController.h */,
+				51FB68E01CBDE35400B23B3E /* GWTestViewController.m */,
 			);
 			path = "仿百思不得姐";
 			sourceTree = "<group>";
@@ -198,6 +206,8 @@
 			children = (
 				51FB68BD1CBD144A00B23B3E /* GWTabBarController.h */,
 				51FB68BE1CBD144A00B23B3E /* GWTabBarController.m */,
+				51FB68E21CBDE70300B23B3E /* GWNavigationController.h */,
+				51FB68E31CBDE70300B23B3E /* GWNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -372,7 +382,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */,
+				51FB68E41CBDE70300B23B3E /* GWNavigationController.m in Sources */,
 				51FB68DD1CBD144A00B23B3E /* GWMeViewController.m in Sources */,
+				51FB68E11CBDE35400B23B3E /* GWTestViewController.m in Sources */,
 				51FB68D71CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m in Sources */,
 				51FB68DA1CBD144A00B23B3E /* AppDelegate.m in Sources */,
 				51FB68D81CBD144A00B23B3E /* UIView+GWExtension.m in Sources */,

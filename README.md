@@ -172,3 +172,51 @@
 		
 		当前的需求是原来所有的类的方法不够使用,需要多增加一个方法来快速创建UIBarButtonItem, 以减少重复的代码, 考虑使用分类
 		
+- 设置全局的navigationItem的返回样式
+
+	需求: 如果导航控制器push进去了一个控制器, 其左上角的返回样式要统一
+	
+	解决方式:
+	  - 第一种: 每个控制器的viewDidLoad进行设置(太繁琐)
+	  - 第二种: 导航控制器对子控制器的管理通过以下2个方法进行(navigationController的API中还提供了其他的方法供我们使用,但他们的底层都会调用以下方法)
+	     - 进栈
+	     `- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated;`
+	     - 出栈
+	     `- (nullable UIViewController *)popViewControllerAnimated:(BOOL)animated;`
+	     
+	    因此,我们可以拦截push方法,在有新的控制器压入导航控制器的栈中的时候来对其返回按钮进行统一的设定, 实现这个思路就需要我们自定义导航控制器,重写其push方法进行拦截
+	
+	参考代码:
+	
+	```objc
+	- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+	{
+	    // 根控制器的左边返回按钮不用设定
+	    if (self.viewControllers.count > 0) {
+	        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	        // 设置图片
+	        [backButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
+	        [backButton setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
+	        // 设置文字
+	        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+	        [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+	        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+	        // 点击事件
+	        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+	        // 尺寸设置(随意设置的,如果要完全紧贴,可以使用sizeToFit方法)
+	        backButton.size = CGSizeMake(70, 30);
+	        // 整体内容左对齐
+	        backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+	        // 由于系统布局,左边看起来还是有很多间隙,可以用contentEdgeInsets左移
+	        backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+	        
+	        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+	        
+	        // 隐藏tabbar
+        	viewController.hidesBottomBarWhenPushed = YES;
+	    }
+	    
+	    // 将super的代码放在后面,是为了如果viewController有自己的独特的返回按钮样式的时候,不会被覆盖掉
+	    [super pushViewController:viewController animated:animated];
+	}
+	```
