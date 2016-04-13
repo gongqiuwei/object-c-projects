@@ -20,6 +20,7 @@
 		51FB68DE1CBD144A00B23B3E /* GWNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68D21CBD144A00B23B3E /* GWNewViewController.m */; };
 		51FB68E11CBDE35400B23B3E /* GWTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68E01CBDE35400B23B3E /* GWTestViewController.m */; };
 		51FB68E41CBDE70300B23B3E /* GWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68E31CBDE70300B23B3E /* GWNavigationController.m */; };
+		51FB68E61CBE0C2400B23B3E /* GWFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FB68E51CBE0C2400B23B3E /* GWFriendTrendsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		51FB68E01CBDE35400B23B3E /* GWTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTestViewController.m; sourceTree = "<group>"; };
 		51FB68E21CBDE70300B23B3E /* GWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNavigationController.h; sourceTree = "<group>"; };
 		51FB68E31CBDE70300B23B3E /* GWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNavigationController.m; sourceTree = "<group>"; };
+		51FB68E51CBE0C2400B23B3E /* GWFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWFriendTrendsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				51FB68B21CBD144A00B23B3E /* GWFriendTrendsViewController.h */,
 				51FB68B31CBD144A00B23B3E /* GWFriendTrendsViewController.m */,
+				51FB68E51CBE0C2400B23B3E /* GWFriendTrendsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51FB68E61CBE0C2400B23B3E /* GWFriendTrendsViewController.xib in Resources */,
 				51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
