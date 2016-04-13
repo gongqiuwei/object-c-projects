@@ -20,9 +20,8 @@
 
 @implementation GWTabBarController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
++ (void)initialize
+{
     // 使用appearance设定tabbaritem的title的一些属性
     UITabBarItem *item = [UITabBarItem appearance];
     
@@ -35,6 +34,10 @@
     selectAttr[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     selectAttr[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
     [item setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     [self setupChildVc:[[GWEssenceViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectImage:@"tabBar_essence_click_icon"];
     
@@ -62,7 +65,6 @@
     
     // 包装导航控制器
     GWNavigationController *nav = [[GWNavigationController alloc] initWithRootViewController:childVc];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     
     [self addChildViewController:nav];
 }

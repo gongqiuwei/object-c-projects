@@ -10,6 +10,20 @@
 
 @implementation GWNavigationController
 
+// 一次性设定的,可以放在initialize方法中,
++ (void)initialize
+{
+    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
+    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+}
+
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    
+//    
+//}
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     // 根控制器的左边返回按钮不用设定
