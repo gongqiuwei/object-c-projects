@@ -15,8 +15,13 @@
 			
 		- tableviewcell在选中时会调用方法`- (void)setSelected:(BOOL)selected animated:(BOOL)animated`
 		
-		-  默认tableviewcell在选中时其内部的子控件进入heighlight的状态,但是如果cell的selectionStyle为none的时候,子控件在选中的时候不会进入heighlight状态
-	- 
+		-  默认tableviewcell在选中时其内部的子控件进入heighlight的状态,但是如果cell的selectionStyle为none的时候,子控件在选中的时候不会进入heighlight状态  
+	- 遇到的问题:
+		- 重复请求
+		
+			左侧选择不同类别,总是请求服务器数据, 应该已经加载过的在内存中做一份保存,而不是每次都加载
+			
+			解决方式: 在类别的模型中增加一个users属性,这样每个类别就有对应的推荐用户, 方便管理(利用模型解决数据的存储问题,而不是直接在控制器中管理, 代码更清晰,更容易维护)
 
 ### 第一天 基本界面骨架搭建
 - 新建项目，并初始化启动图片、appIcon等

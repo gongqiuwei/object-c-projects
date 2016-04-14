@@ -23,8 +23,7 @@
 
 /** 左边的类别数据 */
 @property (nonatomic, strong) NSArray *categorys;
-/** 右边的用户数据 */
-@property (nonatomic, strong) NSArray *users;
+
 @end
 
 static NSString *const GWCategoryId = @"category";
@@ -85,7 +84,10 @@ static NSString * const GWUserId = @"user";
     if (tableView == self.categoryTableView) {
         return self.categorys.count;
     } else {
-        return self.users.count;
+        NSIndexPath *path = [self.categoryTableView indexPathForSelectedRow];
+        GWRecommendCategory *category = self.categorys[path.row];
+        
+        return category.users.count;
     }
 }
 
@@ -100,7 +102,9 @@ static NSString * const GWUserId = @"user";
     } else {
         GWRecommendUserCell *cell  = [tableView dequeueReusableCellWithIdentifier:GWUserId];
         
-        cell.user = self.users[indexPath.row];
+        NSIndexPath *path = [self.categoryTableView indexPathForSelectedRow];
+        GWRecommendCategory *category = self.categorys[path.row];
+        cell.user = category.users[indexPath.row];
         
         return cell;
     }
@@ -111,18 +115,31 @@ static NSString * const GWUserId = @"user";
 {
     GWRecommendCategory *category = self.categorys[indexPath.row];
     
-    // 发送请求给服务器, 加载右侧的数据
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
-    params[@"c"] = @"subscribe";
-    params[@"category_id"] = @(category.id);
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        self.users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
+    // 判断是否已经有用户数据
+    if (category.users.count) {
         // 刷新右边的表格
         [self.userTableView reloadData];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        GWLog(@"%@", error);
-    }];
+        
+    } else {
+        // 发送请求给服务器, 加载右侧的数据
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"a"] = @"list";
+        params[@"c"] = @"subscribe";
+        params[@"category_id"] = @(category.id);
+        
+        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            // 数据处理
+            NSArray *users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            
+            [category.users addObjectsFromArray:users];
+            
+            // 刷新右边的表格
+            [self.userTableView reloadData];
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            GWLog(@"%@", error);
+        }];
+    }
 }
 @end
