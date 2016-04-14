@@ -26,6 +26,12 @@
 		- 上拉下拉刷新控件状态控制逻辑
 
 			上拉下拉刷新请求数据完成后, success的话都会调用tableview的reloadData去刷新表格,因此可以在其数据源方法`- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section`中实时监测刷新控件的状态, failure的话则在相应的failure回调中处理
+			
+		- 不停的切换左边类别时候, 多次请求的处理
+		
+			其实, 我们需要在发送请求的函数中记录最后的请求时候的一些状态(如:请求参数或者做一些自定义的标记), 然后在block回调中进行处理
+			原理是: block中对局部变量会做一次retain操作(不加__block修饰符情况下, 局部变量在block内部是不会改变的), 而self是控制器本身, self记录的状态是会随着函数的调用多次改变的
+			注意: vc的dealloc中需要cancel掉请求, 不然会造成请求返回时回调的代码中的self被释放掉导致崩溃
 
 ### 第一天 基本界面骨架搭建
 - 新建项目，并初始化启动图片、appIcon等

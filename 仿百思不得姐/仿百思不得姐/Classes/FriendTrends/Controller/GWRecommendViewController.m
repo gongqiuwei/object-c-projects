@@ -25,12 +25,24 @@
 /** 左边的类别数据 */
 @property (nonatomic, strong) NSArray *categorys;
 
+/** 每次请求时的参数 */
+@property (nonatomic, strong) NSMutableDictionary *params;
+
+/** AFN请求管理者 */
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 static NSString *const GWCategoryId = @"category";
 static NSString * const GWUserId = @"user";
 
 @implementation GWRecommendViewController
+- (AFHTTPSessionManager *)manager
+{
+    if (_manager == nil) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,29 +50,8 @@ static NSString * const GWUserId = @"user";
     // UI初始化
     [self initUI];
     
-    // 显示指示器
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    
-    // 获取数据
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"category";
-    params[@"c"] = @"subscribe";
-    
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [SVProgressHUD dismiss];
-        
-        // 模型转换
-        self.categorys = [GWRecommendCategory objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        // 刷新表格
-        [self.categoryTableView reloadData];
-        
-        // 选中第一行
-        [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败!"];
-    }];
+    // 加载类别数据
+    [self loadCategorys];
 }
 
 // UI初始化
@@ -115,6 +106,39 @@ static NSString * const GWUserId = @"user";
 
 #pragma mark - 加载用户数据
 /**
+ *  加载类别数据
+ */
+- (void)loadCategorys
+{
+    // 显示指示器
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    
+    // 获取数据
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"category";
+    params[@"c"] = @"subscribe";
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [SVProgressHUD dismiss];
+        
+        // 模型转换
+        self.categorys = [GWRecommendCategory objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        // 刷新表格
+        [self.categoryTableView reloadData];
+        
+        // 选中第一行
+        [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        
+        // 让用户表格进入下拉刷新状态
+        [self.userTableView.header beginRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败!"];
+    }];
+}
+
+/**
  *  header刷新时调用
  */
 - (void)loadNewUsers
@@ -131,8 +155,9 @@ static NSString * const GWUserId = @"user";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @(category.id);
     params[@"page"] = @(category.currentPage);
+    self.params = params;
     
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@", responseObject);
         // 清除之前的数据
         [category.users removeAllObjects];
@@ -144,6 +169,9 @@ static NSString * const GWUserId = @"user";
         [category.users addObjectsFromArray:users];
         category.total = [responseObject[@"total"] integerValue];
         
+        // 判断是不是最后一次请求
+        if (self.params != params) return;
+        
         // 刷新右边的表格
         [self.userTableView reloadData];
         
@@ -151,6 +179,9 @@ static NSString * const GWUserId = @"user";
         [self.userTableView.header endRefreshing];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 判断是不是最后一次请求
+        if (self.params != params) return;
+        
         // 提醒用户
         [SVProgressHUD showErrorWithStatus:@"推荐用户信息加载失败"];
         
@@ -173,18 +204,25 @@ static NSString * const GWUserId = @"user";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @(category.id);
     params[@"page"] = @(category.currentPage+1);
+    self.params = params;
     
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         // 数据处理
         NSArray *users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         [category.users addObjectsFromArray:users];
         category.currentPage ++;
         
+        // 判断是不是最后一次请求
+        if (self.params != params) return;
+        
         // 刷新右边的表格
         [self.userTableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 判断是不是最后一次请求
+        if (self.params != params) return;
+        
         // 提醒用户
         [SVProgressHUD showErrorWithStatus:@"推荐用户信息加载失败"];
         
@@ -246,5 +284,12 @@ static NSString * const GWUserId = @"user";
         // 下拉刷新
         [self.userTableView.header beginRefreshing];
     }
+}
+
+#pragma mark - 控制器销毁
+- (void)dealloc
+{
+    // 取消请求操作
+    [self.manager.operationQueue cancelAllOperations];
 }
 @end
