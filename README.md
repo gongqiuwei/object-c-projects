@@ -23,7 +23,9 @@
 			
 			解决方式: 在类别的模型中增加一个users属性,这样每个类别就有对应的推荐用户, 方便管理(利用模型解决数据的存储问题,而不是直接在控制器中管理, 代码更清晰,更容易维护)
 			
-		- 
+		- 上拉下拉刷新控件状态控制逻辑
+
+			上拉下拉刷新请求数据完成后, success的话都会调用tableview的reloadData去刷新表格,因此可以在其数据源方法`- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section`中实时监测刷新控件的状态, failure的话则在相应的failure回调中处理
 
 ### 第一天 基本界面骨架搭建
 - 新建项目，并初始化启动图片、appIcon等

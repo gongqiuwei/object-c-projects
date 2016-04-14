@@ -80,38 +80,116 @@ static NSString * const GWUserId = @"user";
     
     // 集成刷新控件
     self.userTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+    
+    self.userTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
 }
 
-- (void)loadMoreUsers
+/**
+ *  获取当前用户选中的类别对应的模型数据
+ */
+- (GWRecommendCategory *)selectedRecommendCategory
 {
     NSIndexPath *path = [self.categoryTableView indexPathForSelectedRow];
-    GWRecommendCategory *category = self.categorys[path.row];
+    return self.categorys[path.row];
+}
+
+/**
+ *  实时监测footer的状态
+ */
+- (void)checkFooterStatus
+{
+    // 当前选中的类别模型
+    GWRecommendCategory *category = [self selectedRecommendCategory];
+    
+    // 判断刷新控件的隐藏与否(没有数据就需要隐藏)
+    self.userTableView.footer.hidden = (category.users.count==0);
+    if (self.userTableView.footer.hidden) return;
+    
+    // 判断刷新状态
+    if (category.users.count == category.total) {
+        [self.userTableView.footer noticeNoMoreData];
+    } else {
+        [self.userTableView.footer endRefreshing];
+    }
+}
+
+#pragma mark - 加载用户数据
+/**
+ *  header刷新时调用
+ */
+- (void)loadNewUsers
+{
+    // 当前选中的类别模型
+    GWRecommendCategory *category = [self selectedRecommendCategory];
+    
+    // 设置页码
+    category.currentPage = 1;
     
     // 发送请求给服务器, 加载右侧的数据
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @(category.id);
-    params[@"page"] = @(++category.currentPage);
+    params[@"page"] = @(category.currentPage);
+    
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        // 清除之前的数据
+        [category.users removeAllObjects];
+        
+        // 数据处理
+        NSArray *users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        // 添加新的数据
+        [category.users addObjectsFromArray:users];
+        category.total = [responseObject[@"total"] integerValue];
+        
+        // 刷新右边的表格
+        [self.userTableView reloadData];
+        
+        // 结束下拉刷新控件的状态
+        [self.userTableView.header endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 提醒用户
+        [SVProgressHUD showErrorWithStatus:@"推荐用户信息加载失败"];
+        
+        // 结束下拉刷新控件的状态
+        [self.userTableView.header endRefreshing];
+    }];
+}
+
+/**
+ *  footer控件刷新时调用
+ */
+- (void)loadMoreUsers
+{
+    // 当前选中的类别模型
+    GWRecommendCategory *category = [self selectedRecommendCategory];
+    
+    // 发送请求给服务器, 加载右侧的数据
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(category.id);
+    params[@"page"] = @(category.currentPage+1);
     
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         // 数据处理
         NSArray *users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         [category.users addObjectsFromArray:users];
+        category.currentPage ++;
         
         // 刷新右边的表格
         [self.userTableView reloadData];
         
-        // 刷新控件状态
-        if (category.users.count == category.total) {
-            [self.userTableView.footer noticeNoMoreData];
-        } else {
-            [self.userTableView.footer endRefreshing];
-        }
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        GWLog(@"%@", error);
+        // 提醒用户
+        [SVProgressHUD showErrorWithStatus:@"推荐用户信息加载失败"];
+        
+        // 结束控件的刷新状态
+        [self.userTableView.footer endRefreshing];
     }];
 }
 
@@ -121,13 +199,13 @@ static NSString * const GWUserId = @"user";
     if (tableView == self.categoryTableView) {
         return self.categorys.count;
     } else {
-        // 获取类别模型
-        NSIndexPath *path = [self.categoryTableView indexPathForSelectedRow];
-        GWRecommendCategory *category = self.categorys[path.row];
+        // 当前选中的类别模型
+        GWRecommendCategory *category = [self selectedRecommendCategory];
         
-        // 判断刷新控件的隐藏与否(没有数据就需要隐藏)
-        self.userTableView.footer.hidden = (category.users.count==0);
+        // 实时监测footer的状态
+        [self checkFooterStatus];
         
+        // 返回
         return category.users.count;
     }
 }
@@ -143,8 +221,8 @@ static NSString * const GWUserId = @"user";
     } else {
         GWRecommendUserCell *cell  = [tableView dequeueReusableCellWithIdentifier:GWUserId];
         
-        NSIndexPath *path = [self.categoryTableView indexPathForSelectedRow];
-        GWRecommendCategory *category = self.categorys[path.row];
+        // 当前选中的类别模型
+        GWRecommendCategory *category = [self selectedRecommendCategory];
         cell.user = category.users[indexPath.row];
         
         return cell;
@@ -162,39 +240,11 @@ static NSString * const GWUserId = @"user";
         [self.userTableView reloadData];
         
     } else {
-        
         // 赶紧刷新表格,目的是: 马上显示当前category的用户数据, 不让用户看见上一个category的残留数据
         [self.userTableView reloadData];
         
-        // 设置页码
-        category.currentPage = 1;
-        
-        // 发送请求给服务器, 加载右侧的数据
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"a"] = @"list";
-        params[@"c"] = @"subscribe";
-        params[@"category_id"] = @(category.id);
-        params[@"page"] = @(category.currentPage);
-        
-        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-            
-            // 数据处理
-            NSArray *users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            
-            [category.users addObjectsFromArray:users];
-            category.total = [responseObject[@"total"] integerValue];
-            
-            // 刷新右边的表格
-            [self.userTableView reloadData];
-            
-            // 控制底部控件的状态(全部加载完毕,提示没有更多数据)
-            if (category.users.count == category.total) {
-                [self.userTableView.footer noticeNoMoreData];
-            }
-            
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            GWLog(@"%@", error);
-        }];
+        // 下拉刷新
+        [self.userTableView.header beginRefreshing];
     }
 }
 @end
