@@ -92,7 +92,7 @@ static NSString * const GWUserId = @"user";
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @(category.id);
-    params[@"page"] = @"2";
+    params[@"page"] = @(++category.currentPage);
     
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         // 数据处理
@@ -103,8 +103,13 @@ static NSString * const GWUserId = @"user";
         // 刷新右边的表格
         [self.userTableView reloadData];
         
-        // 停止刷新控件
-        [self.userTableView.footer endRefreshing];
+        // 刷新控件状态
+        if (category.users.count == category.total) {
+            [self.userTableView.footer noticeNoMoreData];
+        } else {
+            [self.userTableView.footer endRefreshing];
+        }
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         GWLog(@"%@", error);
     }];
@@ -161,11 +166,15 @@ static NSString * const GWUserId = @"user";
         // 赶紧刷新表格,目的是: 马上显示当前category的用户数据, 不让用户看见上一个category的残留数据
         [self.userTableView reloadData];
         
+        // 设置页码
+        category.currentPage = 1;
+        
         // 发送请求给服务器, 加载右侧的数据
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"a"] = @"list";
         params[@"c"] = @"subscribe";
         params[@"category_id"] = @(category.id);
+        params[@"page"] = @(category.currentPage);
         
         [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
             
@@ -173,9 +182,15 @@ static NSString * const GWUserId = @"user";
             NSArray *users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
             
             [category.users addObjectsFromArray:users];
+            category.total = [responseObject[@"total"] integerValue];
             
             // 刷新右边的表格
             [self.userTableView reloadData];
+            
+            // 控制底部控件的状态(全部加载完毕,提示没有更多数据)
+            if (category.users.count == category.total) {
+                [self.userTableView.footer noticeNoMoreData];
+            }
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             GWLog(@"%@", error);
