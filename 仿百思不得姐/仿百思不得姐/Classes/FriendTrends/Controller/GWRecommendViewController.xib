@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GWRecommendViewController">
             <connections>
                 <outlet property="categoryTableView" destination="CpM-T5-V5t" id="3sP-Pl-Nqb"/>
+                <outlet property="userTableView" destination="6cU-uI-e9A" id="iBb-EC-hdD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,12 +28,23 @@
                         <outlet property="delegate" destination="-1" id="bTy-fn-Kgk"/>
                     </connections>
                 </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6cU-uI-e9A">
+                    <rect key="frame" x="70" y="0.0" width="530" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="WZ9-ED-mRZ"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="6cU-uI-e9A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1A6-Ky-uoB"/>
+                <constraint firstItem="6cU-uI-e9A" firstAttribute="leading" secondItem="CpM-T5-V5t" secondAttribute="trailing" id="2SI-eW-nb3"/>
                 <constraint firstAttribute="bottom" secondItem="CpM-T5-V5t" secondAttribute="bottom" id="CWi-c2-uff"/>
                 <constraint firstItem="CpM-T5-V5t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Py3-8q-tWI"/>
                 <constraint firstItem="CpM-T5-V5t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="reL-wt-ikV"/>
+                <constraint firstAttribute="bottom" secondItem="6cU-uI-e9A" secondAttribute="bottom" id="tNo-zM-WwT"/>
+                <constraint firstAttribute="trailing" secondItem="6cU-uI-e9A" secondAttribute="trailing" id="uXv-NU-tuy"/>
             </constraints>
         </view>
     </objects>

@@ -12,28 +12,31 @@
 #import "MJExtension.h"
 #import "GWRecommendCagetoryCell.h"
 #import "GWRecommendCategory.h"
+#import "GWRecommendUserCell.h"
+#import "GWRecommendUser.h"
 
 @interface GWRecommendViewController ()<UITableViewDataSource, UITableViewDelegate>
+/** 左边的类别表格 */
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
+/** 右边的用户表格 */
+@property (weak, nonatomic) IBOutlet UITableView *userTableView;
 
+/** 左边的类别数据 */
 @property (nonatomic, strong) NSArray *categorys;
+/** 右边的用户数据 */
+@property (nonatomic, strong) NSArray *users;
 @end
 
 static NSString *const GWCategoryId = @"category";
+static NSString * const GWUserId = @"user";
 
 @implementation GWRecommendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"推荐关注";
-    self.view.backgroundColor = GWGlobalBgColor;
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    
-    // 注册cell
-    [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([GWRecommendCagetoryCell class]) bundle:nil] forCellReuseIdentifier:GWCategoryId];
+    // UI初始化
+    [self initUI];
     
     // 显示指示器
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
@@ -60,18 +63,66 @@ static NSString *const GWCategoryId = @"category";
     }];
 }
 
+// UI初始化
+- (void)initUI
+{
+    self.title = @"推荐关注";
+    self.view.backgroundColor = GWGlobalBgColor;
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.categoryTableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.userTableView.contentInset = self.categoryTableView.contentInset;
+    self.userTableView.rowHeight = 70;
+    
+    // 注册cell
+    [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([GWRecommendCagetoryCell class]) bundle:nil] forCellReuseIdentifier:GWCategoryId];
+    [self.userTableView registerNib:[UINib nibWithNibName:NSStringFromClass([GWRecommendUserCell class]) bundle:nil] forCellReuseIdentifier:GWUserId];
+}
+
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.categorys.count;
+    if (tableView == self.categoryTableView) {
+        return self.categorys.count;
+    } else {
+        return self.users.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GWRecommendCagetoryCell *cell  = [tableView dequeueReusableCellWithIdentifier:GWCategoryId];
+    if (tableView == self.categoryTableView) {
+        GWRecommendCagetoryCell *cell  = [tableView dequeueReusableCellWithIdentifier:GWCategoryId];
+        
+        cell.category = self.categorys[indexPath.row];
+        
+        return cell;
+    } else {
+        GWRecommendUserCell *cell  = [tableView dequeueReusableCellWithIdentifier:GWUserId];
+        
+        cell.user = self.users[indexPath.row];
+        
+        return cell;
+    }
     
-    cell.category = self.categorys[indexPath.row];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GWRecommendCategory *category = self.categorys[indexPath.row];
     
-    return cell;
+    // 发送请求给服务器, 加载右侧的数据
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(category.id);
+    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        self.users = [GWRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        // 刷新右边的表格
+        [self.userTableView reloadData];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        GWLog(@"%@", error);
+    }];
 }
 @end

@@ -58,6 +58,9 @@
 		51FB696C1CBF3B0F00B23B3E /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB69631CBF3B0F00B23B3E /* NSObject+MJProperty.m */; };
 		51FB696D1CBF3B0F00B23B3E /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB69651CBF3B0F00B23B3E /* NSString+MJExtension.m */; };
 		51FB69701CBF3CBD00B23B3E /* GWRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB696F1CBF3CBD00B23B3E /* GWRecommendCategory.m */; };
+		51FB69741CBF516000B23B3E /* GWRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB69721CBF516000B23B3E /* GWRecommendUserCell.m */; };
+		51FB69751CBF516000B23B3E /* GWRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FB69731CBF516000B23B3E /* GWRecommendUserCell.xib */; };
+		51FB69781CBF556D00B23B3E /* GWRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB69771CBF556D00B23B3E /* GWRecommendUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +166,11 @@
 		51FB69651CBF3B0F00B23B3E /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		51FB696E1CBF3CBD00B23B3E /* GWRecommendCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWRecommendCategory.h; sourceTree = "<group>"; };
 		51FB696F1CBF3CBD00B23B3E /* GWRecommendCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWRecommendCategory.m; sourceTree = "<group>"; };
+		51FB69711CBF516000B23B3E /* GWRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWRecommendUserCell.h; sourceTree = "<group>"; };
+		51FB69721CBF516000B23B3E /* GWRecommendUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWRecommendUserCell.m; sourceTree = "<group>"; };
+		51FB69731CBF516000B23B3E /* GWRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWRecommendUserCell.xib; sourceTree = "<group>"; };
+		51FB69761CBF556D00B23B3E /* GWRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWRecommendUser.h; sourceTree = "<group>"; };
+		51FB69771CBF556D00B23B3E /* GWRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWRecommendUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +291,8 @@
 			children = (
 				51FB696E1CBF3CBD00B23B3E /* GWRecommendCategory.h */,
 				51FB696F1CBF3CBD00B23B3E /* GWRecommendCategory.m */,
+				51FB69761CBF556D00B23B3E /* GWRecommendUser.h */,
+				51FB69771CBF556D00B23B3E /* GWRecommendUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +303,9 @@
 				51FB694F1CBF390400B23B3E /* GWRecommendCagetoryCell.h */,
 				51FB69501CBF390400B23B3E /* GWRecommendCagetoryCell.m */,
 				51FB69511CBF390400B23B3E /* GWRecommendCagetoryCell.xib */,
+				51FB69711CBF516000B23B3E /* GWRecommendUserCell.h */,
+				51FB69721CBF516000B23B3E /* GWRecommendUserCell.m */,
+				51FB69731CBF516000B23B3E /* GWRecommendUserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -591,6 +604,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51FB69531CBF390400B23B3E /* GWRecommendCagetoryCell.xib in Resources */,
+				51FB69751CBF516000B23B3E /* GWRecommendUserCell.xib in Resources */,
 				51FB68E61CBE0C2400B23B3E /* GWFriendTrendsViewController.xib in Resources */,
 				51FB694E1CBF378E00B23B3E /* GWRecommendViewController.xib in Resources */,
 				51FB69161CBF35D400B23B3E /* SVProgressHUD.bundle in Resources */,
@@ -624,6 +638,7 @@
 				51FB68D71CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m in Sources */,
 				51FB68DA1CBD144A00B23B3E /* AppDelegate.m in Sources */,
 				51FB69441CBF360F00B23B3E /* UIImage+GIF.m in Sources */,
+				51FB69781CBF556D00B23B3E /* GWRecommendUser.m in Sources */,
 				51FB69491CBF360F00B23B3E /* UIView+WebCacheOperation.m in Sources */,
 				51FB690C1CBF354A00B23B3E /* AFURLRequestSerialization.m in Sources */,
 				51FB68D81CBD144A00B23B3E /* UIView+GWExtension.m in Sources */,
@@ -641,6 +656,7 @@
 				51FB68D51CBD144A00B23B3E /* GWEssenceViewController.m in Sources */,
 				51FB68DB1CBD144A00B23B3E /* main.m in Sources */,
 				51FB68DE1CBD144A00B23B3E /* GWNewViewController.m in Sources */,
+				51FB69741CBF516000B23B3E /* GWRecommendUserCell.m in Sources */,
 				51FB690D1CBF354A00B23B3E /* AFURLResponseSerialization.m in Sources */,
 				51FB696C1CBF3B0F00B23B3E /* NSObject+MJProperty.m in Sources */,
 				51FB693F1CBF360F00B23B3E /* SDWebImageDownloader.m in Sources */,
