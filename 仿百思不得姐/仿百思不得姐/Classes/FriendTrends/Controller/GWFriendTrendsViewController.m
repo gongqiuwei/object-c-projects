@@ -7,6 +7,7 @@
 //
 
 #import "GWFriendTrendsViewController.h"
+#import "GWRecommendViewController.h"
 
 @interface GWFriendTrendsViewController ()
 
@@ -26,6 +27,7 @@
 
 - (void)friendsClicked
 {
-    GWLogFunc;
+    GWRecommendViewController *recommend = [[GWRecommendViewController alloc] init];
+    [self.navigationController pushViewController:recommend animated:YES];
 }
 @end

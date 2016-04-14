@@ -7,7 +7,6 @@
 //
 
 #import "GWEssenceViewController.h"
-#import "GWTestViewController.h"
 
 @interface GWEssenceViewController ()
 
@@ -30,9 +29,4 @@
     GWLogFunc;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    GWTestViewController *test = [[GWTestViewController alloc] init];
-    [self.navigationController pushViewController:test animated:YES];
-}
 @end

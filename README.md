@@ -2,7 +2,23 @@
 
 ## 仿百思不得姐
 
-### 第一天
+### 第二天 我的关注模块
+- 推荐关注界面
+
+	- 小知识点:
+		- xib 中对label的内容进行换行, 可以使用 option + 回车
+		- 在有导航控制器的环境下,如果在viewController中的子控件中有scrollview及其子类的时候,需要注意系统可能默认会修改它的contentInsert, 可以在viewDidLoad中打印看看, 如果不需要系统进行修改,可以修改VC的属性:
+		
+			```objc
+			self.automaticallyAdjustsScrollViewInsets = NO;
+			```
+			
+		- tableviewcell在选中时会调用方法`- (void)setSelected:(BOOL)selected animated:(BOOL)animated`
+		
+		-  默认tableviewcell在选中时其内部的子控件进入heighlight的状态,但是如果cell的selectionStyle为none的时候,子控件在选中的时候不会进入heighlight状态
+	- 
+
+### 第一天 基本界面骨架搭建
 - 新建项目，并初始化启动图片、appIcon等
 
 - 主框架界面搭建（自定义tabbarcontroller）
