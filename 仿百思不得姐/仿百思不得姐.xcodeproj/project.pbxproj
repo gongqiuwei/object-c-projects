@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188966FC1CBFDEA30080E92F /* GWRecommendTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188966FB1CBFDEA30080E92F /* GWRecommendTagViewController.m */; };
+		188967001CBFDF6E0080E92F /* GWRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188966FE1CBFDF6E0080E92F /* GWRecommendTagCell.m */; };
+		188967011CBFDF6E0080E92F /* GWRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */; };
+		188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967031CBFE0090080E92F /* GWRecommendTag.m */; };
 		51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FB68851CBC99BA00B23B3E /* Assets.xcassets */; };
 		51FB68D51CBD144A00B23B3E /* GWEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68AD1CBD144A00B23B3E /* GWEssenceViewController.m */; };
 		51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68B31CBD144A00B23B3E /* GWFriendTrendsViewController.m */; };
@@ -83,6 +87,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		188966FA1CBFDEA30080E92F /* GWRecommendTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWRecommendTagViewController.h; sourceTree = "<group>"; };
+		188966FB1CBFDEA30080E92F /* GWRecommendTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWRecommendTagViewController.m; sourceTree = "<group>"; };
+		188966FD1CBFDF6E0080E92F /* GWRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GWRecommendTagCell.h; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTagCell.h"; sourceTree = SOURCE_ROOT; };
+		188966FE1CBFDF6E0080E92F /* GWRecommendTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GWRecommendTagCell.m; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTagCell.m"; sourceTree = SOURCE_ROOT; };
+		188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GWRecommendTagCell.xib; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTagCell.xib"; sourceTree = SOURCE_ROOT; };
+		188967021CBFE0090080E92F /* GWRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GWRecommendTag.h; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTag.h"; sourceTree = SOURCE_ROOT; };
+		188967031CBFE0090080E92F /* GWRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GWRecommendTag.m; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTag.m"; sourceTree = SOURCE_ROOT; };
 		51FB68761CBC99BA00B23B3E /* 仿百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "仿百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51FB68851CBC99BA00B23B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51FB688A1CBC99BA00B23B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -489,6 +500,8 @@
 			children = (
 				51FB68D11CBD144A00B23B3E /* GWNewViewController.h */,
 				51FB68D21CBD144A00B23B3E /* GWNewViewController.m */,
+				188966FA1CBFDEA30080E92F /* GWRecommendTagViewController.h */,
+				188966FB1CBFDEA30080E92F /* GWRecommendTagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -496,6 +509,8 @@
 		51FB68D31CBD144A00B23B3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				188967021CBFE0090080E92F /* GWRecommendTag.h */,
+				188967031CBFE0090080E92F /* GWRecommendTag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -503,6 +518,9 @@
 		51FB68D41CBD144A00B23B3E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				188966FD1CBFDF6E0080E92F /* GWRecommendTagCell.h */,
+				188966FE1CBFDF6E0080E92F /* GWRecommendTagCell.m */,
+				188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -757,6 +775,7 @@
 				51FB69531CBF390400B23B3E /* GWRecommendCagetoryCell.xib in Resources */,
 				51FB69751CBF516000B23B3E /* GWRecommendUserCell.xib in Resources */,
 				51FB69B41CBF859F00B23B3E /* MJRefresh.bundle in Resources */,
+				188967011CBFDF6E0080E92F /* GWRecommendTagCell.xib in Resources */,
 				51FB68E61CBE0C2400B23B3E /* GWFriendTrendsViewController.xib in Resources */,
 				51FB694E1CBF378E00B23B3E /* GWRecommendViewController.xib in Resources */,
 				51FB69161CBF35D400B23B3E /* SVProgressHUD.bundle in Resources */,
@@ -801,6 +820,7 @@
 				51FB69441CBF360F00B23B3E /* UIImage+GIF.m in Sources */,
 				51FB69A91CBF859F00B23B3E /* MJRefreshFooter.m in Sources */,
 				51FB69B61CBF859F00B23B3E /* UIScrollView+MJExtension.m in Sources */,
+				188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */,
 				51FB69781CBF556D00B23B3E /* GWRecommendUser.m in Sources */,
 				51FB69B81CBF859F00B23B3E /* UIView+MJExtension.m in Sources */,
 				51FB69491CBF360F00B23B3E /* UIView+WebCacheOperation.m in Sources */,
@@ -818,6 +838,7 @@
 				51FB69401CBF360F00B23B3E /* SDWebImageDownloaderOperation.m in Sources */,
 				51FB696A1CBF3B0F00B23B3E /* NSObject+MJCoding.m in Sources */,
 				51FB693A1CBF360F00B23B3E /* MKAnnotationView+WebCache.m in Sources */,
+				188967001CBFDF6E0080E92F /* GWRecommendTagCell.m in Sources */,
 				51FB68D51CBD144A00B23B3E /* GWEssenceViewController.m in Sources */,
 				51FB68DB1CBD144A00B23B3E /* main.m in Sources */,
 				51FB68DE1CBD144A00B23B3E /* GWNewViewController.m in Sources */,
@@ -826,6 +847,7 @@
 				51FB69B11CBF859F00B23B3E /* MJRefreshGifHeader.m in Sources */,
 				51FB690D1CBF354A00B23B3E /* AFURLResponseSerialization.m in Sources */,
 				51FB696C1CBF3B0F00B23B3E /* NSObject+MJProperty.m in Sources */,
+				188966FC1CBFDEA30080E92F /* GWRecommendTagViewController.m in Sources */,
 				51FB693F1CBF360F00B23B3E /* SDWebImageDownloader.m in Sources */,
 				51FB69AE1CBF859F00B23B3E /* MJRefreshBackGifFooter.m in Sources */,
 				51FB690A1CBF354A00B23B3E /* AFNetworkReachabilityManager.m in Sources */,

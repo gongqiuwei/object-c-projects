@@ -7,6 +7,7 @@
 //
 
 #import "GWNewViewController.h"
+#import "GWRecommendTagViewController.h"
 
 @interface GWNewViewController ()
 
@@ -24,9 +25,11 @@
     self.view.backgroundColor = GWGlobalBgColor;
 }
 
+// 推荐标签
 - (void)tagClicked
 {
-    GWLogFunc;
+    GWRecommendTagViewController *tag = [[GWRecommendTagViewController alloc] init];
+    [self.navigationController pushViewController:tag animated:YES];
 }
 
 @end

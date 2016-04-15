@@ -32,6 +32,42 @@
 			其实, 我们需要在发送请求的函数中记录最后的请求时候的一些状态(如:请求参数或者做一些自定义的标记), 然后在block回调中进行处理
 			原理是: block中对局部变量会做一次retain操作(不加__block修饰符情况下, 局部变量在block内部是不会改变的), 而self是控制器本身, self记录的状态是会随着函数的调用多次改变的
 			注意: vc的dealloc中需要cancel掉请求, 不然会造成请求返回时回调的代码中的self被释放掉导致崩溃
+			
+- 推荐标签页面
+	
+	- setFrame:方法的妙用
+	
+	```objc
+	- (void)setFrame:(CGRect)frame
+{
+	    // 让cell左边有间距
+	    frame.origin.x = 5;
+	    frame.size.width -= 2 * frame.origin.x;
+	    
+	    // 让cell的高度减少，留出2个cell之间的空隙，相当于有分割线
+	    frame.size.height -= 1;
+	    
+	    [super setFrame:frame];
+}
+	```
+	
+	setFrame:方法还可以用于自定义控件的时候，防止自己的尺寸被外部修改
+	
+	``` objc
+	// 方法重写
+	- (void)setFrame:(CGRect)frame
+{
+		// view的size固定
+	    frame.size = CGSizeMake(100, 100);
+	    [super setFrame:frame];
+}
+// 方法重写
+- (void)setBounds:(CGRect)bounds
+{
+	    bounds.size = CGSizeMake(100, 100);
+	    [super setBounds:bounds];
+}
+	```
 
 ### 第一天 基本界面骨架搭建
 - 新建项目，并初始化启动图片、appIcon等
