@@ -75,9 +75,78 @@
 
 		imageAssets中选中图片 -> 右下角 show slicing
 		
-		- xib文件中, 设置view的一些属性可以使用KVC来设定, 例如图层的圆角等 
-	
+		![](images/Snip20160416_1.png)
+		
+		添加拉伸保护之后
+		
+		![](images/Snip20160416_2.png)
+		
+		- xib文件中, 设置view的一些属性可以使用KVC来设定, 例如图层的圆角等
 
+		![](images/Snip20160416_3.png)
+		
+	- 修改textField的占位文字的属性
+		- 方法1: 使用属性
+
+		```objc
+		@property(nonatomic,copy)   NSAttributedString     *attributedPlaceholder;
+		
+		// 文字属性
+		NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+		attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+		
+		// NSAttributedString : 带有属性的文字(富文本技术)
+		NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"手机号" attributes:attrs];
+		self.phoneField.attributedPlaceholder = placeholder;
+		
+		NSMutableAttributedString *placehoder = [[NSMutableAttributedString alloc] initWithString:@"手机号"];
+		[placehoder setAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} range:NSMakeRange(0, 1)];
+		[placehoder setAttributes:@{
+		                            NSForegroundColorAttributeName : [UIColor yellowColor],
+		                            NSFontAttributeName : [UIFont systemFontOfSize:30]
+		                            } range:NSMakeRange(1, 1)];
+		[placehoder setAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} range:NSMakeRange(2, 1)];
+		self.phoneField.attributedPlaceholder = placehoder;
+		```
+		- 方法2: 继承并重写方法
+
+		```objc
+		- (void)drawPlaceholderInRect:(CGRect)rect
+		{
+			// rect的尺寸需要自己计算
+		    [self.placeholder drawInRect:CGRectMake(0, 10, rect.size.width, 25) withAttributes:@{
+		                                                       NSForegroundColorAttributeName : [UIColor grayColor],
+		                                                       NSFontAttributeName : self.font}];
+		}
+		```
+
+		- 方法3: 使用runtime查找textField内部的隐藏属性,并使用KVC进行设定
+		
+		```objc
+		[self setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
+		```
+	
+		补充: runtime使用(简单使用: 查找成员属性)
+		
+		```objc
+		unsigned int count = 0;
+		
+		// 拷贝出所有的成员变量列表
+		Ivar *ivars = class_copyIvarList([UITextField class], &count);
+		
+		for (int i = 0; i<count; i++) {
+		    // 取出成员变量
+		    // Ivar ivar = *(ivars + i);
+		    Ivar ivar = ivars[i];
+		
+		    // 打印成员变量名字
+		    XMGLog(@"%s", ivar_getName(ivar));
+		}
+		
+		// 释放
+		free(ivars);
+		```
+		
 ### 1 基本界面骨架搭建
 - 新建项目，并初始化启动图片、appIcon等
 
