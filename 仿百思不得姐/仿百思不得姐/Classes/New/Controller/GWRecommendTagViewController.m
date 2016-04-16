@@ -35,7 +35,7 @@ static NSString *const GWRecommendTagId = @"tag";
 // 初始化UI界面
 - (void)initUI
 {
-    self.title = @"推荐关注";
+    self.title = @"推荐标签";
     self.tableView.backgroundColor = GWGlobalBgColor;
     self.tableView.rowHeight = 70;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

@@ -11,6 +11,9 @@
 		188967001CBFDF6E0080E92F /* GWRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188966FE1CBFDF6E0080E92F /* GWRecommendTagCell.m */; };
 		188967011CBFDF6E0080E92F /* GWRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */; };
 		188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967031CBFE0090080E92F /* GWRecommendTag.m */; };
+		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
+		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
+		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
 		51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FB68851CBC99BA00B23B3E /* Assets.xcassets */; };
 		51FB68D51CBD144A00B23B3E /* GWEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68AD1CBD144A00B23B3E /* GWEssenceViewController.m */; };
 		51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FB68B31CBD144A00B23B3E /* GWFriendTrendsViewController.m */; };
@@ -94,6 +97,11 @@
 		188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GWRecommendTagCell.xib; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTagCell.xib"; sourceTree = SOURCE_ROOT; };
 		188967021CBFE0090080E92F /* GWRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GWRecommendTag.h; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTag.h"; sourceTree = SOURCE_ROOT; };
 		188967031CBFE0090080E92F /* GWRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GWRecommendTag.m; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTag.m"; sourceTree = SOURCE_ROOT; };
+		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
+		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
+		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		51EDDA401CC1DE8200C0A8B5 /* GWVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWVerticalButton.h; sourceTree = "<group>"; };
+		51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWVerticalButton.m; sourceTree = "<group>"; };
 		51FB68761CBC99BA00B23B3E /* 仿百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "仿百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51FB68851CBC99BA00B23B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51FB688A1CBC99BA00B23B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -350,6 +358,9 @@
 				51FB694A1CBF378E00B23B3E /* GWRecommendViewController.h */,
 				51FB694B1CBF378E00B23B3E /* GWRecommendViewController.m */,
 				51FB694C1CBF378E00B23B3E /* GWRecommendViewController.xib */,
+				51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */,
+				51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */,
+				51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -374,6 +385,8 @@
 				51FB69711CBF516000B23B3E /* GWRecommendUserCell.h */,
 				51FB69721CBF516000B23B3E /* GWRecommendUserCell.m */,
 				51FB69731CBF516000B23B3E /* GWRecommendUserCell.xib */,
+				51EDDA401CC1DE8200C0A8B5 /* GWVerticalButton.h */,
+				51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -772,6 +785,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */,
 				51FB69531CBF390400B23B3E /* GWRecommendCagetoryCell.xib in Resources */,
 				51FB69751CBF516000B23B3E /* GWRecommendUserCell.xib in Resources */,
 				51FB69B41CBF859F00B23B3E /* MJRefresh.bundle in Resources */,
@@ -808,6 +822,7 @@
 				51FB69431CBF360F00B23B3E /* UIButton+WebCache.m in Sources */,
 				51FB69521CBF390400B23B3E /* GWRecommendCagetoryCell.m in Sources */,
 				51FB68E41CBDE70300B23B3E /* GWNavigationController.m in Sources */,
+				51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */,
 				51FB694D1CBF378E00B23B3E /* GWRecommendViewController.m in Sources */,
 				51FB69AF1CBF859F00B23B3E /* MJRefreshBackNormalFooter.m in Sources */,
 				51FB68DD1CBD144A00B23B3E /* GWMeViewController.m in Sources */,
@@ -849,6 +864,7 @@
 				51FB696C1CBF3B0F00B23B3E /* NSObject+MJProperty.m in Sources */,
 				188966FC1CBFDEA30080E92F /* GWRecommendTagViewController.m in Sources */,
 				51FB693F1CBF360F00B23B3E /* SDWebImageDownloader.m in Sources */,
+				51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */,
 				51FB69AE1CBF859F00B23B3E /* MJRefreshBackGifFooter.m in Sources */,
 				51FB690A1CBF354A00B23B3E /* AFNetworkReachabilityManager.m in Sources */,
 				51FB68D91CBD144A00B23B3E /* GWTabBarController.m in Sources */,

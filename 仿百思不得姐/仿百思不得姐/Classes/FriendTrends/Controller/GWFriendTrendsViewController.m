@@ -8,6 +8,7 @@
 
 #import "GWFriendTrendsViewController.h"
 #import "GWRecommendViewController.h"
+#import "GWLoginRegisterViewController.h"
 
 @interface GWFriendTrendsViewController ()
 
@@ -30,4 +31,11 @@
     GWRecommendViewController *recommend = [[GWRecommendViewController alloc] init];
     [self.navigationController pushViewController:recommend animated:YES];
 }
+
+- (IBAction)loginRegisterClicked
+{
+    GWLoginRegisterViewController *login = [[GWLoginRegisterViewController alloc] init];
+    [self presentViewController:login animated:YES completion:nil];
+}
+
 @end
