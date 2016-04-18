@@ -77,7 +77,7 @@
     self.contentView = contentView;
     contentView.delegate = self;
     contentView.pagingEnabled = YES;
-    contentView.contentSize = CGSizeMake(self.childViewControllers.count * contentView.width, 0);
+    contentView.contentSize = CGSizeMake(self.childViewControllers.count * contentView.width, contentView.height);
     
     // 添加第一个控制器的view
     [self scrollViewDidEndScrollingAnimation:contentView];

@@ -7,7 +7,7 @@
 	- 小知识点:
 		- 获取按钮内部文字的宽度
 
-			按钮内部封装有一个titleLabel用于显示文字，只要先设置好文字、font等属性，在获取titleLabel的宽度即可难道文字的宽度
+			按钮内部封装有一个titleLabel用于显示文字，只要先设置好文字、font等属性，在获取titleLabel的宽度即可得到文字的宽度，不过要显示出来才能得到准确的宽度，如果要立马获取，可以调用`[button.titleLabel sizeToFit]`要求系统立即更新获取准确的数值
 			
 		- 按钮的disable状态下的颜色也可以修改
 
@@ -19,6 +19,17 @@
 			// 人为推动产生的减速效果（代码动画无法监听）
 			- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 			```
+		- scrollView代码滑动方法的使用细节
+			
+			```objc
+			// 如果使用下述方法想要产生效果，必须scrollview的contentSize中的width和height都有值
+			// 一般我们可能在某个方向上没有滑动时设置为0
+			- (void)scrollRectToVisible:(CGRect)rect animated:(BOOL)animated; 
+
+			// 没有上述限制
+			- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated;
+			```
+			
 		- UITableViewController中，tableview的frame被系统默认修改了，y = 20，height = 屏幕高度 - 20；（20为状态栏的高度）
 
 ### 2 我的关注模块
