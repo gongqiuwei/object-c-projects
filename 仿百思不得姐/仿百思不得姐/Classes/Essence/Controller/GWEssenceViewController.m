@@ -7,12 +7,21 @@
 //
 
 #import "GWEssenceViewController.h"
+#import "GWAllViewController.h"
+#import "GWVideoController.h"
+#import "GWAudioViewController.h"
+#import "GWPictureViewController.h"
+#import "GWWordViewController.h"
 
-@interface GWEssenceViewController ()
+@interface GWEssenceViewController ()<UIScrollViewDelegate>
 /** 红色指示器 */
 @property (nonatomic, weak) UIView *indicatorView;
 /** 选中的按钮 */
 @property (nonatomic, weak) UIButton *selectedButton;
+/** 所有标签的视图 */
+@property (nonatomic, weak) UIView *titlesView;
+/** 中间Scrollview */
+@property (nonatomic, weak) UIScrollView *contentView;
 @end
 
 @implementation GWEssenceViewController
@@ -21,7 +30,6 @@
     [super viewDidLoad];
     
     [self initUI];
-    
 }
 
 - (void)initUI
@@ -29,9 +37,50 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     
     self.view.backgroundColor = GWGlobalBgColor;
+    // 不要自动调整scrollview的inserts
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    // 添加子控制器
+    [self initChildVcs];
     
     // 标签栏
     [self initTitlesView];
+    
+    // 底部的scrollview
+    [self initContentView];
+}
+
+// 添加子控制器
+- (void)initChildVcs
+{
+    GWAllViewController *all = [[GWAllViewController alloc] init];
+    [self addChildViewController:all];
+    
+    GWVideoController *video = [[GWVideoController alloc] init];
+    [self addChildViewController:video];
+    
+    GWAudioViewController *audio = [[GWAudioViewController alloc] init];
+    [self addChildViewController:audio];
+    
+    GWPictureViewController *picture = [[GWPictureViewController alloc] init];
+    [self addChildViewController:picture];
+    
+    GWWordViewController *word = [[GWWordViewController alloc] init];
+    [self addChildViewController:word];
+}
+
+// 底部的scrollview
+- (void)initContentView
+{
+    UIScrollView *contentView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    [self.view insertSubview:contentView atIndex:0];
+    self.contentView = contentView;
+    contentView.delegate = self;
+    contentView.pagingEnabled = YES;
+    contentView.contentSize = CGSizeMake(self.childViewControllers.count * contentView.width, 0);
+    
+    // 添加第一个控制器的view
+    [self scrollViewDidEndScrollingAnimation:contentView];
 }
 
 - (void)initTitlesView
@@ -39,6 +88,7 @@
     UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, 35)];
     [self.view addSubview:titlesView];
     titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    self.titlesView = titlesView;
     
     // 红色指示器
     UIView *indicatorView = [[UIView alloc] init];
@@ -60,6 +110,7 @@
         button.frame = CGRectMake(buttonX, 0, buttonW, buttonH);
         [titlesView addSubview:button];
         
+        button.tag = i;
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitle:titles[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -92,5 +143,41 @@
         self.indicatorView.width = button.titleLabel.width;
         self.indicatorView.centerX = button.centerX;
     }];
+    
+    // 滑动scrollView
+    CGPoint offset = self.contentView.contentOffset;
+    offset.x = button.tag * self.contentView.width;
+    [self.contentView setContentOffset:offset animated:YES];
+}
+
+#pragma mark - <UIScrollViewDelegate>
+// scrollview滑动动画停止
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    UITableViewController *vc = self.childViewControllers[index];
+    vc.view.x = index * scrollView.width;
+    // UITableViewController：系统对tableview的frame做了修改
+    // 设置起点
+    vc.view.y = 0;
+    // 设置控制器view的height值为整个屏幕的高度(默认是比屏幕高度少个20)
+    vc.view.height = scrollView.height;
+    
+    CGFloat top = 64 + self.titlesView.height;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    // 设置滚动条的内边距
+    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
+    [scrollView addSubview:vc.view];
+}
+
+// 停止减速
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+    
+    // +1是因为在添加按钮之前还添加了indicatorView
+    NSInteger buttonIndex = scrollView.contentOffset.x / scrollView.width + 1;
+    [self titleClick:(UIButton *)self.titlesView.subviews[buttonIndex]];
 }
 @end

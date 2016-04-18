@@ -15,6 +15,11 @@
 		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
 		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
 		51D3A3E21CC4BB5600690528 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E11CC4BB5600690528 /* Foundation+Log.m */; };
+		51D3A3E51CC4DEDB00690528 /* GWAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E41CC4DEDB00690528 /* GWAllViewController.m */; };
+		51D3A3E81CC4DF0700690528 /* GWVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E71CC4DF0700690528 /* GWVideoController.m */; };
+		51D3A3EB1CC4DF1F00690528 /* GWAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3EA1CC4DF1F00690528 /* GWAudioViewController.m */; };
+		51D3A3EE1CC4DF3200690528 /* GWPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3ED1CC4DF3200690528 /* GWPictureViewController.m */; };
+		51D3A3F11CC4DF4200690528 /* GWWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3F01CC4DF4200690528 /* GWWordViewController.m */; };
 		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
 		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
 		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
@@ -107,6 +112,16 @@
 		51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPushGuideView.m; sourceTree = "<group>"; };
 		51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPushGuideView.xib; sourceTree = "<group>"; };
 		51D3A3E11CC4BB5600690528 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		51D3A3E31CC4DEDB00690528 /* GWAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWAllViewController.h; sourceTree = "<group>"; };
+		51D3A3E41CC4DEDB00690528 /* GWAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWAllViewController.m; sourceTree = "<group>"; };
+		51D3A3E61CC4DF0700690528 /* GWVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWVideoController.h; sourceTree = "<group>"; };
+		51D3A3E71CC4DF0700690528 /* GWVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWVideoController.m; sourceTree = "<group>"; };
+		51D3A3E91CC4DF1F00690528 /* GWAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWAudioViewController.h; sourceTree = "<group>"; };
+		51D3A3EA1CC4DF1F00690528 /* GWAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWAudioViewController.m; sourceTree = "<group>"; };
+		51D3A3EC1CC4DF3200690528 /* GWPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPictureViewController.h; sourceTree = "<group>"; };
+		51D3A3ED1CC4DF3200690528 /* GWPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPictureViewController.m; sourceTree = "<group>"; };
+		51D3A3EF1CC4DF4200690528 /* GWWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWWordViewController.h; sourceTree = "<group>"; };
+		51D3A3F01CC4DF4200690528 /* GWWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWWordViewController.m; sourceTree = "<group>"; };
 		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -331,6 +346,16 @@
 			children = (
 				51FB68AC1CBD144A00B23B3E /* GWEssenceViewController.h */,
 				51FB68AD1CBD144A00B23B3E /* GWEssenceViewController.m */,
+				51D3A3E31CC4DEDB00690528 /* GWAllViewController.h */,
+				51D3A3E41CC4DEDB00690528 /* GWAllViewController.m */,
+				51D3A3E61CC4DF0700690528 /* GWVideoController.h */,
+				51D3A3E71CC4DF0700690528 /* GWVideoController.m */,
+				51D3A3E91CC4DF1F00690528 /* GWAudioViewController.h */,
+				51D3A3EA1CC4DF1F00690528 /* GWAudioViewController.m */,
+				51D3A3EC1CC4DF3200690528 /* GWPictureViewController.h */,
+				51D3A3ED1CC4DF3200690528 /* GWPictureViewController.m */,
+				51D3A3EF1CC4DF4200690528 /* GWWordViewController.h */,
+				51D3A3F01CC4DF4200690528 /* GWWordViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -822,11 +847,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				51FB69471CBF360F00B23B3E /* UIImageView+HighlightedWebCache.m in Sources */,
+				51D3A3F11CC4DF4200690528 /* GWWordViewController.m in Sources */,
 				51FB69AB1CBF859F00B23B3E /* MJRefreshAutoGifFooter.m in Sources */,
 				51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */,
 				51FB69411CBF360F00B23B3E /* SDWebImageManager.m in Sources */,
 				51FB693D1CBF360F00B23B3E /* SDWebImageCompat.m in Sources */,
 				51FB696B1CBF3B0F00B23B3E /* NSObject+MJKeyValue.m in Sources */,
+				51D3A3EB1CC4DF1F00690528 /* GWAudioViewController.m in Sources */,
+				51D3A3EE1CC4DF3200690528 /* GWPictureViewController.m in Sources */,
 				51FB69B21CBF859F00B23B3E /* MJRefreshNormalHeader.m in Sources */,
 				51FB69691CBF3B0F00B23B3E /* MJType.m in Sources */,
 				51FB69B71CBF859F00B23B3E /* UIScrollView+MJRefresh.m in Sources */,
@@ -848,6 +876,8 @@
 				51FB68D71CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m in Sources */,
 				51FB69A81CBF859F00B23B3E /* MJRefreshComponent.m in Sources */,
 				51FB68DA1CBD144A00B23B3E /* AppDelegate.m in Sources */,
+				51D3A3E81CC4DF0700690528 /* GWVideoController.m in Sources */,
+				51D3A3E51CC4DEDB00690528 /* GWAllViewController.m in Sources */,
 				51FB69A71CBF859F00B23B3E /* MJRefreshBackFooter.m in Sources */,
 				51FB69441CBF360F00B23B3E /* UIImage+GIF.m in Sources */,
 				51FB69A91CBF859F00B23B3E /* MJRefreshFooter.m in Sources */,

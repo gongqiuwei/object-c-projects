@@ -8,6 +8,18 @@
 		- 获取按钮内部文字的宽度
 
 			按钮内部封装有一个titleLabel用于显示文字，只要先设置好文字、font等属性，在获取titleLabel的宽度即可难道文字的宽度
+			
+		- 按钮的disable状态下的颜色也可以修改
+
+		- scrollView的代理方法
+		
+			```objc
+			// scrollview滑动动画停止(代码执行的动画或者人为拖动的动画)
+			- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+			// 人为推动产生的减速效果（代码动画无法监听）
+			- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+			```
+		- UITableViewController中，tableview的frame被系统默认修改了，y = 20，height = 屏幕高度 - 20；（20为状态栏的高度）
 
 ### 2 我的关注模块
 - 推荐关注界面
