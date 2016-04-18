@@ -87,7 +87,7 @@
 {
     UIView *titlesView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, 35)];
     [self.view addSubview:titlesView];
-    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
     self.titlesView = titlesView;
     
     // 红色指示器

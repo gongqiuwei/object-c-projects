@@ -11,6 +11,7 @@
 		188967001CBFDF6E0080E92F /* GWRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188966FE1CBFDF6E0080E92F /* GWRecommendTagCell.m */; };
 		188967011CBFDF6E0080E92F /* GWRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */; };
 		188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967031CBFE0090080E92F /* GWRecommendTag.m */; };
+		188967091CC5155B0080E92F /* GWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967081CC5155B0080E92F /* GWTopic.m */; };
 		514E98331CC21B8B00477611 /* GWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E98321CC21B8B00477611 /* GWTextField.m */; };
 		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
 		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
@@ -106,6 +107,8 @@
 		188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GWRecommendTagCell.xib; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTagCell.xib"; sourceTree = SOURCE_ROOT; };
 		188967021CBFE0090080E92F /* GWRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GWRecommendTag.h; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTag.h"; sourceTree = SOURCE_ROOT; };
 		188967031CBFE0090080E92F /* GWRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GWRecommendTag.m; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTag.m"; sourceTree = SOURCE_ROOT; };
+		188967071CC5155B0080E92F /* GWTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTopic.h; sourceTree = "<group>"; };
+		188967081CC5155B0080E92F /* GWTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTopic.m; sourceTree = "<group>"; };
 		514E98311CC21B8B00477611 /* GWTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTextField.h; sourceTree = "<group>"; };
 		514E98321CC21B8B00477611 /* GWTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTextField.m; sourceTree = "<group>"; };
 		51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPushGuideView.h; sourceTree = "<group>"; };
@@ -285,6 +288,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		188967051CC5152C0080E92F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				188967071CC5155B0080E92F /* GWTopic.h */,
+				188967081CC5155B0080E92F /* GWTopic.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		188967061CC5152C0080E92F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		51FB686D1CBC99BA00B23B3E = {
 			isa = PBXGroup;
 			children = (
@@ -335,8 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				51FB68AB1CBD144A00B23B3E /* Controller */,
-				51FB68AE1CBD144A00B23B3E /* Model */,
-				51FB68AF1CBD144A00B23B3E /* View */,
+				188967051CC5152C0080E92F /* Model */,
+				188967061CC5152C0080E92F /* View */,
 			);
 			path = Essence;
 			sourceTree = "<group>";
@@ -358,20 +377,6 @@
 				51D3A3F01CC4DF4200690528 /* GWWordViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		51FB68AE1CBD144A00B23B3E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		51FB68AF1CBD144A00B23B3E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		51FB68B01CBD144A00B23B3E /* FriendTrends */ = {
@@ -911,6 +916,7 @@
 				51FB69741CBF516000B23B3E /* GWRecommendUserCell.m in Sources */,
 				51FB69B11CBF859F00B23B3E /* MJRefreshGifHeader.m in Sources */,
 				51FB690D1CBF354A00B23B3E /* AFURLResponseSerialization.m in Sources */,
+				188967091CC5155B0080E92F /* GWTopic.m in Sources */,
 				51FB696C1CBF3B0F00B23B3E /* NSObject+MJProperty.m in Sources */,
 				188966FC1CBFDEA30080E92F /* GWRecommendTagViewController.m in Sources */,
 				51FB693F1CBF360F00B23B3E /* SDWebImageDownloader.m in Sources */,
