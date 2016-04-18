@@ -23,6 +23,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYB-Gi-XHP">
                     <rect key="frame" x="10" y="40" width="16" height="22"/>
                     <state key="normal" image="login_close_icon"/>
+                    <connections>
+                        <action selector="dismissClicked" destination="-1" eventType="touchUpInside" id="miO-lI-Huu"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD4-wo-Lyf">
                     <rect key="frame" x="265" y="40" width="100" height="22"/>

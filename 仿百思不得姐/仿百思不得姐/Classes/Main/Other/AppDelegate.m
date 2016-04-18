@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GWTabBarController.h"
+#import "GWPushGuideView.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,9 @@
     
     // 显示窗口
     [self.window makeKeyAndVisible];
+    
+    // 推送引导页面
+    [GWPushGuideView show];
     
     return YES;
 }

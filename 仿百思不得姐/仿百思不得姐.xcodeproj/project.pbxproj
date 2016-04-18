@@ -12,6 +12,8 @@
 		188967011CBFDF6E0080E92F /* GWRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188966FF1CBFDF6E0080E92F /* GWRecommendTagCell.xib */; };
 		188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967031CBFE0090080E92F /* GWRecommendTag.m */; };
 		514E98331CC21B8B00477611 /* GWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E98321CC21B8B00477611 /* GWTextField.m */; };
+		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
+		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
 		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
 		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
 		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
@@ -100,6 +102,9 @@
 		188967031CBFE0090080E92F /* GWRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GWRecommendTag.m; path = "仿百思不得姐/Classes/New/Controller/GWRecommendTag.m"; sourceTree = SOURCE_ROOT; };
 		514E98311CC21B8B00477611 /* GWTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTextField.h; sourceTree = "<group>"; };
 		514E98321CC21B8B00477611 /* GWTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTextField.m; sourceTree = "<group>"; };
+		51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPushGuideView.h; sourceTree = "<group>"; };
+		51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPushGuideView.m; sourceTree = "<group>"; };
+		51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPushGuideView.xib; sourceTree = "<group>"; };
 		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -466,6 +471,9 @@
 			children = (
 				51FB68C71CBD144A00B23B3E /* GWTabBar.h */,
 				51FB68C81CBD144A00B23B3E /* GWTabBar.m */,
+				51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */,
+				51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */,
+				51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +799,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */,
+				51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */,
 				51FB69531CBF390400B23B3E /* GWRecommendCagetoryCell.xib in Resources */,
 				51FB69751CBF516000B23B3E /* GWRecommendUserCell.xib in Resources */,
 				51FB69B41CBF859F00B23B3E /* MJRefresh.bundle in Resources */,
@@ -839,6 +848,7 @@
 				51FB69A71CBF859F00B23B3E /* MJRefreshBackFooter.m in Sources */,
 				51FB69441CBF360F00B23B3E /* UIImage+GIF.m in Sources */,
 				51FB69A91CBF859F00B23B3E /* MJRefreshFooter.m in Sources */,
+				51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */,
 				51FB69B61CBF859F00B23B3E /* UIScrollView+MJExtension.m in Sources */,
 				514E98331CC21B8B00477611 /* GWTextField.m in Sources */,
 				188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */,

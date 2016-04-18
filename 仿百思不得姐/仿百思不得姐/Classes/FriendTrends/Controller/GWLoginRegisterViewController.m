@@ -22,6 +22,13 @@
     
 }
 
+// 退出登录界面
+- (IBAction)dismissClicked
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// 登录注册UI切换
 - (IBAction)loginRegisterClicked:(UIButton *)button
 {
     button.selected = !button.selected;
