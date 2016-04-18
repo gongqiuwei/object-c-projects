@@ -14,6 +14,7 @@
 		514E98331CC21B8B00477611 /* GWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E98321CC21B8B00477611 /* GWTextField.m */; };
 		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
 		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
+		51D3A3E21CC4BB5600690528 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E11CC4BB5600690528 /* Foundation+Log.m */; };
 		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
 		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
 		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
@@ -105,6 +106,7 @@
 		51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPushGuideView.h; sourceTree = "<group>"; };
 		51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPushGuideView.m; sourceTree = "<group>"; };
 		51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPushGuideView.xib; sourceTree = "<group>"; };
+		51D3A3E11CC4BB5600690528 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 		51FB68B71CBD144A00B23B3E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				51D3A3E11CC4BB5600690528 /* Foundation+Log.m */,
 				51FB68B81CBD144A00B23B3E /* UIBarButtonItem+GWExtension.h */,
 				51FB68B91CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m */,
 				51FB68BA1CBD144A00B23B3E /* UIView+GWExtension.h */,
@@ -849,6 +852,7 @@
 				51FB69441CBF360F00B23B3E /* UIImage+GIF.m in Sources */,
 				51FB69A91CBF859F00B23B3E /* MJRefreshFooter.m in Sources */,
 				51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */,
+				51D3A3E21CC4BB5600690528 /* Foundation+Log.m in Sources */,
 				51FB69B61CBF859F00B23B3E /* UIScrollView+MJExtension.m in Sources */,
 				514E98331CC21B8B00477611 /* GWTextField.m in Sources */,
 				188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */,
