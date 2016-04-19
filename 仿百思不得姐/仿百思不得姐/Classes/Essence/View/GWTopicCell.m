@@ -45,7 +45,7 @@
     self.nameLabel.text = topic.name;
     self.createTimeLabel.text = topic.create_time;
     
-    // 设置按钮文字
+    // 设置按钮文字（评论为0时候显示占位文字）
     [self setupButtonTitle:self.dingButton count:topic.ding placeholder:@"顶"];
     [self setupButtonTitle:self.caiButton count:topic.cai placeholder:@"踩"];
     [self setupButtonTitle:self.shareButton count:topic.repost placeholder:@"分享"];

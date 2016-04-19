@@ -53,20 +53,26 @@
 // 添加子控制器
 - (void)initChildVcs
 {
+    // 将title与vc进行绑定，以后随意更换控制器的位置，标签栏也会跟着改变
+    GWWordViewController *word = [[GWWordViewController alloc] init];
+    word.title = @"段子";
+    [self addChildViewController:word];
+    
     GWAllViewController *all = [[GWAllViewController alloc] init];
+    all.title = @"全部";
     [self addChildViewController:all];
     
     GWVideoController *video = [[GWVideoController alloc] init];
+    video.title = @"视频";
     [self addChildViewController:video];
     
     GWAudioViewController *audio = [[GWAudioViewController alloc] init];
+    audio.title = @"声音";
     [self addChildViewController:audio];
     
     GWPictureViewController *picture = [[GWPictureViewController alloc] init];
+    picture.title = @"图片";
     [self addChildViewController:picture];
-    
-    GWWordViewController *word = [[GWWordViewController alloc] init];
-    [self addChildViewController:word];
 }
 
 // 底部的scrollview
@@ -99,11 +105,11 @@
     self.indicatorView = indicatorView;
     
     // 添加子控件
-    NSArray *titles = @[@"全部", @"视频", @"音频", @"图片", @"段子手"];
-    CGFloat buttonW = titlesView.width / titles.count;
+//    NSArray *titles = @[@"全部", @"视频", @"音频", @"图片", @"段子手"];
+    CGFloat buttonW = titlesView.width / self.childViewControllers.count;
     CGFloat buttonH = titlesView.height;
     
-    for (NSInteger i = 0; i < titles.count; i++) {
+    for (NSInteger i = 0; i < self.childViewControllers.count; i++) {
         CGFloat buttonX = i * buttonW;
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -112,7 +118,9 @@
         
         button.tag = i;
         button.titleLabel.font = [UIFont systemFontOfSize:14];
-        [button setTitle:titles[i] forState:UIControlStateNormal];
+        
+        UIViewController *vc = self.childViewControllers[i];
+        [button setTitle:vc.title forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         // 使用disable状态更新颜色，是为了防止按钮重复点击重复发送请求
         [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
