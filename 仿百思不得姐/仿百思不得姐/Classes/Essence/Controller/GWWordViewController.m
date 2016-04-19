@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
+#import "GWTopicCell.h"
 
 @interface GWWordViewController ()
 /** 帖子数据 */
@@ -23,6 +24,8 @@
 /** 上一次的请求参数, 用于甄别处理最后一次网络请求返回的数据 */
 @property (nonatomic, strong) NSDictionary *params;
 @end
+
+static NSString *const GWTopicCellId = @"topic";
 
 @implementation GWWordViewController
 
@@ -36,6 +39,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GWTopicCell class]) bundle:nil] forCellReuseIdentifier:GWTopicCellId];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     // 集成刷新控件
     [self initRefresh];
@@ -143,21 +150,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *ID = @"cell";
+    GWTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:GWTopicCellId];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
-    GWTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    cell.topic = self.topics[indexPath.row];
     
     return cell;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
 @end
