@@ -23,6 +23,7 @@
 		51D3A3F11CC4DF4200690528 /* GWWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3F01CC4DF4200690528 /* GWWordViewController.m */; };
 		51D3A3FA1CC5C91D00690528 /* GWTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3F81CC5C91D00690528 /* GWTopicCell.m */; };
 		51D3A3FB1CC5C91D00690528 /* GWTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3F91CC5C91D00690528 /* GWTopicCell.xib */; };
+		51D3A40C1CC62A0400690528 /* NSDate+GWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A40B1CC62A0400690528 /* NSDate+GWExtension.m */; };
 		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
 		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
 		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
@@ -130,6 +131,8 @@
 		51D3A3F71CC5C91D00690528 /* GWTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTopicCell.h; sourceTree = "<group>"; };
 		51D3A3F81CC5C91D00690528 /* GWTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTopicCell.m; sourceTree = "<group>"; };
 		51D3A3F91CC5C91D00690528 /* GWTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWTopicCell.xib; sourceTree = "<group>"; };
+		51D3A40A1CC62A0400690528 /* NSDate+GWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GWExtension.h"; sourceTree = "<group>"; };
+		51D3A40B1CC62A0400690528 /* NSDate+GWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GWExtension.m"; sourceTree = "<group>"; };
 		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -462,6 +465,8 @@
 				51FB68B91CBD144A00B23B3E /* UIBarButtonItem+GWExtension.m */,
 				51FB68BA1CBD144A00B23B3E /* UIView+GWExtension.h */,
 				51FB68BB1CBD144A00B23B3E /* UIView+GWExtension.m */,
+				51D3A40A1CC62A0400690528 /* NSDate+GWExtension.h */,
+				51D3A40B1CC62A0400690528 /* NSDate+GWExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -924,6 +929,7 @@
 				51FB69AD1CBF859F00B23B3E /* MJRefreshAutoStateFooter.m in Sources */,
 				51FB69741CBF516000B23B3E /* GWRecommendUserCell.m in Sources */,
 				51FB69B11CBF859F00B23B3E /* MJRefreshGifHeader.m in Sources */,
+				51D3A40C1CC62A0400690528 /* NSDate+GWExtension.m in Sources */,
 				51FB690D1CBF354A00B23B3E /* AFURLResponseSerialization.m in Sources */,
 				188967091CC5155B0080E92F /* GWTopic.m in Sources */,
 				51FB696C1CBF3B0F00B23B3E /* NSObject+MJProperty.m in Sources */,

@@ -36,6 +36,27 @@
     self.backgroundView = bgView;
 }
 
+/**
+ 日期时间处理
+    今年
+        今天
+            1分钟内
+                刚刚
+            1小时内
+                xx分钟前
+            其他
+                xx小时前
+        昨天
+            昨天 18:56:34
+        其他
+            06-23 19:56:23
+ 
+    非今年
+        2014-05-08 18:45:30
+ 
+ 在模型中进行处理
+ */
+
 - (void)setTopic:(GWTopic *)topic
 {
     _topic = topic;
