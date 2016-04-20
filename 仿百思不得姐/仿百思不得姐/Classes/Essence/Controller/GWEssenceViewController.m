@@ -172,11 +172,12 @@
     // 设置控制器view的height值为整个屏幕的高度(默认是比屏幕高度少个20)
     vc.view.height = scrollView.height;
     
-    CGFloat top = 64 + self.titlesView.height;
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    // 设置滚动条的内边距
-    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
+#warning - 待重构的代码，需要放在控制器内部
+//    CGFloat top = 64 + self.titlesView.height;
+//    CGFloat bottom = self.tabBarController.tabBar.height;
+//    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+//    // 设置滚动条的内边距
+//    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     [scrollView addSubview:vc.view];
 }
 

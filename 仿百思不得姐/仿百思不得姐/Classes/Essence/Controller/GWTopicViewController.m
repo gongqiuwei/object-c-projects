@@ -40,6 +40,12 @@ static NSString *const GWTopicCellId = @"topic";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CGFloat top = GWTitilesViewY + GWTitilesViewH;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    // 设置滚动条的内边距
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GWTopicCell class]) bundle:nil] forCellReuseIdentifier:GWTopicCellId];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -159,6 +165,19 @@ static NSString *const GWTopicCellId = @"topic";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    GWTopic *topic = self.topics[indexPath.row];
+    
+    // 计算cell的高度
+    // 文字的Y
+    CGFloat textY = GWTopicCellTextY;
+    // 文字宽度
+    CGFloat textW = [UIScreen mainScreen].bounds.size.width - 4 * GWTopicCellMargin;
+    CGSize maxSize = CGSizeMake(textW, MAXFLOAT);
+    CGFloat textH = [topic.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+    
+    // 前面的margin是text与bottomBar的间距， 后面的margin是2个cell之间的margin
+    CGFloat cellH = textY + textH + GWTopicCellMargin + GWTopicCellBottomBarH + GWTopicCellMargin;
+    
+    return cellH;
 }
 @end

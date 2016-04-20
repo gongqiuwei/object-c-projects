@@ -143,19 +143,28 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_AddV_authen" translatesAutoresizingMaskIntoConstraints="NO" id="iie-J1-vbP">
                         <rect key="frame" x="36" y="36" width="14" height="14"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjd-7K-bqy">
+                        <rect key="frame" x="10" y="55" width="300" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DpB-pz-Y2W" firstAttribute="bottom" secondItem="vJx-dy-4q9" secondAttribute="bottom" id="1lD-sw-BcX"/>
                     <constraint firstItem="iie-J1-vbP" firstAttribute="trailing" secondItem="vJx-dy-4q9" secondAttribute="trailing" constant="5" id="5Jd-R6-5O3"/>
+                    <constraint firstItem="Sjd-7K-bqy" firstAttribute="trailing" secondItem="RkB-BA-DPG" secondAttribute="trailing" id="CdU-Kn-AKc"/>
                     <constraint firstItem="LOp-8K-uSW" firstAttribute="leading" secondItem="vJx-dy-4q9" secondAttribute="trailing" constant="10" id="Pwv-7c-fcv"/>
                     <constraint firstItem="vJx-dy-4q9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="REC-Qv-x6z"/>
                     <constraint firstItem="iie-J1-vbP" firstAttribute="bottom" secondItem="vJx-dy-4q9" secondAttribute="bottom" constant="5" id="V0f-bS-1zS"/>
+                    <constraint firstItem="Sjd-7K-bqy" firstAttribute="leading" secondItem="vJx-dy-4q9" secondAttribute="leading" id="XCZ-pq-Y1O"/>
                     <constraint firstAttribute="trailing" secondItem="RkB-BA-DPG" secondAttribute="trailing" constant="10" id="Y0y-ve-YU8"/>
                     <constraint firstAttribute="bottom" secondItem="5qK-wT-Tti" secondAttribute="bottom" id="aqe-tv-Hgw"/>
                     <constraint firstAttribute="trailing" secondItem="5qK-wT-Tti" secondAttribute="trailing" id="fFM-20-See"/>
                     <constraint firstItem="vJx-dy-4q9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="fsP-2f-ngt"/>
                     <constraint firstItem="RkB-BA-DPG" firstAttribute="centerY" secondItem="vJx-dy-4q9" secondAttribute="centerY" id="fuz-2E-hO7"/>
                     <constraint firstItem="DpB-pz-Y2W" firstAttribute="leading" secondItem="LOp-8K-uSW" secondAttribute="leading" id="k8o-Tj-AZs"/>
+                    <constraint firstItem="Sjd-7K-bqy" firstAttribute="top" secondItem="vJx-dy-4q9" secondAttribute="bottom" constant="10" id="kMU-qK-QtI"/>
                     <constraint firstItem="LOp-8K-uSW" firstAttribute="top" secondItem="vJx-dy-4q9" secondAttribute="top" id="kNn-Q1-dnK"/>
                     <constraint firstItem="5qK-wT-Tti" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tD8-IX-BcH"/>
                 </constraints>
@@ -165,6 +174,7 @@
                 <outlet property="commentButton" destination="7FY-wv-lZa" id="ulK-AQ-Phz"/>
                 <outlet property="createTimeLabel" destination="DpB-pz-Y2W" id="JmG-MC-fvf"/>
                 <outlet property="dingButton" destination="ocX-DV-f8m" id="7KI-vN-2aG"/>
+                <outlet property="my_textLabel" destination="Sjd-7K-bqy" id="yfE-u6-myH"/>
                 <outlet property="nameLabel" destination="LOp-8K-uSW" id="fVe-zj-G11"/>
                 <outlet property="profileImageView" destination="vJx-dy-4q9" id="pMI-Xh-QAX"/>
                 <outlet property="shareButton" destination="8R8-Ns-Qjr" id="EId-0A-BvL"/>

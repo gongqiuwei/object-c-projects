@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 /** 新浪加V */
 @property (weak, nonatomic) IBOutlet UIImageView *sinaVView;
+@property (weak, nonatomic) IBOutlet UILabel *my_textLabel;
+
 @end
 
 @implementation GWTopicCell
@@ -67,6 +69,7 @@
     self.sinaVView.hidden = !topic.isSina_v;
     
     // 设置其他控件
+    self.my_textLabel.text = topic.text;
     [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
     self.createTimeLabel.text = topic.create_time;
@@ -90,13 +93,12 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    static CGFloat margin = 10;
-    frame.origin.x = margin;
-    frame.size.width -= 2 * margin;
+    frame.origin.x = GWTopicCellMargin;
+    frame.size.width -= 2 * GWTopicCellMargin;
     // 所有的cell高度-10，留出分隔
-    frame.size.height -= margin;
+    frame.size.height -= GWTopicCellMargin;
     // 所有的cell下移10
-    frame.origin.y += margin;
+    frame.origin.y += GWTopicCellMargin;
     
     [super setFrame:frame];
 }
