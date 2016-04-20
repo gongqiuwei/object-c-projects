@@ -167,17 +167,6 @@ static NSString *const GWTopicCellId = @"topic";
 {
     GWTopic *topic = self.topics[indexPath.row];
     
-    // 计算cell的高度
-    // 文字的Y
-    CGFloat textY = GWTopicCellTextY;
-    // 文字宽度
-    CGFloat textW = [UIScreen mainScreen].bounds.size.width - 4 * GWTopicCellMargin;
-    CGSize maxSize = CGSizeMake(textW, MAXFLOAT);
-    CGFloat textH = [topic.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
-    
-    // 前面的margin是text与bottomBar的间距， 后面的margin是2个cell之间的margin
-    CGFloat cellH = textY + textH + GWTopicCellMargin + GWTopicCellBottomBarH + GWTopicCellMargin;
-    
-    return cellH;
+    return topic.cellHeight;
 }
 @end
