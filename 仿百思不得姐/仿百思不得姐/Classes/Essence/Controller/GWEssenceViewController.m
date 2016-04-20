@@ -7,11 +7,7 @@
 //
 
 #import "GWEssenceViewController.h"
-#import "GWAllViewController.h"
-#import "GWVideoController.h"
-#import "GWAudioViewController.h"
-#import "GWPictureViewController.h"
-#import "GWWordViewController.h"
+#import "GWTopicViewController.h"
 
 @interface GWEssenceViewController ()<UIScrollViewDelegate>
 /** 红色指示器 */
@@ -54,24 +50,29 @@
 - (void)initChildVcs
 {
     // 将title与vc进行绑定，以后随意更换控制器的位置，标签栏也会跟着改变
-    GWWordViewController *word = [[GWWordViewController alloc] init];
+    GWTopicViewController *word = [[GWTopicViewController alloc] init];
     word.title = @"段子";
+    word.type = GWTopicTypeWord;
     [self addChildViewController:word];
     
-    GWAllViewController *all = [[GWAllViewController alloc] init];
+    GWTopicViewController *all = [[GWTopicViewController alloc] init];
     all.title = @"全部";
+    all.type = GWTopicTypeAll;
     [self addChildViewController:all];
     
-    GWVideoController *video = [[GWVideoController alloc] init];
+    GWTopicViewController *video = [[GWTopicViewController alloc] init];
     video.title = @"视频";
+    video.type = GWTopicTypeVideo;
     [self addChildViewController:video];
     
-    GWAudioViewController *audio = [[GWAudioViewController alloc] init];
+    GWTopicViewController *audio = [[GWTopicViewController alloc] init];
     audio.title = @"声音";
+    audio.type = GWTopicTypeVoice;
     [self addChildViewController:audio];
     
-    GWPictureViewController *picture = [[GWPictureViewController alloc] init];
+    GWTopicViewController *picture = [[GWTopicViewController alloc] init];
     picture.title = @"图片";
+    picture.type = GWTopicTypePicture;
     [self addChildViewController:picture];
 }
 

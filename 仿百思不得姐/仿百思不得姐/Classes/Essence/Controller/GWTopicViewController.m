@@ -6,7 +6,7 @@
 //  Copyright © 2016年 gongqiuwei. All rights reserved.
 //  纯文字的界面（段子）
 
-#import "GWWordViewController.h"
+#import "GWTopicViewController.h"
 #import "GWTopic.h"
 #import "AFNetworking.h"
 #import "MJRefresh.h"
@@ -14,7 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "GWTopicCell.h"
 
-@interface GWWordViewController ()
+@interface GWTopicViewController ()
 /** 帖子数据 */
 @property (nonatomic, strong) NSMutableArray *topics;
 /** 当前页码 */
@@ -27,7 +27,7 @@
 
 static NSString *const GWTopicCellId = @"topic";
 
-@implementation GWWordViewController
+@implementation GWTopicViewController
 
 - (NSMutableArray *)topics
 {
@@ -68,7 +68,7 @@ static NSString *const GWTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.type);
     self.params = params;
     
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -109,7 +109,7 @@ static NSString *const GWTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.type);
     params[@"page"] = @(self.page + 1);
     params[@"maxtime"] = self.maxtime;
     self.params = params;

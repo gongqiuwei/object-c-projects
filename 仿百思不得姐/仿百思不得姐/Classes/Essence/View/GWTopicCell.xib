@@ -140,11 +140,16 @@
                             <constraint firstItem="23h-3X-gr6" firstAttribute="leading" secondItem="5qK-wT-Tti" secondAttribute="leading" id="yHI-JP-qKv"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_AddV_authen" translatesAutoresizingMaskIntoConstraints="NO" id="iie-J1-vbP">
+                        <rect key="frame" x="36" y="36" width="14" height="14"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DpB-pz-Y2W" firstAttribute="bottom" secondItem="vJx-dy-4q9" secondAttribute="bottom" id="1lD-sw-BcX"/>
+                    <constraint firstItem="iie-J1-vbP" firstAttribute="trailing" secondItem="vJx-dy-4q9" secondAttribute="trailing" constant="5" id="5Jd-R6-5O3"/>
                     <constraint firstItem="LOp-8K-uSW" firstAttribute="leading" secondItem="vJx-dy-4q9" secondAttribute="trailing" constant="10" id="Pwv-7c-fcv"/>
                     <constraint firstItem="vJx-dy-4q9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="REC-Qv-x6z"/>
+                    <constraint firstItem="iie-J1-vbP" firstAttribute="bottom" secondItem="vJx-dy-4q9" secondAttribute="bottom" constant="5" id="V0f-bS-1zS"/>
                     <constraint firstAttribute="trailing" secondItem="RkB-BA-DPG" secondAttribute="trailing" constant="10" id="Y0y-ve-YU8"/>
                     <constraint firstAttribute="bottom" secondItem="5qK-wT-Tti" secondAttribute="bottom" id="aqe-tv-Hgw"/>
                     <constraint firstAttribute="trailing" secondItem="5qK-wT-Tti" secondAttribute="trailing" id="fFM-20-See"/>
@@ -163,11 +168,13 @@
                 <outlet property="nameLabel" destination="LOp-8K-uSW" id="fVe-zj-G11"/>
                 <outlet property="profileImageView" destination="vJx-dy-4q9" id="pMI-Xh-QAX"/>
                 <outlet property="shareButton" destination="8R8-Ns-Qjr" id="EId-0A-BvL"/>
+                <outlet property="sinaVView" destination="iie-J1-vbP" id="P2z-sx-97O"/>
             </connections>
             <point key="canvasLocation" x="477" y="252"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Profile_AddV_authen" width="14" height="14"/>
         <image name="cell-button-line" width="1" height="29"/>
         <image name="cell-content-line" width="299" height="1"/>
         <image name="cellFollowClickIcon" width="19" height="20"/>
