@@ -7,8 +7,14 @@
 //
 
 #import "GWRecommendCategory.h"
+#import "MJExtension.h"
 
 @implementation GWRecommendCategory
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{@"ID":@"id"};
+}
+
 - (NSMutableArray *)users
 {
     if (!_users) {

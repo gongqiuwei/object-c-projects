@@ -8,10 +8,20 @@
 
 #import "GWTopic.h"
 #import "NSDate+GWExtension.h"
+#import "MJExtension.h"
 
 @implementation GWTopic
 {
     CGFloat _cellHeight; // 变量申明
+}
+
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"small_image" : @"image0",
+             @"large_image" : @"image1",
+             @"middle_image" : @"image2"
+             };
 }
 
 - (NSString *)create_time

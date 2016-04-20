@@ -27,7 +27,16 @@
 @property (nonatomic, assign) NSInteger comment;
 /** 是否为新浪加V用户 */
 @property (nonatomic, assign, getter=isSina_v) BOOL sina_v;
-
+/** 图片的宽度 */
+@property (nonatomic, assign) CGFloat width;
+/** 图片的高度 */
+@property (nonatomic, assign) CGFloat height;
+/** 小图片的URL */
+@property (nonatomic, copy) NSString *small_image;
+/** 中图片的URL */
+@property (nonatomic, copy) NSString *middle_image;
+/** 大图片的URL */
+@property (nonatomic, copy) NSString *large_image;
 
 /****** 额外的辅助属性 ******/
 
