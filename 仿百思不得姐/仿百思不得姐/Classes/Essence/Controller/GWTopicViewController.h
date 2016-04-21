@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, GWTopicType) {
-    GWTopicTypeAll = 1,
-    GWTopicTypePicture = 10,
-    GWTopicTypeWord = 29,
-    GWTopicTypeVoice = 31,
-    GWTopicTypeVideo = 41
-};
-
 @interface GWTopicViewController : UITableViewController
 /** 帖子类型(交给子类去实现) */
 @property (nonatomic, assign) GWTopicType type;

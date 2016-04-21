@@ -9,6 +9,7 @@
 #import "GWTopicCell.h"
 #import "GWTopic.h"
 #import "UIImageView+WebCache.h"
+#import "GWTopicPictureView.h"
 
 @interface GWTopicCell()
 /** 头像 */
@@ -29,9 +30,22 @@
 @property (weak, nonatomic) IBOutlet UIImageView *sinaVView;
 @property (weak, nonatomic) IBOutlet UILabel *my_textLabel;
 
+
+/** 中间的内容是图片 */
+@property (nonatomic, weak) GWTopicPictureView *pictureView;
 @end
 
 @implementation GWTopicCell
+
+- (GWTopicPictureView *)pictureView
+{
+    if (_pictureView == nil) {
+        GWTopicPictureView *view = [GWTopicPictureView pictureView];
+        [self.contentView addSubview:view];
+        _pictureView = view;
+    }
+    return _pictureView;
+}
 
 - (void)awakeFromNib
 {
@@ -40,26 +54,6 @@
     self.backgroundView = bgView;
 }
 
-/**
- 日期时间处理
-    今年
-        今天
-            1分钟内
-                刚刚
-            1小时内
-                xx分钟前
-            其他
-                xx小时前
-        昨天
-            昨天 18:56:34
-        其他
-            06-23 19:56:23
- 
-    非今年
-        2014-05-08 18:45:30
- 
- 在模型中进行处理
- */
 
 - (void)setTopic:(GWTopic *)topic
 {
@@ -79,6 +73,11 @@
     [self setupButtonTitle:self.caiButton count:topic.cai placeholder:@"踩"];
     [self setupButtonTitle:self.shareButton count:topic.repost placeholder:@"分享"];
     [self setupButtonTitle:self.commentButton count:topic.comment placeholder:@"评论"];
+    
+    if (topic.type == GWTopicTypePicture) { // 中间内容是图片
+        self.pictureView.topic = topic;
+        self.pictureView.frame = topic.pictureF;
+    }
 }
 
 - (void)setupButtonTitle:(UIButton *)button count:(NSInteger)count placeholder:(NSString *)placeholder

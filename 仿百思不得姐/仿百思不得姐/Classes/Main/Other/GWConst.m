@@ -12,3 +12,8 @@ CGFloat const GWTopicCellMargin = 10;
 CGFloat const GWTopicCellTextY = 55;
 /** 精华-cell-底部工具条的高度 */
 CGFloat const GWTopicCellBottomBarH = 44;
+
+/** 精华-cell-图片帖子的最大高度 */
+CGFloat const GWTopicCellPictureMaxH = 1000;
+/** 精华-cell-图片帖子一旦超过最大高度,就是用Break */
+CGFloat const GWTopicCellPictureBreakH = 250;

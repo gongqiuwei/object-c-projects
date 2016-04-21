@@ -24,8 +24,30 @@
              };
 }
 
+
 - (NSString *)create_time
 {
+    /**
+     日期时间处理
+     今年
+     今天
+     1分钟内
+     刚刚
+     1小时内
+     xx分钟前
+     其他
+     xx小时前
+     昨天
+     昨天 18:56:34
+     其他
+     06-23 19:56:23
+     
+     非今年
+     2014-05-08 18:45:30
+     
+     在模型中进行处理
+     */
+    
     // 日期格式化类
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     // 设置日期格式(y:年,M:月,d:日,H:时,m:分,s:秒)
@@ -67,8 +89,32 @@
         CGSize maxSize = CGSizeMake(textW, MAXFLOAT);
         CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
         
-        // 前面的margin是text与bottomBar的间距， 后面的margin是2个cell之间的margin
-        _cellHeight = textY + textH + GWTopicCellMargin + GWTopicCellBottomBarH + GWTopicCellMargin;
+        // 计算cell的高度
+        // 文字部分的高度
+        _cellHeight = GWTopicCellTextY + textH + GWTopicCellMargin;
+        
+        if (self.type == GWTopicTypePicture) { // 是图片
+            // 图片显示出来的宽度
+            CGFloat pictureW = maxSize.width;
+            // 显示显示出来的高度
+            CGFloat pictureH = pictureW * self.height / self.width;
+            
+            if (pictureH >= GWTopicCellPictureMaxH) { // 图片高度过长
+                pictureH = GWTopicCellPictureBreakH;
+                self.bigPicture = YES; // 大图
+            }
+            
+            // 计算图片控件的frame
+            CGFloat pictureX = GWTopicCellMargin;
+            CGFloat pictureY = GWTopicCellTextY + textH + GWTopicCellMargin;
+            _pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+            
+            // margin是图片与bottomBar的间距
+            _cellHeight += pictureH + GWTopicCellMargin;
+        }
+        
+        // bottomBar的间距, 2个cell之间的margin
+        _cellHeight += GWTopicCellBottomBarH + GWTopicCellMargin;
     }
     return _cellHeight;
 }

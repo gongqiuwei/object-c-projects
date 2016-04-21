@@ -55,7 +55,25 @@
 		
 		- 计算text文本的高度
 		
-
+	- 各种类型的cell展示流程
+		1、cell的主体界面搭建好，中间是各种图片、音频等的位置，先空出来
+		2、根据返回的type确定cell的类型，计算cell的高度
+	 	
+	 	- text的cell 
+	 		中间的高度为0，因此最简单
+	 		
+	 	- picture的cell
+	 	
+	 		- 自定义一个pictureView，为中间展示的内容
+	 		- 在topic模型中计算pictureView的frame位置
+	 		- cell中使用懒加载的方式加载pictureView，在setTopic：中判定cell的类型，当为picture的时候，给pictureView赋值frame
+	 		- 注意：如果给pictureView的frame进行了赋值，并且打印frame是自己赋值的，但是显示出来的尺寸确不一样，有可能是view的autoresizingMask属性在作怪，需要设置为UIViewAutoresizingNone
+	 		- 图片太长的处理：
+	 			图片尺寸超出一定长度之后，需要变成小图，这时候需要设置imageView的contentMode，不然大图无法展示
+	 			同时要设置imageView超出部分进行裁剪
+	 		- 大图片的加载过程： 需要一个占位图片
+	 			
+	
 ### 2 我的关注模块
 - 推荐关注界面
 

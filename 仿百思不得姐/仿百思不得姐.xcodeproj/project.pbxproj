@@ -13,6 +13,8 @@
 		188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967031CBFE0090080E92F /* GWRecommendTag.m */; };
 		188967091CC5155B0080E92F /* GWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967081CC5155B0080E92F /* GWTopic.m */; };
 		514E98331CC21B8B00477611 /* GWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E98321CC21B8B00477611 /* GWTextField.m */; };
+		51529C041CC8DBA100A6983E /* GWTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C031CC8DBA100A6983E /* GWTopicPictureView.m */; };
+		51529C061CC8DBAF00A6983E /* GWTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51529C051CC8DBAF00A6983E /* GWTopicPictureView.xib */; };
 		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
 		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
 		51D3A3E21CC4BB5600690528 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E11CC4BB5600690528 /* Foundation+Log.m */; };
@@ -111,6 +113,9 @@
 		188967081CC5155B0080E92F /* GWTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTopic.m; sourceTree = "<group>"; };
 		514E98311CC21B8B00477611 /* GWTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTextField.h; sourceTree = "<group>"; };
 		514E98321CC21B8B00477611 /* GWTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTextField.m; sourceTree = "<group>"; };
+		51529C021CC8DBA100A6983E /* GWTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTopicPictureView.h; sourceTree = "<group>"; };
+		51529C031CC8DBA100A6983E /* GWTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTopicPictureView.m; sourceTree = "<group>"; };
+		51529C051CC8DBAF00A6983E /* GWTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWTopicPictureView.xib; sourceTree = "<group>"; };
 		51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPushGuideView.h; sourceTree = "<group>"; };
 		51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPushGuideView.m; sourceTree = "<group>"; };
 		51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPushGuideView.xib; sourceTree = "<group>"; };
@@ -302,6 +307,9 @@
 				51D3A3F71CC5C91D00690528 /* GWTopicCell.h */,
 				51D3A3F81CC5C91D00690528 /* GWTopicCell.m */,
 				51D3A3F91CC5C91D00690528 /* GWTopicCell.xib */,
+				51529C021CC8DBA100A6983E /* GWTopicPictureView.h */,
+				51529C031CC8DBA100A6983E /* GWTopicPictureView.m */,
+				51529C051CC8DBAF00A6983E /* GWTopicPictureView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -832,6 +840,7 @@
 				51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */,
 				51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */,
 				51FB69531CBF390400B23B3E /* GWRecommendCagetoryCell.xib in Resources */,
+				51529C061CC8DBAF00A6983E /* GWTopicPictureView.xib in Resources */,
 				51FB69751CBF516000B23B3E /* GWRecommendUserCell.xib in Resources */,
 				51FB69B41CBF859F00B23B3E /* MJRefresh.bundle in Resources */,
 				188967011CBFDF6E0080E92F /* GWRecommendTagCell.xib in Resources */,
@@ -853,6 +862,7 @@
 				51FB69471CBF360F00B23B3E /* UIImageView+HighlightedWebCache.m in Sources */,
 				51D3A4151CC793A900690528 /* GWTopicViewController.m in Sources */,
 				51FB69AB1CBF859F00B23B3E /* MJRefreshAutoGifFooter.m in Sources */,
+				51529C041CC8DBA100A6983E /* GWTopicPictureView.m in Sources */,
 				51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */,
 				51FB69411CBF360F00B23B3E /* SDWebImageManager.m in Sources */,
 				51FB693D1CBF360F00B23B3E /* SDWebImageCompat.m in Sources */,
