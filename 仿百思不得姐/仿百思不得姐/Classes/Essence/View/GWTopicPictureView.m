@@ -55,12 +55,18 @@
 {
     _topic = topic;
     
+    // 重置view的下载进度（解决cell的重复利用导致的进度值失真的问题）
+    [self.progressView setProgress:topic.pictureProgress animated:NO];
+    
     // 设置加载进度
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         self.progressView.hidden = NO;
         CGFloat progress = 1.0 * receivedSize / expectedSize;
-        [self.progressView setProgress:progress animated:YES];
+        [self.progressView setProgress:progress animated:NO];
+        
+        // 保存下载进度（解决cell的重复利用导致的进度值失真的问题）
+        topic.pictureProgress = progress;
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         

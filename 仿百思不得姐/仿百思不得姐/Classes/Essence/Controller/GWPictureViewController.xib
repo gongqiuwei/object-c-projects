@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GWPictureViewController">
             <connections>
+                <outlet property="progressView" destination="C4H-Nm-5UY" id="4vg-3d-PcX"/>
                 <outlet property="scrollView" destination="1aX-n5-pfL" id="CNd-26-Spl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -51,16 +52,26 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4H-Nm-5UY" userLabel="进度条" customClass="GWProgressView">
+                    <rect key="frame" x="157" y="304" width="60" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="6XP-0B-uoO"/>
+                        <constraint firstAttribute="width" constant="60" id="WLw-9x-QH3"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="1aX-n5-pfL" secondAttribute="trailing" id="1Wd-4y-0dE"/>
                 <constraint firstAttribute="bottom" secondItem="bNm-kg-YYJ" secondAttribute="bottom" constant="20" id="1dC-aE-I0K"/>
                 <constraint firstAttribute="bottom" secondItem="1aX-n5-pfL" secondAttribute="bottom" id="3lX-sD-E1y"/>
+                <constraint firstItem="C4H-Nm-5UY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="FWu-I4-wUI"/>
                 <constraint firstItem="2No-cN-jOO" firstAttribute="leading" secondItem="bNm-kg-YYJ" secondAttribute="trailing" constant="15" id="RMt-l7-aao"/>
                 <constraint firstItem="ckV-jI-N2n" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Wt3-W9-HXp"/>
                 <constraint firstAttribute="trailing" secondItem="2No-cN-jOO" secondAttribute="trailing" constant="15" id="cYv-me-8vu"/>
                 <constraint firstAttribute="bottom" secondItem="2No-cN-jOO" secondAttribute="bottom" constant="20" id="ckA-EO-npc"/>
+                <constraint firstItem="C4H-Nm-5UY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dkx-Qf-vfN"/>
                 <constraint firstItem="1aX-n5-pfL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j6i-cS-LEG"/>
                 <constraint firstItem="ckV-jI-N2n" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="jzC-X9-ejH"/>
                 <constraint firstItem="1aX-n5-pfL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sm7-WP-TZj"/>

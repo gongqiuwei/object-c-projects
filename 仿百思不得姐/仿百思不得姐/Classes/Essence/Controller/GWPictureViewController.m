@@ -10,10 +10,13 @@
 #import "GWTopic.h"
 #import "UIImageView+WebCache.h"
 #import "SVProgressHUD.h"
+#import "GWProgressView.h"
 
 @interface GWPictureViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet GWProgressView *progressView;
+
 @end
 
 @implementation GWPictureViewController
@@ -27,7 +30,7 @@
     
     // 添加imageView
     UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image]];
+//    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image]];
     [self.scrollView addSubview:imageView];
     self.imageView = imageView;
     
@@ -42,6 +45,17 @@
         imageView.size = CGSizeMake(imageW, imageH);
         imageView.centerY = screenH * 0.5;
     }
+    
+    // 马上显示当前图片的下载进度
+    [self.progressView setProgress:self.topic.pictureProgress animated:YES];
+    
+    // 下载图片
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        self.topic.pictureProgress = 1.0 * receivedSize / expectedSize;
+        [self.progressView setProgress:self.topic.pictureProgress animated:NO];
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.progressView.hidden = YES;
+    }];
 }
 
 
