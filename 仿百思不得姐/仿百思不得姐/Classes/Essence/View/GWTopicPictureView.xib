@@ -11,8 +11,15 @@
             <rect key="frame" x="0.0" y="0.0" width="306" height="204"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="qbv-vj-PAo" userLabel="背景图标">
+                    <rect key="frame" x="0.0" y="15" width="306" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Z97-0f-7cS"/>
+                    </constraints>
+                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8DO-Wr-r7V" userLabel="图片">
                     <rect key="frame" x="0.0" y="0.0" width="306" height="204"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="1d8-9P-Oll" userLabel="git标识">
                     <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
@@ -27,12 +34,15 @@
                     <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="1d8-9P-Oll" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3If-JA-u0o"/>
+                <constraint firstItem="qbv-vj-PAo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="4ws-8p-B7B"/>
                 <constraint firstItem="8DO-Wr-r7V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K43-5C-XRy"/>
                 <constraint firstAttribute="trailing" secondItem="Hca-If-mCB" secondAttribute="trailing" id="Rau-Iu-NNh"/>
                 <constraint firstAttribute="bottom" secondItem="Hca-If-mCB" secondAttribute="bottom" id="SE1-cA-hfU"/>
+                <constraint firstAttribute="trailing" secondItem="qbv-vj-PAo" secondAttribute="trailing" id="UEN-Zc-dSK"/>
+                <constraint firstItem="qbv-vj-PAo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dOf-ab-drl"/>
                 <constraint firstItem="8DO-Wr-r7V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jU0-Ij-iqV"/>
                 <constraint firstItem="1d8-9P-Oll" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ncX-v7-CEA"/>
                 <constraint firstItem="Hca-If-mCB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pd8-w2-ako"/>
@@ -51,6 +61,7 @@
     </objects>
     <resources>
         <image name="common-gif" width="31" height="31"/>
+        <image name="post_placeholderImage" width="145" height="30"/>
         <image name="see-big-picture" width="19" height="19"/>
         <image name="see-big-picture-background" width="285" height="43"/>
     </resources>
