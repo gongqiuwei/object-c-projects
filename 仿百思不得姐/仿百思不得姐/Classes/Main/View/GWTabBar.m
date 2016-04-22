@@ -7,6 +7,7 @@
 //
 
 #import "GWTabBar.h"
+#import "GWPublishViewController.h"
 
 @interface GWTabBar()
 @property (nonatomic, weak) UIButton *publishButton;
@@ -27,11 +28,18 @@
         
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [publishButton addTarget:self action:@selector(publishClicked) forControlEvents:UIControlEventTouchUpInside];
         
         publishButton.size = publishButton.currentBackgroundImage.size;
         
     }
     return self;
+}
+
+- (void)publishClicked
+{
+    GWPublishViewController *publish = [[GWPublishViewController alloc] init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publish animated:NO completion:nil];
 }
 
 - (void)layoutSubviews
