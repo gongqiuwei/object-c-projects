@@ -71,6 +71,25 @@
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
         self.progressView.hidden = YES;
+        
+        // 大图只显示图片的上部分
+        if (!topic.isBigPicture) return;
+        
+        // 开启上下文，尺寸为imageView的尺寸
+        UIGraphicsBeginImageContextWithOptions(topic.pictureF.size, YES, 0.0);
+        
+        // 计算绘制的尺寸(图片等比例缩小后的尺寸)
+        CGFloat width = topic.pictureF.size.width;
+        CGFloat height = width * topic.height / topic.width;
+        
+        // 虚拟一个大的rect让图片进行绘制（由于这个rect的size超出了上下文的尺寸，因此只会保留从（0，0）开始的部分context尺寸）
+        [image drawInRect:CGRectMake(0, 0, width, height)];
+        
+        // 获取图片
+        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        // 结束上下文
+        UIGraphicsEndImageContext();
     }];
     
     // 判断是否为gif
@@ -80,10 +99,12 @@
     // 判断是否显示"点击查看全图"
     if (topic.isBigPicture) { // 大图
         self.seeBigButton.hidden = NO;
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        // 由于image进行了处理，不需要设置模式了，xib中的clipSubViews属性也不需要设置了
+//        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     } else { // 非大图
         self.seeBigButton.hidden = YES;
-        self.imageView.contentMode = UIViewContentModeScaleToFill;
+        // 由于image进行了处理，不需要设置模式了， xib中的clipSubViews属性也不需要设置了
+//        self.imageView.contentMode = UIViewContentModeScaleToFill;
     }
 }
 @end
