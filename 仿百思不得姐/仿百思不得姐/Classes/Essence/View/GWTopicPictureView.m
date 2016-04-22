@@ -9,6 +9,7 @@
 #import "GWTopicPictureView.h"
 #import "GWTopic.h"
 #import "UIImageView+WebCache.h"
+#import "GWProgressView.h"
 
 @interface GWTopicPictureView()
 /** 图片 */
@@ -17,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *gifView;
 /** 查看大图按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *seeBigButton;
+@property (weak, nonatomic) IBOutlet GWProgressView *progressView;
+
 @end
 
 @implementation GWTopicPictureView
@@ -35,7 +38,17 @@
 {
     _topic = topic;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    // 设置加载进度
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+        self.progressView.hidden = NO;
+        CGFloat progress = 1.0 * receivedSize / expectedSize;
+        [self.progressView setProgress:progress animated:YES];
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        self.progressView.hidden = YES;
+    }];
     
     // 判断是否为gif
     NSString *extension = topic.large_image.pathExtension;

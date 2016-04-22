@@ -72,7 +72,12 @@
 	 			图片尺寸超出一定长度之后，需要变成小图，这时候需要设置imageView的contentMode，不然大图无法展示
 	 			同时要设置imageView超出部分进行裁剪
 	 		- 大图片的加载过程： 需要一个占位图片
-	 			- 利用imageView的UIViewContentModeScaleAspectFit的模式，可以让图片完全，自动进行等比例拉伸，
+	 			- 利用imageView的UIViewContentModeScaleAspectFit的模式，可以让图片完全，自动进行等比例拉伸
+	 			- 背景图片在要显示的图片之前加入view中，等图片加载完成就会遮掉背景图片，同时图片的imageView的背景色需要设置为clearColor不然背景图标无法看见
+	 		- 加载过程的进度条：使用第三方框架
+	 			- 使用第三方框架有风险，降低风险有以下几种方式：
+	 				- 继承（一般是View等控件）
+	 				- 封装（AFN、SD等比较底层的框架）
 	 			
 	
 ### 2 我的关注模块

@@ -15,6 +15,9 @@
 		514E98331CC21B8B00477611 /* GWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 514E98321CC21B8B00477611 /* GWTextField.m */; };
 		51529C041CC8DBA100A6983E /* GWTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C031CC8DBA100A6983E /* GWTopicPictureView.m */; };
 		51529C061CC8DBAF00A6983E /* GWTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51529C051CC8DBAF00A6983E /* GWTopicPictureView.xib */; };
+		51529C0C1CC9BD3F00A6983E /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C091CC9BD3F00A6983E /* DACircularProgressView.m */; };
+		51529C0D1CC9BD3F00A6983E /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C0B1CC9BD3F00A6983E /* DALabeledCircularProgressView.m */; };
+		51529C101CC9BE2C00A6983E /* GWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C0F1CC9BE2C00A6983E /* GWProgressView.m */; };
 		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
 		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
 		51D3A3E21CC4BB5600690528 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E11CC4BB5600690528 /* Foundation+Log.m */; };
@@ -116,6 +119,12 @@
 		51529C021CC8DBA100A6983E /* GWTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTopicPictureView.h; sourceTree = "<group>"; };
 		51529C031CC8DBA100A6983E /* GWTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTopicPictureView.m; sourceTree = "<group>"; };
 		51529C051CC8DBAF00A6983E /* GWTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWTopicPictureView.xib; sourceTree = "<group>"; };
+		51529C081CC9BD3F00A6983E /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		51529C091CC9BD3F00A6983E /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		51529C0A1CC9BD3F00A6983E /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
+		51529C0B1CC9BD3F00A6983E /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
+		51529C0E1CC9BE2C00A6983E /* GWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProgressView.h; sourceTree = "<group>"; };
+		51529C0F1CC9BE2C00A6983E /* GWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProgressView.m; sourceTree = "<group>"; };
 		51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPushGuideView.h; sourceTree = "<group>"; };
 		51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPushGuideView.m; sourceTree = "<group>"; };
 		51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPushGuideView.xib; sourceTree = "<group>"; };
@@ -310,8 +319,21 @@
 				51529C021CC8DBA100A6983E /* GWTopicPictureView.h */,
 				51529C031CC8DBA100A6983E /* GWTopicPictureView.m */,
 				51529C051CC8DBAF00A6983E /* GWTopicPictureView.xib */,
+				51529C0E1CC9BE2C00A6983E /* GWProgressView.h */,
+				51529C0F1CC9BE2C00A6983E /* GWProgressView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		51529C071CC9BD3F00A6983E /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				51529C081CC9BD3F00A6983E /* DACircularProgressView.h */,
+				51529C091CC9BD3F00A6983E /* DACircularProgressView.m */,
+				51529C0A1CC9BD3F00A6983E /* DALabeledCircularProgressView.h */,
+				51529C0B1CC9BD3F00A6983E /* DALabeledCircularProgressView.m */,
+			);
+			path = DACircularProgress;
 			sourceTree = "<group>";
 		};
 		51FB686D1CBC99BA00B23B3E = {
@@ -476,6 +498,7 @@
 		51FB68BF1CBD144A00B23B3E /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				51529C071CC9BD3F00A6983E /* DACircularProgress */,
 				51FB69791CBF859F00B23B3E /* MJRefresh */,
 				51FB69541CBF3B0F00B23B3E /* MJExtension */,
 				51FB69181CBF360F00B23B3E /* SDWebImage */,
@@ -910,6 +933,7 @@
 				51FB690E1CBF354A00B23B3E /* AFURLSessionManager.m in Sources */,
 				51FB69681CBF3B0F00B23B3E /* MJProperty.m in Sources */,
 				51FB69661CBF3B0F00B23B3E /* MJConst.m in Sources */,
+				51529C0D1CC9BD3F00A6983E /* DALabeledCircularProgressView.m in Sources */,
 				51FB69401CBF360F00B23B3E /* SDWebImageDownloaderOperation.m in Sources */,
 				51D3A4181CC79AEC00690528 /* GWConst.m in Sources */,
 				51FB696A1CBF3B0F00B23B3E /* NSObject+MJCoding.m in Sources */,
@@ -917,6 +941,8 @@
 				188967001CBFDF6E0080E92F /* GWRecommendTagCell.m in Sources */,
 				51FB68D51CBD144A00B23B3E /* GWEssenceViewController.m in Sources */,
 				51FB68DB1CBD144A00B23B3E /* main.m in Sources */,
+				51529C101CC9BE2C00A6983E /* GWProgressView.m in Sources */,
+				51529C0C1CC9BD3F00A6983E /* DACircularProgressView.m in Sources */,
 				51FB68DE1CBD144A00B23B3E /* GWNewViewController.m in Sources */,
 				51FB69AD1CBF859F00B23B3E /* MJRefreshAutoStateFooter.m in Sources */,
 				51FB69741CBF516000B23B3E /* GWRecommendUserCell.m in Sources */,

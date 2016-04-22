@@ -33,12 +33,21 @@
                     <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbn-Aq-7DW" customClass="GWProgressView">
+                    <rect key="frame" x="123" y="72" width="60" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Pm6-Is-pAh"/>
+                        <constraint firstAttribute="height" constant="60" id="oY7-RL-Qa5"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="1d8-9P-Oll" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3If-JA-u0o"/>
                 <constraint firstItem="qbv-vj-PAo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="4ws-8p-B7B"/>
                 <constraint firstItem="8DO-Wr-r7V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K43-5C-XRy"/>
+                <constraint firstItem="Cbn-Aq-7DW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PNo-Oa-d8g"/>
                 <constraint firstAttribute="trailing" secondItem="Hca-If-mCB" secondAttribute="trailing" id="Rau-Iu-NNh"/>
                 <constraint firstAttribute="bottom" secondItem="Hca-If-mCB" secondAttribute="bottom" id="SE1-cA-hfU"/>
                 <constraint firstAttribute="trailing" secondItem="qbv-vj-PAo" secondAttribute="trailing" id="UEN-Zc-dSK"/>
@@ -48,15 +57,17 @@
                 <constraint firstItem="Hca-If-mCB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pd8-w2-ako"/>
                 <constraint firstAttribute="bottom" secondItem="8DO-Wr-r7V" secondAttribute="bottom" id="pxo-ZZ-CwH"/>
                 <constraint firstAttribute="trailing" secondItem="8DO-Wr-r7V" secondAttribute="trailing" id="vQx-oU-Ie2"/>
+                <constraint firstItem="Cbn-Aq-7DW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wRv-uE-bPM"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="gifView" destination="1d8-9P-Oll" id="h51-yx-7AZ"/>
                 <outlet property="imageView" destination="8DO-Wr-r7V" id="tzX-dX-wWP"/>
+                <outlet property="progressView" destination="Cbn-Aq-7DW" id="b3g-Oj-BhS"/>
                 <outlet property="seeBigButton" destination="Hca-If-mCB" id="gL1-Vn-Sej"/>
             </connections>
-            <point key="canvasLocation" x="261" y="175"/>
+            <point key="canvasLocation" x="286" y="167"/>
         </view>
     </objects>
     <resources>
