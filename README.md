@@ -68,17 +68,25 @@
 	 		- 在topic模型中计算pictureView的frame位置
 	 		- cell中使用懒加载的方式加载pictureView，在setTopic：中判定cell的类型，当为picture的时候，给pictureView赋值frame
 	 		- 注意：如果给pictureView的frame进行了赋值，并且打印frame是自己赋值的，但是显示出来的尺寸确不一样，有可能是view的autoresizingMask属性在作怪，需要设置为UIViewAutoresizingNone
+	 		
 	 		- 图片太长的处理：
 	 			图片尺寸超出一定长度之后，需要变成小图，这时候需要设置imageView的contentMode，不然大图无法展示
 	 			同时要设置imageView超出部分进行裁剪
+	 			
 	 		- 大图片的加载过程： 需要一个占位图片
 	 			- 利用imageView的UIViewContentModeScaleAspectFit的模式，可以让图片完全，自动进行等比例拉伸
 	 			- 背景图片在要显示的图片之前加入view中，等图片加载完成就会遮掉背景图片，同时图片的imageView的背景色需要设置为clearColor不然背景图标无法看见
+	 			
 	 		- 加载过程的进度条：使用第三方框架
 	 			- 使用第三方框架有风险，降低风险有以下几种方式：
 	 				- 继承（一般是View等控件）
 	 				- 封装（AFN、SD等比较底层的框架）
-	 			
+	 		
+	 		- 图片点击查看
+	 			- modal出来一个新的控制器
+				- 图片的位置的计算
+				- 图片保存到相册（注意回调方法的定义）
+				
 	
 ### 2 我的关注模块
 - 推荐关注界面

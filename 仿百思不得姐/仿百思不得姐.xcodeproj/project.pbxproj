@@ -18,6 +18,8 @@
 		51529C0C1CC9BD3F00A6983E /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C091CC9BD3F00A6983E /* DACircularProgressView.m */; };
 		51529C0D1CC9BD3F00A6983E /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C0B1CC9BD3F00A6983E /* DALabeledCircularProgressView.m */; };
 		51529C101CC9BE2C00A6983E /* GWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C0F1CC9BE2C00A6983E /* GWProgressView.m */; };
+		51529C141CC9D7DB00A6983E /* GWPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C121CC9D7DB00A6983E /* GWPictureViewController.m */; };
+		51529C151CC9D7DB00A6983E /* GWPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51529C131CC9D7DB00A6983E /* GWPictureViewController.xib */; };
 		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
 		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
 		51D3A3E21CC4BB5600690528 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E11CC4BB5600690528 /* Foundation+Log.m */; };
@@ -125,6 +127,9 @@
 		51529C0B1CC9BD3F00A6983E /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		51529C0E1CC9BE2C00A6983E /* GWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProgressView.h; sourceTree = "<group>"; };
 		51529C0F1CC9BE2C00A6983E /* GWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProgressView.m; sourceTree = "<group>"; };
+		51529C111CC9D7DB00A6983E /* GWPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPictureViewController.h; sourceTree = "<group>"; };
+		51529C121CC9D7DB00A6983E /* GWPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPictureViewController.m; sourceTree = "<group>"; };
+		51529C131CC9D7DB00A6983E /* GWPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPictureViewController.xib; sourceTree = "<group>"; };
 		51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPushGuideView.h; sourceTree = "<group>"; };
 		51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPushGuideView.m; sourceTree = "<group>"; };
 		51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPushGuideView.xib; sourceTree = "<group>"; };
@@ -399,6 +404,9 @@
 				51FB68AD1CBD144A00B23B3E /* GWEssenceViewController.m */,
 				51D3A4131CC793A900690528 /* GWTopicViewController.h */,
 				51D3A4141CC793A900690528 /* GWTopicViewController.m */,
+				51529C111CC9D7DB00A6983E /* GWPictureViewController.h */,
+				51529C121CC9D7DB00A6983E /* GWPictureViewController.m */,
+				51529C131CC9D7DB00A6983E /* GWPictureViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -872,6 +880,7 @@
 				51D3A3FB1CC5C91D00690528 /* GWTopicCell.xib in Resources */,
 				51FB69161CBF35D400B23B3E /* SVProgressHUD.bundle in Resources */,
 				51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */,
+				51529C151CC9D7DB00A6983E /* GWPictureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,6 +940,7 @@
 				51FB693B1CBF360F00B23B3E /* NSData+ImageContentType.m in Sources */,
 				51FB69701CBF3CBD00B23B3E /* GWRecommendCategory.m in Sources */,
 				51FB690E1CBF354A00B23B3E /* AFURLSessionManager.m in Sources */,
+				51529C141CC9D7DB00A6983E /* GWPictureViewController.m in Sources */,
 				51FB69681CBF3B0F00B23B3E /* MJProperty.m in Sources */,
 				51FB69661CBF3B0F00B23B3E /* MJConst.m in Sources */,
 				51529C0D1CC9BD3F00A6983E /* DALabeledCircularProgressView.m in Sources */,
