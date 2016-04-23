@@ -99,12 +99,46 @@ static CGFloat const GWSpringFactor = 10;
     [sloganView pop_addAnimation:anim forKey:nil];
 }
 
-
 - (IBAction)cancel
 {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    // 准备执行动画，不允许交互
+    self.view.userInteractionEnabled = NO;
+    
+    // 需要根据子控件的加入顺序来定
+    NSInteger beginIndex = 2;
+    
+    // 执行动画然后界面消失
+    for (NSInteger i = beginIndex; i < self.view.subviews.count; i++) {
+        UIView *subView = self.view.subviews[i];
+        
+        // 添加动画(消失的时候无需弹簧效果)
+        POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
+        // 动画开始时间
+        anim.beginTime = CACurrentMediaTime() + (i - beginIndex) * GWAnimationDelay;
+        // 动画的执行节奏(一开始很慢, 后面很快)
+        anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        // 动画的起始值
+        CGFloat centerX = subView.centerX;
+        CGFloat centerBeginY = subView.centerY;
+        CGFloat centerEndY = centerBeginY + GWScreenH;
+        anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerBeginY)];;
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerEndY)];
+        
+        if (i == self.view.subviews.count - 1) {
+            [anim setCompletionBlock:^(POPAnimation *anim, BOOL isFinished) {
+                [self dismissViewControllerAnimated:NO completion:nil];
+            }];
+        }
+        
+        [subView pop_addAnimation:anim forKey:nil];
+    }
+
 }
 
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    // 退出界面
+    [self cancel];
+}
 
 @end

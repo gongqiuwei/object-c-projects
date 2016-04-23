@@ -10,12 +10,12 @@
 	- UIView的方法：
 	
 		```objc
-			// 示例
-			[UIView animateWithDuration:0.2 delay:0 
-				usingSpringWithDamping:0.5 initialSpringVelocity:0.44 
-				options:UIViewAnimationOptionCurveLinear animations:^{
-       		 	// 需要改变的因素
-   			 	} completion:nil];
+		// 示例
+		[UIView animateWithDuration:0.2 delay:0 
+			usingSpringWithDamping:0.5 initialSpringVelocity:0.44 
+			options:UIViewAnimationOptionCurveLinear animations:^{
+   		 	// 需要改变的因素
+		 	} completion:nil];
 		``` 
 
 	- Facebook/pop框架：类似于CoreAnnimation
