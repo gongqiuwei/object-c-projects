@@ -47,6 +47,7 @@ static CGFloat const GWSpringFactor = 10;
         [button setTitle:titles[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         
         // 计算frame(button只做y轴的动画)
@@ -99,7 +100,14 @@ static CGFloat const GWSpringFactor = 10;
     [sloganView pop_addAnimation:anim forKey:nil];
 }
 
-- (IBAction)cancel
+- (void)buttonClicked:(UIButton *)button
+{
+    [self cancelWithCompletionBlock:^{
+        GWLog(@"动画完成，根据按钮弹出界面");
+    }];
+}
+
+- (void)cancelWithCompletionBlock:(void(^)())completion
 {
     // 准备执行动画，不允许交互
     self.view.userInteractionEnabled = NO;
@@ -116,7 +124,7 @@ static CGFloat const GWSpringFactor = 10;
         // 动画开始时间
         anim.beginTime = CACurrentMediaTime() + (i - beginIndex) * GWAnimationDelay;
         // 动画的执行节奏(一开始很慢, 后面很快)
-        anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+//        anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         // 动画的起始值
         CGFloat centerX = subView.centerX;
         CGFloat centerBeginY = subView.centerY;
@@ -127,12 +135,20 @@ static CGFloat const GWSpringFactor = 10;
         if (i == self.view.subviews.count - 1) {
             [anim setCompletionBlock:^(POPAnimation *anim, BOOL isFinished) {
                 [self dismissViewControllerAnimated:NO completion:nil];
+                
+                // 执行传入的block， 通知外部
+                !completion ? : completion();
             }];
         }
         
         [subView pop_addAnimation:anim forKey:nil];
     }
+}
 
+// 退出界面
+- (IBAction)cancel
+{
+    [self cancelWithCompletionBlock:nil];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
