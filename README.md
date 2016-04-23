@@ -2,6 +2,35 @@
 
 ## 仿百思不得姐
 
+### 4 加号发布模块
+- 动画思路分析
+	需要做动画的界面，先搭建动画完成后最终的界面，然后在考虑动画怎样执行
+
+- 弹簧动画的实现
+	- UIView的方法：
+	
+		```objc
+			// 示例
+			[UIView animateWithDuration:0.2 delay:0 
+				usingSpringWithDamping:0.5 initialSpringVelocity:0.44 
+				options:UIViewAnimationOptionCurveLinear animations:^{
+       		 	// 需要改变的因素
+   			 	} completion:nil];
+		``` 
+
+	- Facebook/pop框架：类似于CoreAnnimation
+		
+		```objc
+		pop和Core Animation的区别
+		1.Core Animation的动画只能添加到layer上
+		2.pop的动画能添加到任何对象
+		3.pop的底层并非基于Core Animation, 是基于CADisplayLink
+		4.Core Animation的动画仅仅是表象, 并不会真正修改对象的frame\size等值
+		5.pop的动画实时修改对象的属性, 真正地修改了对象的属性
+		```
+		
+	- iOS9.0 提供了新的api: CASpringAnimation做layer的核心动画
+	
 ### 3 精华模块
 - 精华主界面
 	- 小知识点:

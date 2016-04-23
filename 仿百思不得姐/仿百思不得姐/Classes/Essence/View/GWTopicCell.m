@@ -49,6 +49,8 @@
 
 - (void)awakeFromNib
 {
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     UIImageView *bgView = [[UIImageView alloc] init];
     bgView.image = [UIImage imageNamed:@"mainCellBackground"];
     self.backgroundView = bgView;
