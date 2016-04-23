@@ -3,6 +3,11 @@
 ## 仿百思不得姐
 
 ### 4 加号发布模块
+- 实现方法（3种）
+	- 控制器，modal出来
+	- view添加到tabbarVc上
+	- 新建一个window，并显示
+
 - 动画思路分析
 	需要做动画的界面，先搭建动画完成后最终的界面，然后在考虑动画怎样执行
 
@@ -30,6 +35,16 @@
 		```
 		
 	- iOS9.0 提供了新的api: CASpringAnimation做layer的核心动画
+
+- UIWindow知识点
+	- window创建完成之后默认是hidden=YES，只要设置为NO即可显示window
+	- window有3中级别
+		
+		```objc
+		UIWindowLevelNormal(普通级别，最低级别)
+		UIWindowLevelStatusBar(和状态栏一样的级别，这个级别或者之上的window就可以遮盖状态栏)
+		UIWindowLevelAlert(和alertview一样的级别，最高)
+		```
 	
 ### 3 精华模块
 - 精华主界面
