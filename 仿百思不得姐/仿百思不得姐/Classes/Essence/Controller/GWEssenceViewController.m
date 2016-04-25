@@ -67,7 +67,7 @@
     
     GWTopicViewController *audio = [[GWTopicViewController alloc] init];
     audio.title = @"声音";
-    audio.type = GWTopicTypeVoice;
+    audio.type = GWTopicTypeAudio;
     [self addChildViewController:audio];
     
     GWTopicViewController *picture = [[GWTopicViewController alloc] init];

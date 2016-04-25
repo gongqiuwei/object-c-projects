@@ -6,7 +6,7 @@ typedef NS_ENUM(NSInteger, GWTopicType) {
     GWTopicTypeAll = 1,
     GWTopicTypePicture = 10,
     GWTopicTypeWord = 29,
-    GWTopicTypeVoice = 31,
+    GWTopicTypeAudio = 31,
     GWTopicTypeVideo = 41
 };
 

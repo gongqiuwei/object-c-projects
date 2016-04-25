@@ -10,6 +10,7 @@
 #import "GWTopic.h"
 #import "UIImageView+WebCache.h"
 #import "GWTopicPictureView.h"
+#import "GWTopicAudioView.h"
 
 @interface GWTopicCell()
 /** 头像 */
@@ -33,6 +34,8 @@
 
 /** 中间的内容是图片 */
 @property (nonatomic, weak) GWTopicPictureView *pictureView;
+/** 声音帖子中间的内容 */
+@property (nonatomic, weak) GWTopicAudioView *audioView;
 @end
 
 @implementation GWTopicCell
@@ -45,6 +48,16 @@
         _pictureView = view;
     }
     return _pictureView;
+}
+
+- (GWTopicAudioView *)audioView
+{
+    if (_audioView == nil) {
+        GWTopicAudioView *view = [GWTopicAudioView audioView];
+        [self.contentView addSubview:view];
+        _audioView = view;
+    }
+    return _audioView;
 }
 
 - (void)awakeFromNib
@@ -79,6 +92,9 @@
     if (topic.type == GWTopicTypePicture) { // 中间内容是图片
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureF;
+    } else if (topic.type == GWTopicTypeAudio) { // 中间内容是声音
+        self.audioView.topic = topic;
+        self.audioView.frame = topic.audioF;
     }
 }
 

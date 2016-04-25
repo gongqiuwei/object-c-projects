@@ -36,6 +36,14 @@
 		
 	- iOS9.0 提供了新的api: CASpringAnimation做layer的核心动画
 
+	- UIDynamic框架
+		- 可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象
+		- 使用步骤
+			- 创建一个物理仿真器（顺便设置仿真范围）
+			- 创建相应的物理仿真行为（顺便添加物理仿真元素）
+			- 将物理仿真行为添加到物理仿真器中  开始仿真
+		
+
 - UIWindow知识点
 	- window创建完成之后默认是hidden=YES，只要设置为NO即可显示window
 	- window有3中级别
@@ -139,6 +147,10 @@
 				- 方法一：在原来imageView上面添加一个imageView1，imageView1的尺寸是计算出来要显示的的尺寸。举例：假设imageView的尺寸300*200， 下载图片的尺寸为600*1000， 经过等比例的拉伸计算为300*500， 那么imageView1的尺寸就是300*500， 添加到imageview上面，然后剪裁子视图，这样就只看到上面的部分。
 				- 方法二：使用quartz2D绘制图片。 使用image drawRect：方法绘制到imageView中，但是传入的rect的size（就是上个例子中的300*500）需要计算，但是开启的上下文的尺寸是imageview的size，从（0，0）开始绘制，这样也只有上部分
 				
+		- audio的cell
+			
+			
+			
 	
 ### 2 我的关注模块
 - 推荐关注界面
