@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "GWTopicPictureView.h"
 #import "GWTopicAudioView.h"
+#import "GWTopicVideoView.h"
 
 @interface GWTopicCell()
 /** 头像 */
@@ -36,6 +37,8 @@
 @property (nonatomic, weak) GWTopicPictureView *pictureView;
 /** 声音帖子中间的内容 */
 @property (nonatomic, weak) GWTopicAudioView *audioView;
+/** 声音帖子中间的内容 */
+@property (nonatomic, weak) GWTopicVideoView *videoView;
 @end
 
 @implementation GWTopicCell
@@ -58,6 +61,16 @@
         _audioView = view;
     }
     return _audioView;
+}
+
+- (GWTopicVideoView *)videoView
+{
+    if (_videoView == nil) {
+        GWTopicVideoView *view = [GWTopicVideoView videoView];
+        [self.contentView addSubview:view];
+        _videoView = view;
+    }
+    return _videoView;
 }
 
 - (void)awakeFromNib
@@ -92,9 +105,31 @@
     if (topic.type == GWTopicTypePicture) { // 中间内容是图片
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureF;
+        
+        _pictureView.hidden = NO;
+        _audioView.hidden = YES;
+        _audioView.hidden = YES;
+        
     } else if (topic.type == GWTopicTypeAudio) { // 中间内容是声音
         self.audioView.topic = topic;
         self.audioView.frame = topic.audioF;
+        
+        _audioView.hidden = NO;
+        _videoView.hidden = YES;
+        _pictureView.hidden = YES;
+        
+    } else if (topic.type == GWTopicTypeVideo) { // 中间内容是视频
+        self.videoView.topic = topic;
+        self.videoView.frame = topic.videoF;
+        
+        _videoView.hidden = NO;
+        _pictureView.hidden = YES;
+        _audioView.hidden = YES;
+    } else { // 中间没有内容(段子帖子)
+        
+        _videoView.hidden = YES;
+        _audioView.hidden = YES;
+        _pictureView.hidden = YES;
     }
 }
 

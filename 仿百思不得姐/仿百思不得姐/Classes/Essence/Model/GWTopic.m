@@ -112,7 +112,7 @@
             // margin是图片与bottomBar的间距
             _cellHeight += pictureH + GWTopicCellMargin;
             
-        } else if (self.type == GWTopicTypeAudio) {
+        } else if (self.type == GWTopicTypeAudio) { // 声音
             CGFloat audioX = GWTopicCellMargin;
             CGFloat audioY = GWTopicCellTextY + textH + GWTopicCellMargin;
             CGFloat audioW = maxSize.width;
@@ -121,6 +121,16 @@
             
             // 计算cell的高度
             _cellHeight += audioH + GWTopicCellMargin;
+            
+        } else if (self.type == GWTopicTypeVideo) { // 视频
+            CGFloat videoX = GWTopicCellMargin;
+            CGFloat videoY = GWTopicCellTextY + textH + GWTopicCellMargin;
+            CGFloat videoW = maxSize.width;
+            CGFloat videoH = videoW * self.height / self.width;
+            _videoF = CGRectMake(videoX, videoY, videoW, videoH);
+            
+            // 计算cell的高度
+            _cellHeight += videoH + GWTopicCellMargin;
         }
         
         // bottomBar的间距, 2个cell之间的margin

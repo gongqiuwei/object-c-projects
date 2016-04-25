@@ -60,5 +60,6 @@
 
 /** 声音控件的frame */
 @property (nonatomic, assign, readonly) CGRect audioF;
-
+/** 视频控件的frame */
+@property (nonatomic, assign, readonly) CGRect videoF;
 @end
