@@ -12,6 +12,8 @@
 #import "GWTopicPictureView.h"
 #import "GWTopicAudioView.h"
 #import "GWTopicVideoView.h"
+#import "GWComment.h"
+#import "GWUser.h"
 
 @interface GWTopicCell()
 /** 头像 */
@@ -31,7 +33,10 @@
 /** 新浪加V */
 @property (weak, nonatomic) IBOutlet UIImageView *sinaVView;
 @property (weak, nonatomic) IBOutlet UILabel *my_textLabel;
-
+/** 最热评论的内容 */
+@property (weak, nonatomic) IBOutlet UILabel *topCmtContentLabel;
+/** 最热评论的整体 */
+@property (weak, nonatomic) IBOutlet UIView *topCmtView;
 
 /** 中间的内容是图片 */
 @property (nonatomic, weak) GWTopicPictureView *pictureView;
@@ -130,6 +135,15 @@
         _videoView.hidden = YES;
         _audioView.hidden = YES;
         _pictureView.hidden = YES;
+    }
+    
+    // 最热评论
+    GWComment *cmt = [topic.top_cmt firstObject];
+    if (cmt) { // 有最热评论
+        self.topCmtView.hidden = NO;
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+    } else { // 没有最热评论
+        self.topCmtView.hidden = YES;
     }
 }
 

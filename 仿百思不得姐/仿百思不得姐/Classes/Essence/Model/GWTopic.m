@@ -9,6 +9,8 @@
 #import "GWTopic.h"
 #import "NSDate+GWExtension.h"
 #import "MJExtension.h"
+#import "GWUser.h"
+#import "GWComment.h"
 
 @implementation GWTopic
 {
@@ -22,6 +24,11 @@
              @"large_image" : @"image1",
              @"middle_image" : @"image2"
              };
+}
+
++ (NSDictionary *)objectClassInArray
+{
+    return @{@"top_cmt" : @"GWComment"};
 }
 
 
@@ -82,8 +89,7 @@
 {
     if (!_cellHeight) {
         // 计算cell的高度
-        // 文字的Y
-        CGFloat textY = GWTopicCellTextY;
+        
         // 文字宽度
         CGFloat textW = [UIScreen mainScreen].bounds.size.width - 4 * GWTopicCellMargin;
         CGSize maxSize = CGSizeMake(textW, MAXFLOAT);
@@ -132,6 +138,16 @@
             // 计算cell的高度
             _cellHeight += videoH + GWTopicCellMargin;
         }
+        
+        // 如果有最热评论
+        GWComment *cmt = [self.top_cmt firstObject];
+        if (cmt) {
+            NSString *content = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+            CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]} context:nil].size.height;
+            
+            _cellHeight += GWTopicCellTopCmtTitleH + contentH + GWTopicCellMargin;
+        }
+        
         
         // bottomBar的间距, 2个cell之间的margin
         _cellHeight += GWTopicCellBottomBarH + GWTopicCellMargin;

@@ -17,3 +17,10 @@ CGFloat const GWTopicCellBottomBarH = 44;
 CGFloat const GWTopicCellPictureMaxH = 1000;
 /** 精华-cell-图片帖子一旦超过最大高度,就是用Break */
 CGFloat const GWTopicCellPictureBreakH = 250;
+
+/** XMGUser模型-性别属性值 */
+NSString * const GWUserSexMale = @"m";
+NSString * const GWUserSexFemale = @"f";
+
+/** 精华-cell-最热评论标题的高度 */
+CGFloat const GWTopicCellTopCmtTitleH = 20;
