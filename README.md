@@ -13,7 +13,7 @@
 	
 		![](images/Snip20160426_1.png)
 	
-		tableview的headerView是一个比较特殊的view，系统对它会做比较多的后台处理，tableviewcell也是一个比较特殊的view，因此
+		tableview的headerView是一个比较特殊的view，系统对它会做比较多的后台处理，tableviewcell也是一个比较特殊的view，因此直接使用cell做headerView会出现一些莫名其妙的问题，这里使用UIView做一层包装
 		
 		```objc
 		// 头部
@@ -30,7 +30,17 @@
 	    
 	    self.tableView.tableHeaderView = header;
 		```
-
+	- section的header
+		
+		一下2个方法控制section的header
+		
+		```objc
+		// 只能控制头视图展示的内容，不能进行精细的控制
+		- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+		// 精细控制， 可以返回UITableViewHeaderFooterView 类型的view，像cell一样进行重复利用
+		- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+		```
+	
 ### 4 加号发布模块
 - 实现方法（3种）
 	- 控制器，modal出来

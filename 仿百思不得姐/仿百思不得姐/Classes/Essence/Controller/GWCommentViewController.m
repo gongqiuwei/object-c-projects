@@ -24,6 +24,9 @@
 @property (nonatomic, strong) NSArray *hotComments;
 /** 最新评论 */
 @property (nonatomic, strong) NSMutableArray *latestComments;
+
+/** 保存帖子的top_cmt */
+@property (nonatomic, strong) NSArray *saved_top_cmt;
 @end
 
 @implementation GWCommentViewController
@@ -45,6 +48,13 @@
     
     // 头部
     UIView *header = [[UIView alloc] init];
+    
+    // 清空top_cmt
+    if (self.topic.top_cmt.count) {
+        self.saved_top_cmt = self.topic.top_cmt;
+        self.topic.top_cmt = nil;
+        [self.topic setValue:@0 forKeyPath:@"cellHeight"];
+    }
     
     // cell的设定，当做普通的view使用
     GWTopicCell *cell = [GWTopicCell cell];
@@ -195,5 +205,11 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    // 恢复帖子的top_cmt
+    if (self.saved_top_cmt.count) {
+        self.topic.top_cmt = self.saved_top_cmt;
+        [self.topic setValue:@0 forKeyPath:@"cellHeight"];
+    }
 }
 @end
