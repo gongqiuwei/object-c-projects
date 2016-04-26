@@ -6,6 +6,30 @@
 - 主界面集成热门评论
 	- 父控件的高度根据子控件的高度的变化而变化
 	![](images/Snip20160425_1.png)
+	
+- 评论界面
+	- 头部视图
+	使用上一个控制器中的cell当做这个界面的headerView
+	
+		![](images/Snip20160426_1.png)
+	
+		tableview的headerView是一个比较特殊的view，系统对它会做比较多的后台处理，tableviewcell也是一个比较特殊的view，因此
+		
+		```objc
+		// 头部
+	    UIView *header = [[UIView alloc] init];
+	    
+	    // cell的设定，当做普通的view使用
+	    GWTopicCell *cell = [GWTopicCell cell];
+	    cell.topic = self.topic;
+	    cell.frame = CGRectMake(0, 0, GWScreenW, self.topic.cellHeight);
+	    [header addSubview:cell];
+	    
+	    // view的设定
+	    header.height = self.topic.cellHeight + GWTopicCellMargin;
+	    
+	    self.tableView.tableHeaderView = header;
+		```
 
 ### 4 加号发布模块
 - 实现方法（3种）

@@ -13,4 +13,9 @@
 @interface GWTopicCell : UITableViewCell
 /** 帖子模型 */
 @property (nonatomic, strong) GWTopic *topic;
+
+/**
+ *  快速创建cell（当做普通view使用的情况）
+ */
++ (instancetype)cell;
 @end

@@ -8,6 +8,8 @@
 
 #import "GWCommentViewController.h"
 #import "UIBarButtonItem+GWExtension.h"
+#import "GWTopicCell.h"
+#import "GWTopic.h"
 
 @interface GWCommentViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -32,6 +34,20 @@
     self.tableView.backgroundColor = GWGlobalBgColor;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 头部
+    UIView *header = [[UIView alloc] init];
+    
+    // cell的设定，当做普通的view使用
+    GWTopicCell *cell = [GWTopicCell cell];
+    cell.topic = self.topic;
+    cell.frame = CGRectMake(0, 0, GWScreenW, self.topic.cellHeight);
+    [header addSubview:cell];
+    
+    // view的设定
+    header.height = self.topic.cellHeight + GWTopicCellMargin;
+    
+    self.tableView.tableHeaderView = header;
 }
 
 - (void)keyBoardFrameChange:(NSNotification *)note

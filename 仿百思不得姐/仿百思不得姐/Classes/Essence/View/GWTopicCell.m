@@ -47,6 +47,14 @@
 @end
 
 @implementation GWTopicCell
+/**
+ *  快速创建cell（当做普通view使用的情况）
+ */
++ (instancetype)cell
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
+}
+
 
 - (GWTopicPictureView *)pictureView
 {
