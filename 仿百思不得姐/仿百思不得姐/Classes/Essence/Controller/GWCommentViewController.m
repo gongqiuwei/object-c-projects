@@ -124,13 +124,36 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    NSInteger hotCount = self.hotComments.count;
+//    if (section == 0) {
+//        return hotCount ? @"最热评论" : @"最新评论";
+//    }
+//    return @"最新评论";
+//}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    UIView *header = [[UIView alloc] init];
+    header.backgroundColor = GWGlobalBgColor;
+    
+    // 内容
+    UILabel *label = [[UILabel alloc] init];
+    [header addSubview:label];
+    label.width = 200;
+    label.textColor = GWRGBColor(67, 67, 67);
+    label.x = GWTopicCellMargin;
+    label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    
     NSInteger hotCount = self.hotComments.count;
     if (section == 0) {
-        return hotCount ? @"最热评论" : @"最新评论";
+        label.text = hotCount ? @"最热评论" : @"最新评论";
+    } else {
+       label.text = @"最新评论";
     }
-    return @"最新评论";
+    
+    return header;
 }
 
 /**
