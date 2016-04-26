@@ -14,6 +14,9 @@
 #import "AFNetworking.h"
 #import "GWComment.h"
 #import "MJExtension.h"
+#import "GWCommentCell.h"
+
+static NSString *const GWCommentCellId = @"comment";
 
 @interface GWCommentViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,17 +38,11 @@
     [super viewDidLoad];
     
     [self initUI];
+    [self initHeader];
 }
 
-- (void)initUI
+- (void)initHeader
 {
-    self.title = @"评论";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"comment_nav_item_share_icon" selectImage:@"comment_nav_item_share_icon_click" target:nil action:nil];
-    
-    self.tableView.backgroundColor = GWGlobalBgColor;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
     // 头部
     UIView *header = [[UIView alloc] init];
     
@@ -66,6 +63,25 @@
     header.height = self.topic.cellHeight + GWTopicCellMargin;
     
     self.tableView.tableHeaderView = header;
+}
+
+- (void)initUI
+{
+    self.title = @"评论";
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"comment_nav_item_share_icon" selectImage:@"comment_nav_item_share_icon_click" target:nil action:nil];
+    
+    self.tableView.backgroundColor = GWGlobalBgColor;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // tableview的初始化
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GWCommentCell class]) bundle:nil] forCellReuseIdentifier:GWCommentCellId];
+    
+    // iOS8之后才能够使用sizeclass来计算
+    // 预估的cell的高度
+    self.tableView.estimatedRowHeight = 44;
+    // 自动计算cell的高度
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     // 刷新控件
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
@@ -121,15 +137,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"comment";
+    GWCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:GWCommentCellId];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    
-    GWComment *comment = [self commentInIndexPath:indexPath];
-    cell.textLabel.text = comment.content;
+    cell.comment = [self commentInIndexPath:indexPath];
     
     return cell;
 }

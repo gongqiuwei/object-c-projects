@@ -40,6 +40,22 @@
 		// 精细控制， 可以返回UITableViewHeaderFooterView 类型的view，像cell一样进行重复利用
 		- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 		```
+	- iOS8之后cell的高度自动计算
+
+		首先设置tableview的属性
+
+		```objc
+		// 预估的cell的高度
+    	self.tableView.estimatedRowHeight = 44;
+    	// 自动计算cell的高度
+    	self.tableView.rowHeight = UITableViewAutomaticDimension;
+    	
+    	
+		```
+		然后，需要在xib中设置cell的bottom是根据最后一个空间的bottom来计算的
+		
+		![](images/Snip20160426_2.png)
+	
 	
 ### 4 加号发布模块
 - 实现方法（3种）
