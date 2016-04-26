@@ -13,6 +13,7 @@
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
 #import "GWTopicCell.h"
+#import "GWCommentViewController.h"
 
 @interface GWTopicViewController ()
 /** 帖子数据 */
@@ -168,5 +169,12 @@ static NSString *const GWTopicCellId = @"topic";
     GWTopic *topic = self.topics[indexPath.row];
     
     return topic.cellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GWCommentViewController *commentVc = [[GWCommentViewController alloc] init];
+    commentVc.topic = self.topics[indexPath.row];
+    [self.navigationController pushViewController:commentVc animated:YES];
 }
 @end
