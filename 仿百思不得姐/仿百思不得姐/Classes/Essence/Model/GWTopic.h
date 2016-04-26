@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface GWTopic : NSObject
+/** id */
+@property (nonatomic, copy) NSString *ID;
 /** 名称 */
 @property (nonatomic, copy) NSString *name;
 /** 头像 */

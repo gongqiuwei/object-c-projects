@@ -50,11 +50,6 @@
 - (void)initChildVcs
 {
     // 将title与vc进行绑定，以后随意更换控制器的位置，标签栏也会跟着改变
-    GWTopicViewController *word = [[GWTopicViewController alloc] init];
-    word.title = @"段子";
-    word.type = GWTopicTypeWord;
-    [self addChildViewController:word];
-    
     GWTopicViewController *all = [[GWTopicViewController alloc] init];
     all.title = @"全部";
     all.type = GWTopicTypeAll;
@@ -74,6 +69,11 @@
     picture.title = @"图片";
     picture.type = GWTopicTypePicture;
     [self addChildViewController:picture];
+    
+    GWTopicViewController *word = [[GWTopicViewController alloc] init];
+    word.title = @"段子";
+    word.type = GWTopicTypeWord;
+    [self addChildViewController:word];
 }
 
 // 底部的scrollview
