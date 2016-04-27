@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GWTabBarController.h"
 #import "GWPushGuideView.h"
+#import "UIView+GWExtension.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // 创建窗口
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc] init];
+    [self.window setFrame:[[UIScreen mainScreen] bounds]];
     
     // 创建窗口的根控制器
     self.window.rootViewController = [[GWTabBarController alloc] init];
@@ -56,4 +58,32 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+/**
+ *  点击了statusBar区域，将当前看到的scrollview回滚，其他的不动
+ */
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    CGPoint location = [[[event allTouches] anyObject] locationInView:self.window];
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    if (CGRectContainsPoint(statusBarFrame, location)) {
+        [self searchScrollViewInView:self.window];
+    }
+}
+
+- (void)searchScrollViewInView:(UIView *)superview
+{
+    for (UIScrollView *subview in superview.subviews) {
+        // 如果是scrollview, 滚动最顶部
+        if ([subview isKindOfClass:[UIScrollView class]] && subview.isShowingOnKeyWindow) {
+            CGPoint offset = subview.contentOffset;
+            offset.y = - subview.contentInset.top;
+            [subview setContentOffset:offset animated:YES];
+        }
+        
+        // 继续查找子控件
+        [self searchScrollViewInView:subview];
+    }
+}
 @end

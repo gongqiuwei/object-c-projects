@@ -16,4 +16,9 @@
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGSize size;
+
+/**
+ * 判断一个控件是否真正显示在主窗口
+ */
+- (BOOL)isShowingOnKeyWindow;
 @end
