@@ -15,6 +15,7 @@
 #import "GWComment.h"
 #import "MJExtension.h"
 #import "GWCommentCell.h"
+#import "SVProgressHUD.h"
 
 static NSString *const GWCommentCellId = @"comment";
 
@@ -30,9 +31,22 @@ static NSString *const GWCommentCellId = @"comment";
 
 /** 保存帖子的top_cmt */
 @property (nonatomic, strong) NSArray *saved_top_cmt;
+
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableDictionary *params;
+/** 管理者 */
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 @implementation GWCommentViewController
+
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,18 +100,28 @@ static NSString *const GWCommentCellId = @"comment";
     // 刷新控件
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
     [self.tableView.header beginRefreshing];
+    
+    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
 }
 
 - (void)loadNewComments
 {
+    // 结束刷新
+    if ([self.tableView.footer isRefreshing]) {
+        [self.tableView.footer endRefreshing];
+    }
+    
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"dataList";
     params[@"c"] = @"comment";
     params[@"data_id"] = self.topic.ID;
     params[@"hot"] = @"1";
+    self.params = params;
     
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (self.params != params) return;
+        
         // 最热评论
         self.hotComments = [GWComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
@@ -106,11 +130,71 @@ static NSString *const GWCommentCellId = @"comment";
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
+        
+        // 控制footer的状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latestComments.count >= total) { // 全部加载完毕
+            [self.tableView.footer noticeNoMoreData];
+        }
+        
+        // 页码控制
+        self.page = 1;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (self.params != params) return;
+        
+        [SVProgressHUD showErrorWithStatus:@"加载失败！！"];
+        
         [self.tableView.header endRefreshing];
     }];
 }
 
+- (void)loadMoreComments
+{
+    if ([self.tableView.header isRefreshing]) {
+        [self.tableView.header endRefreshing];
+    }
+    
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"page"] = @(self.page + 1);
+    GWComment *cmt = [self.latestComments lastObject];
+    params[@"lastcid"] = cmt.ID;
+    self.params = params;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (self.params != params) return;
+        
+        // 最新评论
+        NSArray *newComments = [GWComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.latestComments addObjectsFromArray:newComments];
+        
+        // 刷新页面
+        [self.tableView reloadData];
+        
+        // 控制footer的状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latestComments.count >= total) { // 全部加载完毕
+            [self.tableView.footer noticeNoMoreData];
+//            self.tableView.footer.hidden = YES;
+        } else {
+            // 结束刷新状态
+            [self.tableView.footer endRefreshing];
+        }
+        
+        // 页码控制
+        self.page ++;
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (self.params != params) return;
+        
+        [SVProgressHUD showErrorWithStatus:@"加载失败！！"];
+        
+        [self.tableView.footer endRefreshing];
+    }];
+}
 
 #pragma mark - <UITableViewDelegate, UITableViewDataSource>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -127,6 +211,10 @@ static NSString *const GWCommentCellId = @"comment";
 {
     NSInteger hotCount = self.hotComments.count;
     NSInteger latestCount = self.latestComments.count;
+    
+    // 隐藏尾部控件
+    self.tableView.footer.hidden = (latestCount == 0);
+    
     if (section == 0) {
         return hotCount ? hotCount : latestCount;
     }
@@ -221,5 +309,14 @@ static NSString *const GWCommentCellId = @"comment";
         self.topic.top_cmt = self.saved_top_cmt;
         [self.topic setValue:@0 forKeyPath:@"cellHeight"];
     }
+    
+    // 取消网络请求的回调操作
+//    [self.manager.operationQueue cancelAllOperations];
+    
+    // 取消网络请求任务
+//    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    // 取消网络请求任务的session
+    [self.manager invalidateSessionCancelingTasks:YES];
 }
 @end

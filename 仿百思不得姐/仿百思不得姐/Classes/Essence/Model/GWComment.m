@@ -7,7 +7,11 @@
 //
 
 #import "GWComment.h"
+#import "MJExtension.h"
 
 @implementation GWComment
-
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{@"ID" : @"id"};
+}
 @end
