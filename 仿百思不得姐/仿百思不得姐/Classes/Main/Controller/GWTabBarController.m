@@ -45,7 +45,7 @@
     
     [self setupChildVc:[[GWFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectImage:@"tabBar_friendTrends_click_icon"];
     
-    [self setupChildVc:[[GWMeViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectImage:@"tabBar_me_click_icon"];
+    [self setupChildVc:[[GWMeViewController alloc] initWithStyle:UITableViewStyleGrouped] title:@"我" image:@"tabBar_me_icon" selectImage:@"tabBar_me_click_icon"];
     
     // 自定义tabbar
     // readonly无法通过set方法设定,只能使用kvc
