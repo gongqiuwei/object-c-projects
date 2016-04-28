@@ -103,9 +103,14 @@
     // 新浪加V
     self.sinaVView.hidden = !topic.isSina_v;
     
+    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.profileImageView.image = (image ? [image circleImage] : placeholder);
+    }];
+    
     // 设置其他控件
     self.my_textLabel.text = topic.text;
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    
     self.nameLabel.text = topic.name;
     self.createTimeLabel.text = topic.create_time;
     
@@ -167,8 +172,8 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    frame.origin.x = GWTopicCellMargin;
-    frame.size.width -= 2 * GWTopicCellMargin;
+//    frame.origin.x = GWTopicCellMargin;
+//    frame.size.width -= 2 * GWTopicCellMargin;
     // 所有的cell高度-10，留出分隔
     frame.size.height -= GWTopicCellMargin;
     // 所有的cell下移10

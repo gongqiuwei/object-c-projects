@@ -6,6 +6,23 @@
 - UIMenuController
 	
 	UIMenuController使用：[简书资料](http://www.jianshu.com/p/ddd59867909a)
+	
+- 图片的圆角
+	
+	- 方法一：
+		
+		```objc
+		imageView.layer.cornerRadius = 10;
+		imageView.clickToBounds = YES;
+		```
+		
+		缺陷：过多的图层进行圆角处理，会导致app比较卡，消耗性能比较大
+	
+	- 方法二
+		
+		将image进行圆角处理，然后显示到imageView上（quartz2D）
+		
+		iOS离屏渲染性能消耗 [简书资料](http://www.jianshu.com/p/6d24a4c29e18)
 
 ### 5 精华模块评论
 - 主界面集成热门评论
