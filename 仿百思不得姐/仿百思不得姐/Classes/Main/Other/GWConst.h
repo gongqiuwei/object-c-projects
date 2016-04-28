@@ -34,3 +34,6 @@ UIKIT_EXTERN NSString * const GWUserSexFemale;
 /** 精华-cell-最热评论标题的高度 */
 UIKIT_EXTERN CGFloat const GWTopicCellTopCmtTitleH;
 
+/** tabBar被选中的通知名字 */
+UIKIT_EXTERN NSString * const GWTabBarDidSelectNotification;
+

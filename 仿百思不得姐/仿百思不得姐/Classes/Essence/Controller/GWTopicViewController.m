@@ -24,6 +24,9 @@
 @property (nonatomic, copy) NSString *maxtime;
 /** 上一次的请求参数, 用于甄别处理最后一次网络请求返回的数据 */
 @property (nonatomic, strong) NSDictionary *params;
+
+/** 上次选中的索引(或者控制器) */
+@property (nonatomic, assign) NSInteger lastSelectedIndex;
 @end
 
 static NSString *const GWTopicCellId = @"topic";
@@ -51,8 +54,28 @@ static NSString *const GWTopicCellId = @"topic";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor clearColor];
     
+    // 监听通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabbarSelect) name:GWTabBarDidSelectNotification object:nil];
+    
     // 集成刷新控件
     [self initRefresh];
+}
+
+- (void)tabbarSelect
+{
+    // 重复选中， 并且当前控制器的view显示在主窗口上 -> 刷新数据
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex && [self.view isShowingOnKeyWindow]) {
+        // 刷新页面数据
+        [self.tableView.header beginRefreshing];
+    }
+    
+    // 记录这一次选中的索引
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 // 集成刷新控件
