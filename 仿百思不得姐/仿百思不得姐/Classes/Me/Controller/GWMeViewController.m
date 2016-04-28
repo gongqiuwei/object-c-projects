@@ -7,6 +7,10 @@
 //
 
 #import "GWMeViewController.h"
+#import "GWMeCell.h"
+#import "UIImage+Extension.h"
+
+static NSString *const GWMeCellId = @"me";
 
 @interface GWMeViewController ()
 
@@ -25,6 +29,8 @@
 - (void)setupTableView
 {
     self.tableView.backgroundColor = GWGlobalBgColor;
+    
+    [self.tableView registerClass:[GWMeCell class] forCellReuseIdentifier:GWMeCellId];
     
     // 对tableview的样式做一些调整，达到设置页面的效果
     // group样式下tableview的section的header和footer都有默认的高度，可以调整
@@ -60,9 +66,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    GWMeCell *cell = [tableView dequeueReusableCellWithIdentifier:GWMeCellId];
     
-    cell.textLabel.text = @"me";
+    if (indexPath.section == 0) {
+        cell.imageView.image = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+        cell.textLabel.text = @"登录/注册";
+        
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = @"离线下载";
+    }
     
     return cell;
 }
