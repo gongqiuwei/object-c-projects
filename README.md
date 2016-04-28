@@ -2,6 +2,11 @@
 
 ## 仿百思不得姐
 
+### 6 其他补充
+- UIMenuController
+	
+	UIMenuController使用：[简书资料](http://www.jianshu.com/p/ddd59867909a)
+
 ### 5 精华模块评论
 - 主界面集成热门评论
 	- 父控件的高度根据子控件的高度的变化而变化

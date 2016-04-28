@@ -22,6 +22,23 @@
 
 
 @implementation GWCommentCell
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    // 禁用系统的操作（复制、粘贴等）
+    return NO;
+}
+
+- (void)awakeFromNib
+{
+    UIImageView *bgView = [[UIImageView alloc] init];
+    bgView.image = [UIImage imageNamed:@"mainCellBackground"];
+    self.backgroundView = bgView;
+}
 
 - (void)setComment:(GWComment *)comment
 {
@@ -41,4 +58,11 @@
     }
 }
 
+//- (void)setFrame:(CGRect)frame
+//{
+//    frame.origin.x = GWTopicCellMargin;
+//    frame.size.width -= 2 * GWTopicCellMargin;
+//    
+//    [super setFrame:frame];
+//}
 @end

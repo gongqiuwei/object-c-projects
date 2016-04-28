@@ -85,6 +85,10 @@ static NSString *const GWCommentCellId = @"comment";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"comment_nav_item_share_icon" selectImage:@"comment_nav_item_share_icon_click" target:nil action:nil];
     
     self.tableView.backgroundColor = GWGlobalBgColor;
+    // 去掉分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 内边距
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, GWTopicCellMargin, 0);
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
@@ -283,6 +287,49 @@ static NSString *const GWCommentCellId = @"comment";
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
+    
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIMenuController *menuVC = [UIMenuController sharedMenuController];
+    
+    if (menuVC.isMenuVisible) {
+        [menuVC setMenuVisible:NO animated:YES];
+    } else {
+        // 添加自动义的操作
+        UIMenuItem *ding = [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)];
+        UIMenuItem *replay = [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(replay:)];
+        UIMenuItem *report = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(report:)];
+        menuVC.menuItems = @[ding, replay, report];
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        // cell成为第一响应者，menuVC才会在它身上显示（需要实现一些方法）
+        [cell becomeFirstResponder];
+        CGRect rect = CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5);
+        [menuVC setTargetRect:rect inView:cell];
+        [menuVC setMenuVisible:YES animated:YES];
+    }
+}
+
+#pragma mark - MenuItem处理
+- (void)ding:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
+
+- (void)replay:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
+
+- (void)report:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
 }
 
 #pragma mark - 键盘
