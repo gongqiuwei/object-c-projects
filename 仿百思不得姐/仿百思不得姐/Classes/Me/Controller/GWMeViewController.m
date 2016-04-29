@@ -9,6 +9,7 @@
 #import "GWMeViewController.h"
 #import "GWMeCell.h"
 #import "UIImage+Extension.h"
+#import "GWMeFooterView.h"
 
 static NSString *const GWMeCellId = @"me";
 
@@ -40,6 +41,10 @@ static NSString *const GWMeCellId = @"me";
     // 调整contentInsert是为了是最上面的间距缩小
     // 减35是因为系统自动调整了y的位置，为35
     self.tableView.contentInset = UIEdgeInsetsMake(GWTopicCellMargin - 35, 0, 0, 0);
+    
+    // 底部视图
+    GWMeFooterView *footer = [[GWMeFooterView alloc] init];
+    self.tableView.tableFooterView = footer;
 }
 
 - (void)setupNav

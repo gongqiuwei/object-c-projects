@@ -61,6 +61,9 @@
 		51D3A4181CC79AEC00690528 /* GWConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A4171CC79AEC00690528 /* GWConst.m */; };
 		51D4A6031CD1BAA800CE7C52 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A6021CD1BAA800CE7C52 /* UIImage+Extension.m */; };
 		51D4A6061CD20A0300CE7C52 /* GWMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A6051CD20A0300CE7C52 /* GWMeCell.m */; };
+		51D4A6091CD2FBDE00CE7C52 /* GWMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A6081CD2FBDE00CE7C52 /* GWMeFooterView.m */; };
+		51D4A60C1CD2FC9300CE7C52 /* GWSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A60B1CD2FC9300CE7C52 /* GWSquare.m */; };
+		51D4A60F1CD2FD0700CE7C52 /* GWSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A60E1CD2FD0700CE7C52 /* GWSquareButton.m */; };
 		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
 		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
 		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
@@ -251,6 +254,12 @@
 		51D4A6021CD1BAA800CE7C52 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		51D4A6041CD20A0300CE7C52 /* GWMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMeCell.h; sourceTree = "<group>"; };
 		51D4A6051CD20A0300CE7C52 /* GWMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMeCell.m; sourceTree = "<group>"; };
+		51D4A6071CD2FBDE00CE7C52 /* GWMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMeFooterView.h; sourceTree = "<group>"; };
+		51D4A6081CD2FBDE00CE7C52 /* GWMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMeFooterView.m; sourceTree = "<group>"; };
+		51D4A60A1CD2FC9300CE7C52 /* GWSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWSquare.h; sourceTree = "<group>"; };
+		51D4A60B1CD2FC9300CE7C52 /* GWSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWSquare.m; sourceTree = "<group>"; };
+		51D4A60D1CD2FD0700CE7C52 /* GWSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWSquareButton.h; sourceTree = "<group>"; };
+		51D4A60E1CD2FD0700CE7C52 /* GWSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWSquareButton.m; sourceTree = "<group>"; };
 		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -768,6 +777,8 @@
 		51FB68CD1CBD144A00B23B3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				51D4A60A1CD2FC9300CE7C52 /* GWSquare.h */,
+				51D4A60B1CD2FC9300CE7C52 /* GWSquare.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -777,6 +788,10 @@
 			children = (
 				51D4A6041CD20A0300CE7C52 /* GWMeCell.h */,
 				51D4A6051CD20A0300CE7C52 /* GWMeCell.m */,
+				51D4A6071CD2FBDE00CE7C52 /* GWMeFooterView.h */,
+				51D4A6081CD2FBDE00CE7C52 /* GWMeFooterView.m */,
+				51D4A60D1CD2FD0700CE7C52 /* GWSquareButton.h */,
+				51D4A60E1CD2FD0700CE7C52 /* GWSquareButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1096,6 +1111,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D4A60F1CD2FD0700CE7C52 /* GWSquareButton.m in Sources */,
 				51FB69471CBF360F00B23B3E /* UIImageView+HighlightedWebCache.m in Sources */,
 				51D3A4151CC793A900690528 /* GWTopicViewController.m in Sources */,
 				51529CAC1CCB1E4300A6983E /* POPLayerExtras.mm in Sources */,
@@ -1117,6 +1133,7 @@
 				51FB69AA1CBF859F00B23B3E /* MJRefreshHeader.m in Sources */,
 				51FB693C1CBF360F00B23B3E /* SDImageCache.m in Sources */,
 				51FB69AC1CBF859F00B23B3E /* MJRefreshAutoNormalFooter.m in Sources */,
+				51D4A6091CD2FBDE00CE7C52 /* GWMeFooterView.m in Sources */,
 				51FB69151CBF35D400B23B3E /* SVIndefiniteAnimatedView.m in Sources */,
 				51FB69431CBF360F00B23B3E /* UIButton+WebCache.m in Sources */,
 				51529C221CCA0D5E00A6983E /* GWPublishViewController.m in Sources */,
@@ -1189,6 +1206,7 @@
 				51D3A40C1CC62A0400690528 /* NSDate+GWExtension.m in Sources */,
 				51FB690D1CBF354A00B23B3E /* AFURLResponseSerialization.m in Sources */,
 				188967091CC5155B0080E92F /* GWTopic.m in Sources */,
+				51D4A60C1CD2FC9300CE7C52 /* GWSquare.m in Sources */,
 				51FB696C1CBF3B0F00B23B3E /* NSObject+MJProperty.m in Sources */,
 				188966FC1CBFDEA30080E92F /* GWRecommendTagViewController.m in Sources */,
 				51529CAA1CCB1E4300A6983E /* POPDecayAnimation.mm in Sources */,
