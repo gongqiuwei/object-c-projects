@@ -9,6 +9,8 @@
 #import "GWPublishViewController.h"
 #import "GWVerticalButton.h"
 #import "POP.h"
+#import "GWPostWordViewController.h"
+#import "GWNavigationController.h"
 
 static CGFloat const GWAnimationDelay = 0.1;
 static CGFloat const GWSpringFactor = 10;
@@ -42,6 +44,7 @@ static CGFloat const GWSpringFactor = 10;
     CGFloat xMargin = (GWScreenW - 2 * buttonStartX - maxCols * buttonW) / (maxCols - 1);
     for (int i = 0; i<images.count; i++) {
         GWVerticalButton *button = [[GWVerticalButton alloc] init];
+        button.tag = i;
         // 设置内容
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitle:titles[i] forState:UIControlStateNormal];
@@ -103,7 +106,14 @@ static CGFloat const GWSpringFactor = 10;
 - (void)buttonClicked:(UIButton *)button
 {
     [self cancelWithCompletionBlock:^{
-        GWLog(@"动画完成，根据按钮弹出界面");
+        if (button.tag == 2) {
+            
+            GWPostWordViewController *word = [[GWPostWordViewController alloc] init];
+            GWNavigationController *nav = [[GWNavigationController alloc] initWithRootViewController:word];
+            // 弹出控制器
+           UIViewController *rootVc = [UIApplication sharedApplication].keyWindow.rootViewController;
+            [rootVc presentViewController:nav animated:YES completion:nil];
+        }
     }];
 }
 

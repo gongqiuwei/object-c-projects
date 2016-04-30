@@ -30,8 +30,6 @@
 		51529C101CC9BE2C00A6983E /* GWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C0F1CC9BE2C00A6983E /* GWProgressView.m */; };
 		51529C141CC9D7DB00A6983E /* GWPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C121CC9D7DB00A6983E /* GWPictureViewController.m */; };
 		51529C151CC9D7DB00A6983E /* GWPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51529C131CC9D7DB00A6983E /* GWPictureViewController.xib */; };
-		51529C221CCA0D5E00A6983E /* GWPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51529C201CCA0D5E00A6983E /* GWPublishViewController.m */; };
-		51529C231CCA0D5E00A6983E /* GWPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51529C211CCA0D5E00A6983E /* GWPublishViewController.xib */; };
 		51529CA01CCB1E4200A6983E /* POPAnimatableProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51529C6F1CCB1E4200A6983E /* POPAnimatableProperty.mm */; };
 		51529CA11CCB1E4200A6983E /* POPAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51529C711CCB1E4200A6983E /* POPAnimation.mm */; };
 		51529CA21CCB1E4200A6983E /* POPAnimationEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51529C731CCB1E4200A6983E /* POPAnimationEvent.mm */; };
@@ -51,6 +49,9 @@
 		51529CB01CCB1E4300A6983E /* POPVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 51529C9A1CCB1E4200A6983E /* POPVector.mm */; };
 		51529CB11CCB1E4300A6983E /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51529C9D1CCB1E4200A6983E /* TransformationMatrix.cpp */; };
 		51529CB31CCB1EA000A6983E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 51529CB21CCB1EA000A6983E /* libc++.tbd */; };
+		519997BB1CD44926004C3765 /* GWPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519997B91CD44926004C3765 /* GWPublishViewController.m */; };
+		519997BC1CD44926004C3765 /* GWPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519997BA1CD44926004C3765 /* GWPublishViewController.xib */; };
+		519997BF1CD4494C004C3765 /* GWPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519997BE1CD4494C004C3765 /* GWPostWordViewController.m */; };
 		51D3A3DE1CC4AE1C00690528 /* GWPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */; };
 		51D3A3E01CC4AE2800690528 /* GWPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */; };
 		51D3A3E21CC4BB5600690528 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D3A3E11CC4BB5600690528 /* Foundation+Log.m */; };
@@ -182,9 +183,6 @@
 		51529C111CC9D7DB00A6983E /* GWPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPictureViewController.h; sourceTree = "<group>"; };
 		51529C121CC9D7DB00A6983E /* GWPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPictureViewController.m; sourceTree = "<group>"; };
 		51529C131CC9D7DB00A6983E /* GWPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPictureViewController.xib; sourceTree = "<group>"; };
-		51529C1F1CCA0D5E00A6983E /* GWPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPublishViewController.h; sourceTree = "<group>"; };
-		51529C201CCA0D5E00A6983E /* GWPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPublishViewController.m; sourceTree = "<group>"; };
-		51529C211CCA0D5E00A6983E /* GWPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPublishViewController.xib; sourceTree = "<group>"; };
 		51529C6C1CCB1E4200A6983E /* POP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POP.h; sourceTree = "<group>"; };
 		51529C6D1CCB1E4200A6983E /* POPAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAction.h; sourceTree = "<group>"; };
 		51529C6E1CCB1E4200A6983E /* POPAnimatableProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimatableProperty.h; sourceTree = "<group>"; };
@@ -237,6 +235,11 @@
 		51529C9E1CCB1E4200A6983E /* TransformationMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformationMatrix.h; sourceTree = "<group>"; };
 		51529C9F1CCB1E4200A6983E /* UnitBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitBezier.h; sourceTree = "<group>"; };
 		51529CB21CCB1EA000A6983E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		519997B81CD44926004C3765 /* GWPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPublishViewController.h; sourceTree = "<group>"; };
+		519997B91CD44926004C3765 /* GWPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPublishViewController.m; sourceTree = "<group>"; };
+		519997BA1CD44926004C3765 /* GWPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPublishViewController.xib; sourceTree = "<group>"; };
+		519997BD1CD4494C004C3765 /* GWPostWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPostWordViewController.h; sourceTree = "<group>"; };
+		519997BE1CD4494C004C3765 /* GWPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPostWordViewController.m; sourceTree = "<group>"; };
 		51D3A3DC1CC4AE1C00690528 /* GWPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPushGuideView.h; sourceTree = "<group>"; };
 		51D3A3DD1CC4AE1C00690528 /* GWPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPushGuideView.m; sourceTree = "<group>"; };
 		51D3A3DF1CC4AE2800690528 /* GWPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPushGuideView.xib; sourceTree = "<group>"; };
@@ -538,6 +541,42 @@
 			path = WebCore;
 			sourceTree = "<group>";
 		};
+		519997B11CD44889004C3765 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				519997B21CD44889004C3765 /* Controller */,
+				519997B31CD44889004C3765 /* Model */,
+				519997B41CD44889004C3765 /* View */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		519997B21CD44889004C3765 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				519997B81CD44926004C3765 /* GWPublishViewController.h */,
+				519997B91CD44926004C3765 /* GWPublishViewController.m */,
+				519997BA1CD44926004C3765 /* GWPublishViewController.xib */,
+				519997BD1CD4494C004C3765 /* GWPostWordViewController.h */,
+				519997BE1CD4494C004C3765 /* GWPostWordViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		519997B31CD44889004C3765 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		519997B41CD44889004C3765 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		51FB686D1CBC99BA00B23B3E = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +615,7 @@
 		51FB68A91CBD144A00B23B3E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				519997B11CD44889004C3765 /* Publish */,
 				51FB68AA1CBD144A00B23B3E /* Essence */,
 				51FB68CF1CBD144A00B23B3E /* New */,
 				51FB68B01CBD144A00B23B3E /* FriendTrends */,
@@ -702,9 +742,6 @@
 				51FB68BE1CBD144A00B23B3E /* GWTabBarController.m */,
 				51FB68E21CBDE70300B23B3E /* GWNavigationController.h */,
 				51FB68E31CBDE70300B23B3E /* GWNavigationController.m */,
-				51529C1F1CCA0D5E00A6983E /* GWPublishViewController.h */,
-				51529C201CCA0D5E00A6983E /* GWPublishViewController.m */,
-				51529C211CCA0D5E00A6983E /* GWPublishViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1089,6 +1126,7 @@
 				51529C061CC8DBAF00A6983E /* GWTopicPictureView.xib in Resources */,
 				514452921CCDF46C008326C4 /* GWTopicVideoView.xib in Resources */,
 				51FB69751CBF516000B23B3E /* GWRecommendUserCell.xib in Resources */,
+				519997BC1CD44926004C3765 /* GWPublishViewController.xib in Resources */,
 				51FB69B41CBF859F00B23B3E /* MJRefresh.bundle in Resources */,
 				5144528D1CCDED46008326C4 /* GWTopicAudioView.xib in Resources */,
 				188967011CBFDF6E0080E92F /* GWRecommendTagCell.xib in Resources */,
@@ -1097,7 +1135,6 @@
 				514452A21CCF77C4008326C4 /* GWCommentCell.xib in Resources */,
 				51D3A3FB1CC5C91D00690528 /* GWTopicCell.xib in Resources */,
 				5144529D1CCF113C008326C4 /* GWCommentViewController.xib in Resources */,
-				51529C231CCA0D5E00A6983E /* GWPublishViewController.xib in Resources */,
 				51FB69161CBF35D400B23B3E /* SVProgressHUD.bundle in Resources */,
 				51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */,
 				51529C151CC9D7DB00A6983E /* GWPictureViewController.xib in Resources */,
@@ -1117,6 +1154,7 @@
 				51529CAC1CCB1E4300A6983E /* POPLayerExtras.mm in Sources */,
 				51529CA51CCB1E4300A6983E /* POPAnimationTracer.mm in Sources */,
 				51FB69AB1CBF859F00B23B3E /* MJRefreshAutoGifFooter.m in Sources */,
+				519997BB1CD44926004C3765 /* GWPublishViewController.m in Sources */,
 				51529C041CC8DBA100A6983E /* GWTopicPictureView.m in Sources */,
 				51FB68D61CBD144A00B23B3E /* GWFriendTrendsViewController.m in Sources */,
 				51FB69411CBF360F00B23B3E /* SDWebImageManager.m in Sources */,
@@ -1136,7 +1174,6 @@
 				51D4A6091CD2FBDE00CE7C52 /* GWMeFooterView.m in Sources */,
 				51FB69151CBF35D400B23B3E /* SVIndefiniteAnimatedView.m in Sources */,
 				51FB69431CBF360F00B23B3E /* UIButton+WebCache.m in Sources */,
-				51529C221CCA0D5E00A6983E /* GWPublishViewController.m in Sources */,
 				51FB69521CBF390400B23B3E /* GWRecommendCagetoryCell.m in Sources */,
 				51529CA31CCB1E4300A6983E /* POPAnimationExtras.mm in Sources */,
 				51FB68E41CBDE70300B23B3E /* GWNavigationController.m in Sources */,
@@ -1165,6 +1202,7 @@
 				188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */,
 				51FB69781CBF556D00B23B3E /* GWRecommendUser.m in Sources */,
 				51FB69B81CBF859F00B23B3E /* UIView+MJExtension.m in Sources */,
+				519997BF1CD4494C004C3765 /* GWPostWordViewController.m in Sources */,
 				51FB69491CBF360F00B23B3E /* UIView+WebCacheOperation.m in Sources */,
 				51FB690C1CBF354A00B23B3E /* AFURLRequestSerialization.m in Sources */,
 				51FB69A61CBF859F00B23B3E /* MJRefreshAutoFooter.m in Sources */,
