@@ -7,6 +7,7 @@
 //
 
 #import "GWAddTagViewController.h"
+#import "GWTagButton.h"
 
 @interface GWAddTagViewController ()
 /** 内容 */
@@ -21,6 +22,7 @@
 
 @implementation GWAddTagViewController
 
+#pragma mark - 懒加载
 - (NSMutableArray *)tagButtons
 {
     if (!_tagButtons) {
@@ -48,6 +50,7 @@
     return _addButton;
 }
 
+#pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -59,7 +62,7 @@
 - (void)setupTextFiled
 {
     UITextField *textField = [[UITextField alloc] init];
-    textField.width = GWScreenW;
+    textField.width = self.contentView.width;
     textField.height = 25;
     textField.placeholder = @"多个标签用逗号或者换行隔开";
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
@@ -86,6 +89,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
 }
 
+#pragma mark - 事件监听
 - (void)done
 {
     
@@ -103,6 +107,9 @@
     } else { // 没有文字
         self.addButton.hidden = YES;
     }
+    
+    // 计算textField的位置
+    [self updateTextFieldFrame];
 }
 
 /**
@@ -111,34 +118,45 @@
 - (void)addButtonClick
 {
     // 添加一个"标签按钮"
-    UIButton *tagButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    GWTagButton *tagButton = [GWTagButton buttonWithType:UIButtonTypeCustom];
     [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [tagButton setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
-    tagButton.backgroundColor = GWTagBg;
     [tagButton setTitle:self.textField.text forState:UIControlStateNormal];
-    [tagButton sizeToFit];
+    // 高度需要在title设置完之后改，不然sizetofit调用了高度就不正确了
+    tagButton.height = self.textField.height;
     [self.contentView addSubview:tagButton];
     [self.tagButtons addObject:tagButton];
-    
-    // 更新标签按钮的frame
-    [self updateTagButtonFrame];
     
     // 更新其他控件的状态(代码更改text不会调用target方法)
     self.textField.text = nil;
     self.addButton.hidden = YES;
+    
+    // 更新frame
+    [self updateTagButtonFrame];
+    [self updateTextFieldFrame];
 }
 
+- (void)tagButtonClick:(GWTagButton *)tagButton
+{
+    [tagButton removeFromSuperview];
+    [self.tagButtons removeObject:tagButton];
+    
+    [self updateTagButtonFrame];
+    [self updateTextFieldFrame];
+}
+
+#pragma mark - 计算frame
+// 计算tagButton的位置
 - (void)updateTagButtonFrame
 {
     // 计算按钮的位置
     for (NSInteger i = 0; i < self.tagButtons.count; i++) {
-        UIButton *tagButton = self.tagButtons[i];
+        GWTagButton *tagButton = self.tagButtons[i];
         
         if (i == 0) { // 第一个按钮
             tagButton.x = 0;
             tagButton.y = 0;
         } else {
-            UIButton *lastTagButton = self.tagButtons[i-1];
+            GWTagButton *lastTagButton = self.tagButtons[i-1];
             // 计算当前行左边被占用的宽度
             CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + GWTagMargin;
             // 计算当前行右边剩余的宽度
@@ -152,18 +170,33 @@
             }
         }
     }
-    
-    // 计算textField的位置
-    UIButton *lastTagButton = [self.tagButtons lastObject];
-    self.textField.x = 0;
-    self.textField.y = CGRectGetMaxY(lastTagButton.frame) + GWTagMargin;
 }
 
-- (void)tagButtonClick:(UIButton *)tagButton
+// 计算textField的位置
+- (void)updateTextFieldFrame
 {
-    [tagButton removeFromSuperview];
-    [self.tagButtons removeObject:tagButton];
+    // 最后一个标签按钮
+    GWTagButton *lastTagButton = [self.tagButtons lastObject];
+    CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + GWTagMargin;
     
-    [self updateTagButtonFrame];
+    // 更新textField的frame
+    if (self.contentView.width - leftWidth >= [self textFieldTextWidth]) {
+        self.textField.y = lastTagButton.y;
+        self.textField.x = leftWidth;
+    } else {
+        self.textField.x = 0;
+        self.textField.y = CGRectGetMaxY(lastTagButton.frame) + GWTagMargin;
+    }
+}
+
+/**
+ * textField的文字宽度
+ */
+- (CGFloat)textFieldTextWidth
+{
+    CGFloat textW = [self.textField.text sizeWithAttributes:@{NSFontAttributeName : self.textField.font}].width;
+    
+    // 当textField没有文字的时候，默认占用100的宽度
+    return MAX(100, textW);
 }
 @end
