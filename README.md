@@ -17,6 +17,11 @@
 	- 使用label实现
 	- 注意需要重写textView之前的属性设置方法，以确保占位label的正确性
 
+- textField的监听方式
+	- delegate（没有向textView那样提供textDidChange代理方法，在中文选择输入的时候有bug，不太好使用）
+	- notification
+	- addTarget（原因，uitextfield继承自UIControl）
+
 ### 6 其他补充
 - UIMenuController
 	

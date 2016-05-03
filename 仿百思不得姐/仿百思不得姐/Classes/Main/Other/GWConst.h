@@ -37,3 +37,8 @@ UIKIT_EXTERN CGFloat const GWTopicCellTopCmtTitleH;
 /** tabBar被选中的通知名字 */
 UIKIT_EXTERN NSString * const GWTabBarDidSelectNotification;
 
+/** 标签-间距 */
+UIKIT_EXTERN CGFloat const GWTagMargin;
+
+
+

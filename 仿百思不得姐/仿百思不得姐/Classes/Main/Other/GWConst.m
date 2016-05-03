@@ -27,3 +27,9 @@ CGFloat const GWTopicCellTopCmtTitleH = 20;
 
 /** tabBar被选中的通知名字 */
 NSString * const GWTabBarDidSelectNotification = @"GWTabBarDidSelectNotification";
+
+/** 标签-间距 */
+CGFloat const GWTagMargin = 5;
+
+
+
