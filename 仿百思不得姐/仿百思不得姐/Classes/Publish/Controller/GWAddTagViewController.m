@@ -9,7 +9,7 @@
 #import "GWAddTagViewController.h"
 #import "GWTagButton.h"
 
-@interface GWAddTagViewController ()
+@interface GWAddTagViewController ()<UITextFieldDelegate>
 /** 内容 */
 @property (nonatomic, weak) UIView *contentView;
 /** 文本输入框 */
@@ -65,10 +65,13 @@
     textField.width = self.contentView.width;
     textField.height = 25;
     textField.placeholder = @"多个标签用逗号或者换行隔开";
+    // placeholder是使用懒加载创建的，如果不设置placeholer是不会创建_placeholderLabel的，下面的设置代码也就不会起作用
+    [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     [textField becomeFirstResponder];
     [self.contentView addSubview:textField];
     self.textField = textField;
+    textField.delegate = self;
 }
 
 - (void)setupContentView
@@ -104,6 +107,19 @@
         self.addButton.hidden = NO;
         self.addButton.y = CGRectGetMaxY(self.textField.frame) + GWTagMargin;
         [self.addButton setTitle:[NSString stringWithFormat:@"添加标签: %@", self.textField.text] forState:UIControlStateNormal];
+        
+        // 判断是不是逗号
+        // 获得最后一个字符
+        NSString *text = self.textField.text;
+        NSUInteger len = text.length;
+        NSString *lastLetter = [text substringFromIndex:len - 1];
+        if ([lastLetter isEqualToString:@","]
+            || [lastLetter isEqualToString:@"，"]) {
+            // 去除逗号
+            self.textField.text = [text substringToIndex:len - 1];
+            
+            [self addButtonClick];
+        }
     } else { // 没有文字
         self.addButton.hidden = YES;
     }
@@ -198,5 +214,17 @@
     
     // 当textField没有文字的时候，默认占用100的宽度
     return MAX(100, textW);
+}
+
+#pragma mark - <UITextFieldDelegate>
+/**
+ * 监听键盘最右下角按钮的点击（return key， 比如“换行”、“完成”等等）
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.hasText) {
+        [self addButtonClick];
+    }
+    return YES;
 }
 @end
