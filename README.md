@@ -2,6 +2,19 @@
 
 ## 仿百思不得姐
 
+### 7 发布界面
+
+- 使用UIAppearance设置好navigationItem的属性之后，view没有加载之前设置enable=NO不生效
+	
+	主动调用layoutIfNeed使得之前的设置生效
+	
+	```objc
+	[self.navigationController.navigationBar layoutIfNeeded];
+	```
+
+- 带占位文字的textView的实现
+	
+
 ### 6 其他补充
 - UIMenuController
 	
