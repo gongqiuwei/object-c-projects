@@ -13,6 +13,7 @@
 		188967041CBFE0090080E92F /* GWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967031CBFE0090080E92F /* GWRecommendTag.m */; };
 		188967091CC5155B0080E92F /* GWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 188967081CC5155B0080E92F /* GWTopic.m */; };
 		18B1F8031CD8CE1300C834D0 /* GWTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B1F8021CD8CE1300C834D0 /* GWTagButton.m */; };
+		18B1F8061CD8E03400C834D0 /* GWTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B1F8051CD8E03400C834D0 /* GWTagTextField.m */; };
 		5144528B1CCDED2D008326C4 /* GWTopicAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5144528A1CCDED2D008326C4 /* GWTopicAudioView.m */; };
 		5144528D1CCDED46008326C4 /* GWTopicAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5144528C1CCDED46008326C4 /* GWTopicAudioView.xib */; };
 		514452901CCDF458008326C4 /* GWTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5144528F1CCDF458008326C4 /* GWTopicVideoView.m */; };
@@ -160,6 +161,8 @@
 		188967081CC5155B0080E92F /* GWTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTopic.m; sourceTree = "<group>"; };
 		18B1F8011CD8CE1300C834D0 /* GWTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTagButton.h; sourceTree = "<group>"; };
 		18B1F8021CD8CE1300C834D0 /* GWTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTagButton.m; sourceTree = "<group>"; };
+		18B1F8041CD8E03400C834D0 /* GWTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTagTextField.h; sourceTree = "<group>"; };
+		18B1F8051CD8E03400C834D0 /* GWTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTagTextField.m; sourceTree = "<group>"; };
 		514452891CCDED2D008326C4 /* GWTopicAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWTopicAudioView.h; sourceTree = "<group>"; };
 		5144528A1CCDED2D008326C4 /* GWTopicAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWTopicAudioView.m; sourceTree = "<group>"; };
 		5144528C1CCDED46008326C4 /* GWTopicAudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWTopicAudioView.xib; sourceTree = "<group>"; };
@@ -596,6 +599,8 @@
 				51D696401CD8872E0093820F /* GWAddTagToolbar.xib */,
 				18B1F8011CD8CE1300C834D0 /* GWTagButton.h */,
 				18B1F8021CD8CE1300C834D0 /* GWTagButton.m */,
+				18B1F8041CD8E03400C834D0 /* GWTagTextField.h */,
+				18B1F8051CD8E03400C834D0 /* GWTagTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1290,6 +1295,7 @@
 				51FB68DC1CBD144A00B23B3E /* GWTabBar.m in Sources */,
 				51529CA41CCB1E4300A6983E /* POPAnimationRuntime.mm in Sources */,
 				51FB69091CBF354A00B23B3E /* AFHTTPSessionManager.m in Sources */,
+				18B1F8061CD8E03400C834D0 /* GWTagTextField.m in Sources */,
 				51FB69B31CBF859F00B23B3E /* MJRefreshStateHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,12 +8,13 @@
 
 #import "GWAddTagViewController.h"
 #import "GWTagButton.h"
+#import "GWTagTextField.h"
 
 @interface GWAddTagViewController ()<UITextFieldDelegate>
 /** 内容 */
 @property (nonatomic, weak) UIView *contentView;
 /** 文本输入框 */
-@property (nonatomic, weak) UITextField *textField;
+@property (nonatomic, weak) GWTagTextField *textField;
 /** 添加按钮 */
 @property (nonatomic, weak) UIButton *addButton;
 /** 所有的标签按钮 */
@@ -61,7 +62,7 @@
 
 - (void)setupTextFiled
 {
-    UITextField *textField = [[UITextField alloc] init];
+    GWTagTextField *textField = [[GWTagTextField alloc] init];
     textField.width = self.contentView.width;
     textField.height = 25;
     textField.placeholder = @"多个标签用逗号或者换行隔开";
@@ -72,6 +73,13 @@
     [self.contentView addSubview:textField];
     self.textField = textField;
     textField.delegate = self;
+    
+    __weak typeof(self) weakSelf = self;
+    textField.deleteBlock = ^{
+        if (weakSelf.textField.hasText) return;
+        
+        [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
+    };
 }
 
 - (void)setupContentView
