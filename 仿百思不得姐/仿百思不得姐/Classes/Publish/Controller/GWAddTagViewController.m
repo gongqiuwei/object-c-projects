@@ -9,6 +9,7 @@
 #import "GWAddTagViewController.h"
 #import "GWTagButton.h"
 #import "GWTagTextField.h"
+#import "SVProgressHUD.h"
 
 @interface GWAddTagViewController ()<UITextFieldDelegate>
 /** 内容 */
@@ -64,7 +65,7 @@
 {
     GWTagTextField *textField = [[GWTagTextField alloc] init];
     textField.width = self.contentView.width;
-    textField.height = 25;
+    textField.height = GWTagH;
     textField.placeholder = @"多个标签用逗号或者换行隔开";
     // placeholder是使用懒加载创建的，如果不设置placeholer是不会创建_placeholderLabel的，下面的设置代码也就不会起作用
     [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
@@ -141,12 +142,17 @@
  */
 - (void)addButtonClick
 {
+    // 判断标签是否满了
+    if (self.tagButtons.count == 5) {
+
+        [SVProgressHUD showErrorWithStatus:@"最多5个标签" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    
     // 添加一个"标签按钮"
     GWTagButton *tagButton = [GWTagButton buttonWithType:UIButtonTypeCustom];
     [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [tagButton setTitle:self.textField.text forState:UIControlStateNormal];
-    // 高度需要在title设置完之后改，不然sizetofit调用了高度就不正确了
-    tagButton.height = self.textField.height;
     [self.contentView addSubview:tagButton];
     [self.tagButtons addObject:tagButton];
     

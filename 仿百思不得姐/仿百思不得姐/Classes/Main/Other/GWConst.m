@@ -30,6 +30,7 @@ NSString * const GWTabBarDidSelectNotification = @"GWTabBarDidSelectNotification
 
 /** 标签-间距 */
 CGFloat const GWTagMargin = 5;
-
+/** 标签-高度 */
+CGFloat const GWTagH = 25;
 
 

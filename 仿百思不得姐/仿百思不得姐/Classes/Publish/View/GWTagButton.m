@@ -27,6 +27,8 @@
     [self sizeToFit];
     
     self.width += 3 * GWTagMargin;
+    // 高度需要在title设置完之后改，不然sizetofit调用了高度就不正确了
+    self.height = GWTagH;
 }
 
 - (void)layoutSubviews
