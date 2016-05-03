@@ -14,6 +14,8 @@
 
 - 带占位文字的textView的实现
 	
+	- 使用label实现
+	- 注意需要重写textView之前的属性设置方法，以确保占位label的正确性
 
 ### 6 其他补充
 - UIMenuController

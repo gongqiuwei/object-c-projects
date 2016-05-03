@@ -66,6 +66,9 @@
 		51D4A60C1CD2FC9300CE7C52 /* GWSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A60B1CD2FC9300CE7C52 /* GWSquare.m */; };
 		51D4A60F1CD2FD0700CE7C52 /* GWSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A60E1CD2FD0700CE7C52 /* GWSquareButton.m */; };
 		51D6963C1CD842390093820F /* GWPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D6963B1CD842390093820F /* GWPlaceholderTextView.m */; };
+		51D6963F1CD887200093820F /* GWAddTagToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D6963E1CD887200093820F /* GWAddTagToolbar.m */; };
+		51D696411CD8872E0093820F /* GWAddTagToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D696401CD8872E0093820F /* GWAddTagToolbar.xib */; };
+		51D696441CD897150093820F /* GWAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D696431CD897150093820F /* GWAddTagViewController.m */; };
 		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
 		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
 		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
@@ -266,6 +269,11 @@
 		51D4A60E1CD2FD0700CE7C52 /* GWSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWSquareButton.m; sourceTree = "<group>"; };
 		51D6963A1CD842390093820F /* GWPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPlaceholderTextView.h; sourceTree = "<group>"; };
 		51D6963B1CD842390093820F /* GWPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPlaceholderTextView.m; sourceTree = "<group>"; };
+		51D6963D1CD887200093820F /* GWAddTagToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWAddTagToolbar.h; sourceTree = "<group>"; };
+		51D6963E1CD887200093820F /* GWAddTagToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWAddTagToolbar.m; sourceTree = "<group>"; };
+		51D696401CD8872E0093820F /* GWAddTagToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWAddTagToolbar.xib; sourceTree = "<group>"; };
+		51D696421CD897150093820F /* GWAddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWAddTagViewController.h; sourceTree = "<group>"; };
+		51D696431CD897150093820F /* GWAddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWAddTagViewController.m; sourceTree = "<group>"; };
 		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -562,6 +570,8 @@
 				519997BA1CD44926004C3765 /* GWPublishViewController.xib */,
 				519997BD1CD4494C004C3765 /* GWPostWordViewController.h */,
 				519997BE1CD4494C004C3765 /* GWPostWordViewController.m */,
+				51D696421CD897150093820F /* GWAddTagViewController.h */,
+				51D696431CD897150093820F /* GWAddTagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,6 +588,9 @@
 			children = (
 				51D6963A1CD842390093820F /* GWPlaceholderTextView.h */,
 				51D6963B1CD842390093820F /* GWPlaceholderTextView.m */,
+				51D6963D1CD887200093820F /* GWAddTagToolbar.h */,
+				51D6963E1CD887200093820F /* GWAddTagToolbar.m */,
+				51D696401CD8872E0093820F /* GWAddTagToolbar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1141,6 +1154,7 @@
 				51D3A3FB1CC5C91D00690528 /* GWTopicCell.xib in Resources */,
 				5144529D1CCF113C008326C4 /* GWCommentViewController.xib in Resources */,
 				51FB69161CBF35D400B23B3E /* SVProgressHUD.bundle in Resources */,
+				51D696411CD8872E0093820F /* GWAddTagToolbar.xib in Resources */,
 				51FB68861CBC99BA00B23B3E /* Assets.xcassets in Resources */,
 				51529C151CC9D7DB00A6983E /* GWPictureViewController.xib in Resources */,
 			);
@@ -1158,6 +1172,7 @@
 				51D3A4151CC793A900690528 /* GWTopicViewController.m in Sources */,
 				51529CAC1CCB1E4300A6983E /* POPLayerExtras.mm in Sources */,
 				51529CA51CCB1E4300A6983E /* POPAnimationTracer.mm in Sources */,
+				51D696441CD897150093820F /* GWAddTagViewController.m in Sources */,
 				51FB69AB1CBF859F00B23B3E /* MJRefreshAutoGifFooter.m in Sources */,
 				519997BB1CD44926004C3765 /* GWPublishViewController.m in Sources */,
 				51529C041CC8DBA100A6983E /* GWTopicPictureView.m in Sources */,
@@ -1228,6 +1243,7 @@
 				51FB69401CBF360F00B23B3E /* SDWebImageDownloaderOperation.m in Sources */,
 				51D3A4181CC79AEC00690528 /* GWConst.m in Sources */,
 				51529CAD1CCB1E4300A6983E /* POPMath.mm in Sources */,
+				51D6963F1CD887200093820F /* GWAddTagToolbar.m in Sources */,
 				51FB696A1CBF3B0F00B23B3E /* NSObject+MJCoding.m in Sources */,
 				51FB693A1CBF360F00B23B3E /* MKAnnotationView+WebCache.m in Sources */,
 				188967001CBFDF6E0080E92F /* GWRecommendTagCell.m in Sources */,
