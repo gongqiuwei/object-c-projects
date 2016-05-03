@@ -7,6 +7,11 @@
 //
 
 #import "GWPostWordViewController.h"
+#import "GWPlaceholderTextView.h"
+
+@interface GWPostWordViewController()
+@property (nonatomic, weak) GWPlaceholderTextView *textView;
+@end
 
 @implementation GWPostWordViewController
 - (void)viewDidLoad
@@ -14,6 +19,17 @@
     [super viewDidLoad];
     
     [self setupNav];
+    
+    [self setupTextView];
+}
+
+- (void)setupTextView
+{
+    GWPlaceholderTextView *textView = [[GWPlaceholderTextView alloc] init];
+    textView.frame = self.view.bounds;
+    textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
+    [self.view addSubview:textView];
+    self.textView = textView;
 }
 
 - (void)setupNav

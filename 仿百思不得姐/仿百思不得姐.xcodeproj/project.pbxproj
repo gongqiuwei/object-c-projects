@@ -65,6 +65,7 @@
 		51D4A6091CD2FBDE00CE7C52 /* GWMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A6081CD2FBDE00CE7C52 /* GWMeFooterView.m */; };
 		51D4A60C1CD2FC9300CE7C52 /* GWSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A60B1CD2FC9300CE7C52 /* GWSquare.m */; };
 		51D4A60F1CD2FD0700CE7C52 /* GWSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D4A60E1CD2FD0700CE7C52 /* GWSquareButton.m */; };
+		51D6963C1CD842390093820F /* GWPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D6963B1CD842390093820F /* GWPlaceholderTextView.m */; };
 		51EDDA3E1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */; };
 		51EDDA3F1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */; };
 		51EDDA421CC1DE8200C0A8B5 /* GWVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EDDA411CC1DE8200C0A8B5 /* GWVerticalButton.m */; };
@@ -263,6 +264,8 @@
 		51D4A60B1CD2FC9300CE7C52 /* GWSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWSquare.m; sourceTree = "<group>"; };
 		51D4A60D1CD2FD0700CE7C52 /* GWSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWSquareButton.h; sourceTree = "<group>"; };
 		51D4A60E1CD2FD0700CE7C52 /* GWSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWSquareButton.m; sourceTree = "<group>"; };
+		51D6963A1CD842390093820F /* GWPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPlaceholderTextView.h; sourceTree = "<group>"; };
+		51D6963B1CD842390093820F /* GWPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPlaceholderTextView.m; sourceTree = "<group>"; };
 		51EDDA3B1CC1D84600C0A8B5 /* GWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		51EDDA3C1CC1D84600C0A8B5 /* GWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		51EDDA3D1CC1D84600C0A8B5 /* GWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 		519997B41CD44889004C3765 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51D6963A1CD842390093820F /* GWPlaceholderTextView.h */,
+				51D6963B1CD842390093820F /* GWPlaceholderTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1227,6 +1232,7 @@
 				51FB693A1CBF360F00B23B3E /* MKAnnotationView+WebCache.m in Sources */,
 				188967001CBFDF6E0080E92F /* GWRecommendTagCell.m in Sources */,
 				51529CA11CCB1E4200A6983E /* POPAnimation.mm in Sources */,
+				51D6963C1CD842390093820F /* GWPlaceholderTextView.m in Sources */,
 				51D4A6031CD1BAA800CE7C52 /* UIImage+Extension.m in Sources */,
 				51529CB11CCB1E4300A6983E /* TransformationMatrix.cpp in Sources */,
 				51529CA21CCB1E4200A6983E /* POPAnimationEvent.mm in Sources */,
