@@ -92,6 +92,9 @@ static CGFloat const GWSpringFactor = 10;
     CGFloat centerX = GWScreenW * 0.5;
     CGFloat centerEndY = GWScreenH * 0.2;
     CGFloat centerBeginY = centerEndY - GWScreenH;
+    sloganView.centerY = centerBeginY;
+    sloganView.centerX = centerX;
+    
     anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerBeginY)];;
     anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerEndY)];
     // 动画完成的回调
