@@ -41,7 +41,7 @@
         addButton.height = 35;
         [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        addButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        addButton.titleLabel.font = GWTagFont;
         addButton.contentEdgeInsets = UIEdgeInsetsMake(0, GWTagMargin, 0, GWTagMargin);
         // 让按钮内部的文字和图片都左对齐
         addButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -59,16 +59,22 @@
     [self setupNav];
     [self setupContentView];
     [self setupTextFiled];
+    [self setupTags];
+}
+
+- (void)setupTags
+{
+    for (NSString *tag in self.tags) {
+        // 模拟在当前界面如何添加标签的
+        self.textField.text = tag;
+        [self addButtonClick];
+    }
 }
 
 - (void)setupTextFiled
 {
     GWTagTextField *textField = [[GWTagTextField alloc] init];
     textField.width = self.contentView.width;
-    textField.height = GWTagH;
-    textField.placeholder = @"多个标签用逗号或者换行隔开";
-    // placeholder是使用懒加载创建的，如果不设置placeholer是不会创建_placeholderLabel的，下面的设置代码也就不会起作用
-    [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     [textField becomeFirstResponder];
     [self.contentView addSubview:textField];
@@ -104,7 +110,10 @@
 #pragma mark - 事件监听
 - (void)done
 {
+    NSArray *tags = [self.tagButtons valueForKeyPath:@"currentTitle"];
+    !self.completionBlock ?: self.completionBlock(tags);
     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**
@@ -170,8 +179,11 @@
     [tagButton removeFromSuperview];
     [self.tagButtons removeObject:tagButton];
     
-    [self updateTagButtonFrame];
-    [self updateTextFieldFrame];
+    // 重新更新所有标签按钮的frame
+    [UIView animateWithDuration:0.25 animations:^{
+        [self updateTagButtonFrame];
+        [self updateTextFieldFrame];
+    }];
 }
 
 #pragma mark - 计算frame

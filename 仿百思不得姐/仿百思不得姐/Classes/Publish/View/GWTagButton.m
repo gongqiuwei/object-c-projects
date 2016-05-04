@@ -14,7 +14,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
-        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.titleLabel.font = GWTagFont;
         self.backgroundColor = GWTagBg;
     }
     return self;

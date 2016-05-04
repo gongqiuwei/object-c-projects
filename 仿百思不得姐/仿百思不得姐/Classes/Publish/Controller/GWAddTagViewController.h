@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GWAddTagViewController : UIViewController
+@property (nonatomic, copy) void(^completionBlock)(NSArray *tags);
 
+@property (nonatomic, strong) NSArray *tags;
 @end
