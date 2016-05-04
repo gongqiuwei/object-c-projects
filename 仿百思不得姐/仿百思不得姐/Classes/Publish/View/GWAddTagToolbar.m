@@ -42,6 +42,9 @@
     addButton.x = GWTopicCellMargin;
     [self.topView addSubview:addButton];
     self.addButton = addButton;
+    
+    // 初始化标签
+    [self createTagLabels:@[@"糗事", @"搞笑"]];
 }
 
 - (void)addButtonClick
@@ -57,27 +60,16 @@
     [nav pushViewController:vc animated:YES];
 }
 
+
 /**
- * 创建标签
+ *  在当前方法中取到的frame的信息才是最准确的，awakefromnib中是xib的尺寸信息
  */
-- (void)createTagLabels:(NSArray *)tags
+- (void)layoutSubviews
 {
-    [self.tagLabels makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [self.tagLabels removeAllObjects];
+    [super layoutSubviews];
     
-    for (int i = 0; i<tags.count; i++) {
-        UILabel *tagLabel = [[UILabel alloc] init];
-        [self.tagLabels addObject:tagLabel];
-        tagLabel.backgroundColor = GWTagBg;
-        tagLabel.textAlignment = NSTextAlignmentCenter;
-        tagLabel.text = tags[i];
-        tagLabel.font = GWTagFont;
-        // 应该要先设置文字和字体后，再进行计算
-        [tagLabel sizeToFit];
-        tagLabel.width += 2 * GWTagMargin;
-        tagLabel.height = GWTagH;
-        tagLabel.textColor = [UIColor whiteColor];
-        [self.topView addSubview:tagLabel];
+    for (int i = 0; i < self.tagLabels.count; i++) {
+        UILabel *tagLabel = self.tagLabels[i];
         
         // 设置位置
         if (i == 0) { // 最前面的标签
@@ -112,5 +104,36 @@
         self.addButton.y = CGRectGetMaxY(lastTagLabel.frame) + GWTagMargin;
     }
     
+    // 更新高度
+    CGFloat oldH = self.height;
+    self.height = CGRectGetMaxY(self.addButton.frame) + GWTagMargin + 35;
+    self.y -= self.height - oldH;
+}
+
+/**
+ * 创建标签
+ */
+- (void)createTagLabels:(NSArray *)tags
+{
+    [self.tagLabels makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.tagLabels removeAllObjects];
+    
+    for (int i = 0; i<tags.count; i++) {
+        UILabel *tagLabel = [[UILabel alloc] init];
+        [self.tagLabels addObject:tagLabel];
+        tagLabel.backgroundColor = GWTagBg;
+        tagLabel.textAlignment = NSTextAlignmentCenter;
+        tagLabel.text = tags[i];
+        tagLabel.font = GWTagFont;
+        // 应该要先设置文字和字体后，再进行计算
+        [tagLabel sizeToFit];
+        tagLabel.width += 2 * GWTagMargin;
+        tagLabel.height = GWTagH;
+        tagLabel.textColor = [UIColor whiteColor];
+        [self.topView addSubview:tagLabel];
+    }
+    
+    // 实时更新frame信息，由系统调用layoutsubviews方法
+    [self setNeedsLayout];
 }
 @end

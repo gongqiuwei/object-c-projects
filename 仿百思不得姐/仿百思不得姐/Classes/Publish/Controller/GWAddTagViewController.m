@@ -229,6 +229,9 @@
         self.textField.x = 0;
         self.textField.y = CGRectGetMaxY(lastTagButton.frame) + GWTagMargin;
     }
+    
+    // 更新“添加标签”的frame
+    self.addButton.y = CGRectGetMaxY(self.textField.frame) + GWTagMargin;
 }
 
 /**

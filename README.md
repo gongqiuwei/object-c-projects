@@ -22,6 +22,12 @@
 	- notification
 	- addTarget（原因，uitextfield继承自UIControl）
 
+- xib创建控制器或者View的注意点
+	直接从awakefromnib中拿到的尺寸是xib文件中的尺寸，不一定是真实的屏幕上的尺寸，如果要拿到真实的尺寸
+	
+	- view中： layoutSubViews
+	- viewController中：viewDidLayoutSubviews
+
 ### 6 其他补充
 - UIMenuController
 	
